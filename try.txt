@@ -1,0 +1,54 @@
+<a class="box btn btn-primary margin-right" href="#mcq">
+                <div>
+                  <div class="card1 border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">MCQ(3/20/2023)</div>
+                          <div class="h6 mb-0 font-weight-bold text-gray-800">Top 25 Que on Electrostat.</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-atom fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+
+              <a class="portfolio-link" data-bs-toggle="modal" href="#exp0531-3-2-1">
+                    <div
+                      class="chart-area"
+                      style="background-image: url(https://i.postimg.cc/X7TVh5mx/3-2-1.jpg); background-position: center; background-size: contain; background-repeat: no-repeat"></div>
+                  </a>
+
+
+                  Boxex haruu hatako code
+                  <h5><b>Solved Numericals</b></h5>
+            <section class="backgif1 card margin-top">
+              <div class="container px-lg-5">
+                <div class="row">
+                  <div class="col-lg-6 margin-top scol-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <a class="btn-primary btn" href="img/Blue Background.jpg">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                          <h2 class="fw-bold">Phy Electrostat</h2>
+                          <p class="mb-0"></p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 margin-top scol-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <a class="btn-primary btn" href="img/Blue Background.jpg">
+                        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                          <h2 class=" ">Ideal Gas</h2>
+                          <p class="mb-0"></p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
