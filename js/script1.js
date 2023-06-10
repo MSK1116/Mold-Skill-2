@@ -60,11 +60,15 @@ $(document).ready(function () {
   "use strict";
 
   l("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
-    l("body").toggleClass("sidebar-toggled"), l(".sidebar").toggleClass("toggled"), l(".sidebar").hasClass("toggled") && l(".sidebar .collapse").collapse("hide");
+    l("body").toggleClass("sidebar-toggled"),
+      l(".sidebar").toggleClass("toggled"),
+      l(".sidebar").hasClass("toggled") && l(".sidebar .collapse").collapse("hide");
   }),
     l(window).resize(function () {
       l(window).width() < 768 && l(".sidebar .collapse").collapse("hide"),
-        l(window).width() < 480 && !l(".sidebar").hasClass("toggled") && (l("body").addClass("sidebar-toggled"), l(".sidebar").addClass("toggled"), l(".sidebar .collapse").collapse("hide"));
+        l(window).width() < 480 &&
+          !l(".sidebar").hasClass("toggled") &&
+          (l("body").addClass("sidebar-toggled"), l(".sidebar").addClass("toggled"), l(".sidebar .collapse").collapse("hide"));
     }),
     l("body.fixed-nav .sidebar").on("mousewheel DOMMouseScroll wheel", function (e) {
       var o;
@@ -77,16 +81,10 @@ $(document).ready(function () {
       var o = l(this);
       l("html, body")
         .stop()
-        .animate({ scrollTop: l(o.attr("href")).offset().top }, 1e3, "easeInOutExpo"),
+        .animate({scrollTop: l(o.attr("href")).offset().top}, 1e3, "easeInOutExpo"),
         e.preventDefault();
     });
 })(jQuery);
-
-
-
-
-
-
 
 $(document).ready(function () {
   var isMenuOpen = false;
@@ -101,10 +99,6 @@ $(document).ready(function () {
     }
   });
 });
-
-
-
-
 
 $(document).ready(function () {
   var isMenuOpen = false;
@@ -174,8 +168,8 @@ function showPopup() {
 
 showPopup(); // Remove this line if you don't want the popup to show automatically
 
-  // Picked from vendor\jquery-easing\jquery.easing.min.js
-  (function (factory) {
+// Picked from vendor\jquery-easing\jquery.easing.min.js
+(function (factory) {
   if (typeof define === "function" && define.amd) {
     define(["jquery"], function ($) {
       return factory($);
@@ -285,7 +279,13 @@ showPopup(); // Remove this line if you don't want the popup to show automatical
       return x === 0 ? 0 : x === 1 ? 1 : pow(2, -10 * x) * sin((x * 10 - 0.75) * c4) + 1;
     },
     easeInOutElastic: function (x) {
-      return x === 0 ? 0 : x === 1 ? 1 : x < 0.5 ? -(pow(2, 20 * x - 10) * sin((20 * x - 11.125) * c5)) / 2 : (pow(2, -20 * x + 10) * sin((20 * x - 11.125) * c5)) / 2 + 1;
+      return x === 0
+        ? 0
+        : x === 1
+        ? 1
+        : x < 0.5
+        ? -(pow(2, 20 * x - 10) * sin((20 * x - 11.125) * c5)) / 2
+        : (pow(2, -20 * x + 10) * sin((20 * x - 11.125) * c5)) / 2 + 1;
     },
     easeInBack: function (x) {
       return c3 * x * x * x - c1 * x * x;
@@ -307,30 +307,7 @@ showPopup(); // Remove this line if you don't want the popup to show automatical
 });
 // Picked from vendor\jquery-easing\jquery.easing.min.js.end
 
-
 // google baba
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyA5HyEZBpYlIXfun1eURQeYXR_Rubln3A8",
-    authDomain: "mold-skill.firebaseapp.com",
-    projectId: "mold-skill",
-    storageBucket: "mold-skill.appspot.com",
-    messagingSenderId: "153871618317",
-    appId: "1:153871618317:web:0e60107f1b56bead702044",
-    measurementId: "G-WCXFWDRMJ1"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
 // end of google baba
 // END
