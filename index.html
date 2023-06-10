@@ -8,6 +8,20 @@
     <meta name="MANISH SINGH MAHATO" content="By Student for Student" />
     <link rel="icon" type="image/x-icon" href="IMG DIR/Blue Background PNG.png" />
 
+    <style>
+      #loading-screen {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff; /* You can customize the background color */
+        z-index: 9999; /* Adjust the z-index to ensure it appears above other elements */
+        /* Add any other styling you desire */
+      }
+    </style>
+
     <title>Mold Skill-By Students for Students!</title>
 
     <!-- STYLE DIR-->
@@ -516,6 +530,10 @@
             </div>
           </div>
           <!--End of pop up-->
+          <div id="loading-screen">
+            <!-- Add loading animations or text here -->
+            <img src="https://i.postimg.cc/cH48tR9M/Loading-Screen.gif" />
+          </div>
         </div>
 
         <!-- Footer -->
@@ -555,5 +573,11 @@
     <script src="js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="js/script5.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        var loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.display = "none";
+      });
+    </script>
   </body>
 </html>
