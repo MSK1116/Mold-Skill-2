@@ -10,7 +10,9 @@
 
     <style>
       #loading-screen {
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: fixed;
         top: 0;
         left: 0;
@@ -20,7 +22,21 @@
         z-index: 9999; /* Adjust the z-index to ensure it appears above other elements */
         /* Add any other styling you desire */
       }
+
+      #loading-content {
+        text-align: center;
+      }
     </style>
+    <script>
+      document.onreadystatechange = function () {
+        var loadingScreen = document.getElementById("loading-screen");
+        if (document.readyState !== "complete") {
+          loadingScreen.classList.remove("hidden");
+        } else {
+          loadingScreen.classList.add("hidden");
+        }
+      };
+    </script>
 
     <title>Mold Skill-By Students for Students!</title>
 
@@ -531,14 +547,12 @@
           </div>
           <!--End of pop up-->
           <div id="loading-screen">
-            <!-- Add loading animations or text here -->
-            <img src="https://i.postimg.cc/cH48tR9M/Loading-Screen.gif" />
+            <div id="loading-content">
+              <!-- Add loading animations or text here -->
+              <img src="https://i.postimg.cc/cJKHndfC/Loading-GIF-2.gif" />
+            </div>
           </div>
         </div>
-
-        <!-- Footer -->
-
-        <!-- End of Footer -->
       </div>
 
       <!-- End of Content Wrapper -->
@@ -573,11 +587,5 @@
     <script src="js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="js/script5.js"></script>
-    <script>
-      window.addEventListener("load", function () {
-        var loadingScreen = document.getElementById("loading-screen");
-        loadingScreen.style.display = "none";
-      });
-    </script>
   </body>
 </html>
