@@ -28,14 +28,10 @@
       }
     </style>
     <script>
-      document.onreadystatechange = function () {
+      window.addEventListener("load", function () {
         var loadingScreen = document.getElementById("loading-screen");
-        if (document.readyState !== "complete") {
-          loadingScreen.classList.remove("hidden");
-        } else {
-          loadingScreen.classList.add("hidden");
-        }
-      };
+        loadingScreen.style.display = "none";
+      });
     </script>
 
     <title>Mold Skill-By Students for Students!</title>
