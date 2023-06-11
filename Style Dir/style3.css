@@ -525,6 +525,13 @@ pre code {
   justify-content: center;
   margin: auto;
 }
+.row.more {
+  display: flex;
+  flex-wrap: wrap;
+  height: 310px; /* Set the desired height */
+  overflow-x: scroll; /* Enable vertical scrolling */
+  white-space: nowrap;
+}
 
 .no-gutters {
   margin-right: 0;

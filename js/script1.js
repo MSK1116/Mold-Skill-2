@@ -307,8 +307,4 @@ showPopup(); // Remove this line if you don't want the popup to show automatical
 });
 // Picked from vendor\jquery-easing\jquery.easing.min.js.end
 
-// for pdf
-
-// end of pdf
-
 // END
