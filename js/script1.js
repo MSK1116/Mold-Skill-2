@@ -308,35 +308,6 @@ showPopup(); // Remove this line if you don't want the popup to show automatical
 // Picked from vendor\jquery-easing\jquery.easing.min.js.end
 
 // for pdf
-function adjustIframeSize() {
-  const iframe = document.getElementById("pdfIframe");
-  const iframeContainer = document.getElementById("iframeContainer");
-
-  iframe.addEventListener("load", function () {
-    // Get the iframe's content window and document
-    const iframeWindow = iframe.contentWindow || iframe.contentDocument.defaultView;
-    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-
-    // Get the content's height
-    const contentHeight = Math.max(
-      iframeDocument.body.scrollHeight,
-      iframeDocument.documentElement.scrollHeight,
-      iframeDocument.body.offsetHeight,
-      iframeDocument.documentElement.offsetHeight
-    );
-
-    // Set the iframe's height to match the content's height
-    iframe.style.height = contentHeight + "px";
-  });
-
-  // Set the iframe's width to match the container's width
-  iframe.style.width = iframeContainer.offsetWidth + "px";
-}
-
-// Adjust the iframe size on page load
-window.addEventListener("load", adjustIframeSize);
-// Adjust the iframe size when the window is resized
-window.addEventListener("resize", adjustIframeSize);
 
 // end of pdf
 

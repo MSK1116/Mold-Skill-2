@@ -522,7 +522,7 @@ pre code {
   margin-left: -0.75rem;
 }
 .row.align {
-  float: right;
+  justify-content: center;
 }
 
 .no-gutters {
