@@ -521,6 +521,13 @@ pre code {
   margin-right: -0.75rem;
   margin-left: -0.75rem;
 }
+.row.align {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+  float: right;
+}
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
