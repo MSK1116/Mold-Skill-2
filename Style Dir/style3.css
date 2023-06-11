@@ -523,6 +523,7 @@ pre code {
 }
 .row.align {
   justify-content: center;
+  margin: auto;
 }
 
 .no-gutters {
