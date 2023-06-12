@@ -34,11 +34,13 @@
 ::before {
   box-sizing: border-box;
 }
-html {
+
+.html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
 }
 article,
 aside,
@@ -148,7 +150,8 @@ a {
 }
 a:hover {
   color: #224abe;
-  text-decoration: underline;
+  text-decoration: none;
+  
 }
 a:not([href]):not([class]) {
   color: inherit;
