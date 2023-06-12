@@ -528,7 +528,7 @@ pre code {
 .row.more {
   display: flex;
   flex-wrap: wrap;
-  height: 310px; /* Set the desired height */
+  height: 280px; /* Set the desired height */
   overflow-x: scroll; /* Enable vertical scrolling */
   white-space: nowrap;
 }
