@@ -20,11 +20,12 @@ function checkAnswers() {
       var incorrectAnswerDiv = document.createElement("div");
       incorrectAnswerDiv.innerHTML = "Incorrect Answer. The correct answer is: " + correctAnswer;
       incorrectAnswerDiv.style.color = "red";
+      incorrectAnswerDiv.style.fontWeight = "bold";
       question.parentNode.insertBefore(incorrectAnswerDiv, question.nextSibling);
     }
   }
 
-  resultDiv.innerHTML = "Your score: " + score + "/" + questions.length;
+  resultDiv.innerHTML = "YOUR SCORE: " + score + "/" + questions.length;
 
   // Disable the submit button
   document.getElementById("submit").disabled = true;
