@@ -26,7 +26,7 @@ function checkAnswers() {
     }
   }
 
-  resultDiv.innerHTML = "YOUR SCORE: " + score + "/" + questions.length;
+  resultDiv.innerHTML = "YOUR OBTAINED MARK: " + score + "/" + questions.length;
 
   // Disable the submit button
   document.getElementById("submit").disabled = true;
