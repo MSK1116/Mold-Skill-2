@@ -24,8 +24,7 @@ function checkAnswers() {
     }
   }
 
-  var percentage = (score / questions.length) * 100;
-  resultDiv.innerHTML = "Your score: " + score + "/" + questions.length + " (" + percentage + "%)";
+  resultDiv.innerHTML = "Your score: " + score + "/" + questions.length;
 
   // Disable the submit button
   document.getElementById("submit").disabled = true;
