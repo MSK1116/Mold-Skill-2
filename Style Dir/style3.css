@@ -151,7 +151,6 @@ a {
 a:hover {
   color: #224abe;
   text-decoration: none;
-  
 }
 a:not([href]):not([class]) {
   color: inherit;
@@ -10248,4 +10247,10 @@ footer.sticky-footer .copyright {
 }
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+/* For QUESTION */
+.question h4 {
+  color: #044cac;
+  font-weight: 600;
 }
