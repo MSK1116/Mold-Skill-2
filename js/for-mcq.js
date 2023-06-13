@@ -16,19 +16,11 @@ function checkAnswers() {
     } else if (selectedOption) {
       var correctOption = question.querySelector("input[data-correct='true']");
       var correctAnswer = getOptionLabel(correctOption);
-      var incorrectAnswer = getOptionLabel(selectedOption);
 
       var incorrectAnswerDiv = document.createElement("div");
-      incorrectAnswerDiv.innerHTML = "Incorrect Answer. Correct Answer: " + correctAnswer + ". Your Answer: " + incorrectAnswer;
+      incorrectAnswerDiv.innerHTML = "Incorrect Answer. The correct answer is: " + correctAnswer;
       incorrectAnswerDiv.style.color = "red";
       question.parentNode.insertBefore(incorrectAnswerDiv, question.nextSibling);
-    } else {
-      var correctOption = question.querySelector("input[data-correct='true']");
-      var correctAnswer = getOptionLabel(correctOption);
-
-      var correctAnswerDiv = document.createElement("div");
-      correctAnswerDiv.innerHTML = "Correct Answer: " + correctAnswer;
-      question.parentNode.insertBefore(correctAnswerDiv, question.nextSibling);
     }
   }
 
