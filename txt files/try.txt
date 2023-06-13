@@ -52,3 +52,93 @@
                 </div>
               </div>
             </section>
+
+function checkAnswers() {
+  var score = 0;
+  var correctAnswers = ["option2", "option3", "option1"]; // Example correct answers
+
+  var form = document.getElementById("quizForm");
+  var resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = "";
+
+  for (var i = 1; i <= 3; i++) {
+    var selectedOption = getSelectedOption("q" + i);
+    if (selectedOption === correctAnswers[i - 1]) {
+      score++;
+    } else {
+      var question = document.getElementsByTagName("h3")[i - 1];
+      var correctAnswer = document.createElement("p");
+      correctAnswer.innerHTML = "Correct Answer: " + getOptionLabel("q" + i, correctAnswers[i - 1]);
+      correctAnswer.style.color = "green";
+      question.parentNode.insertBefore(correctAnswer, question.nextSibling);
+    }
+  }
+
+  var percentage = (score / 3) * 100;
+  resultDiv.innerHTML = "Your score: " + score + "/3 (" + percentage + "%)";
+}
+
+function getSelectedOption(questionName) {
+  var options = document.getElementsByName(questionName);
+  for (var i = 0; i < options.length; i++) {
+    if (options[i].checked) {
+      return options[i].value;
+    }
+  }
+  return null;
+}
+
+function getOptionLabel(questionName, optionValue) {
+  var options = document.getElementsByName(questionName);
+  for (var i = 0; i < options.length; i++) {
+    if (options[i].value === optionValue) {
+      return options[i].nextSibling.nodeValue.trim();
+    }
+  }
+  return null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MCQ Quiz</title>
+  <script src="quiz.js"></script>
+</head>
+<body>
+  <h1>MCQ Quiz</h1>
+  <form id="quizForm">
+    <!-- Question 1 -->
+    <div class="question">
+      <h3>Question 1:</h3>
+      <input type="radio" name="q1" value="option1" data-correct="false">Option 1<br>
+      <input type="radio" name="q1" value="option2" data-correct="true">Option 2<br>
+      <input type="radio" name="q1" value="option3" data-correct="false">Option 3<br>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <h3>Question 2:</h3>
+      <input type="radio" name="q2" value="option1" data-correct="true">Option 1<br>
+      <input type="radio" name="q2" value="option2" data-correct="false">Option 2<br>
+      <input type="radio" name="q2" value="option3" data-correct="false">Option 3<br>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <h3>Question 3:</h3>
+      <input type="radio" name="q3" value="option1" data-correct="false">Option 1<br>
+      <input type="radio" name="q3" value="option2" data-correct="false">Option 2<br>
+      <input type="radio" name="q3" value="option3" data-correct="true">Option 3<br>
+    </div>
+
+    <br>
+    <input type="button" value="Submit" onclick="checkAnswers()" id="submit">
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>
+
+
+
+  
