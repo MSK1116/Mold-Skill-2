@@ -60,9 +60,7 @@ $(document).ready(function () {
   "use strict";
 
   l("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
-    l("body").toggleClass("sidebar-toggled"),
-      l(".sidebar").toggleClass("toggled"),
-      l(".sidebar").hasClass("toggled") && l(".sidebar .collapse").collapse("hide");
+    l("body").toggleClass("sidebar-toggled"), l(".sidebar").toggleClass("toggled"), l(".sidebar").hasClass("toggled") && l(".sidebar .collapse").collapse("hide");
   }),
     l(window).resize(function () {
       l(window).width() < 768 && l(".sidebar .collapse").collapse("hide"),
@@ -279,13 +277,7 @@ showPopup(); // Remove this line if you don't want the popup to show automatical
       return x === 0 ? 0 : x === 1 ? 1 : pow(2, -10 * x) * sin((x * 10 - 0.75) * c4) + 1;
     },
     easeInOutElastic: function (x) {
-      return x === 0
-        ? 0
-        : x === 1
-        ? 1
-        : x < 0.5
-        ? -(pow(2, 20 * x - 10) * sin((20 * x - 11.125) * c5)) / 2
-        : (pow(2, -20 * x + 10) * sin((20 * x - 11.125) * c5)) / 2 + 1;
+      return x === 0 ? 0 : x === 1 ? 1 : x < 0.5 ? -(pow(2, 20 * x - 10) * sin((20 * x - 11.125) * c5)) / 2 : (pow(2, -20 * x + 10) * sin((20 * x - 11.125) * c5)) / 2 + 1;
     },
     easeInBack: function (x) {
       return c3 * x * x * x - c1 * x * x;
@@ -307,7 +299,7 @@ showPopup(); // Remove this line if you don't want the popup to show automatical
 });
 // Picked from vendor\jquery-easing\jquery.easing.min.js.end
 
-// For MCQ
+// For gallery
 
-// End of mcq
+// End of gallery
 // END
