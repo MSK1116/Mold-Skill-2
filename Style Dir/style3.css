@@ -527,6 +527,12 @@ pre code {
   justify-content: center;
   margin: auto;
 }
+.row.align.exp {
+  justify-content: center;
+  margin: auto;
+  width: 75%;
+}
+
 .row.more {
   display: flex;
   flex-wrap: wrap;
@@ -4181,7 +4187,7 @@ input[type="submit"].btn-block {
   color: var(--indigo);
   font-weight: 600;
   text-transform: uppercase;
-  height: 95px;
+  height: 100px;
 }
 .card-title {
   margin-bottom: 0.75rem;
