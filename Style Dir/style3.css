@@ -530,7 +530,7 @@ pre code {
 .row.align.exp {
   justify-content: center;
   margin: auto;
-  width: 75%;
+  width: 65%;
 }
 
 .row.more {
@@ -4187,7 +4187,7 @@ input[type="submit"].btn-block {
   color: var(--indigo);
   font-weight: 600;
   text-transform: uppercase;
-  height: 100px;
+  height: 140px;
 }
 .card-title {
   margin-bottom: 0.75rem;
