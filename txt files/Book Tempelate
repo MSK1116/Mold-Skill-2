@@ -102,7 +102,7 @@
 
               <li class="no-arrow nav-icon">
                 <a href="phy-book.html" class="btn btn-primary btn-icon">
-                  <span class="icon text-white-50"> <i class="fas fa-child"></i></span>
+                  <span class="icon text-white-50"> <i class="fa fa-chevron-circle-left"></i></span>
                   <span class="text fw-bold">Go Back</span>
                 </a>
               </li>
