@@ -10278,3 +10278,19 @@ body.sidebar-toggled footer.sticky-footer {
   font-weight: 400;
   font-size: 17px;
 }
+
+/* For stopwatch */
+.stopwatch-container {
+  text-align: center;
+  padding: 17px;
+}
+.stopwatch-display {
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: var(--color1);
+}
+.stopwatch-display:hover {
+  font-size: 40px;
+  margin-bottom: 22px;
+  color: var(--indigo);
+}
