@@ -304,14 +304,14 @@ document.getElementById("link-pop").addEventListener("click", function (event) {
   event.preventDefault();
   var currentURL = encodeURIComponent(window.location.href);
   var facebookURL = "https://www.facebook.com/sharer/sharer.php?u=" + currentURL;
-  window.open(facebookURL, "_blank");
+  openInNewTab(facebookURL);
 });
 
 document.getElementById("facebookShareLink").addEventListener("click", function (event) {
   event.preventDefault();
   var currentURL = encodeURIComponent(window.location.href);
   var facebookURL = "https://www.facebook.com/sharer/sharer.php?u=" + currentURL;
-  window.open(facebookURL, "_blank");
+  openInNewTab(facebookURL);
 });
 
 document.getElementById("whatsappShareLink").addEventListener("click", function (event) {
@@ -319,7 +319,12 @@ document.getElementById("whatsappShareLink").addEventListener("click", function 
   var currentURL = encodeURIComponent(window.location.href);
   var text = encodeURIComponent("Check out this page: ");
   var whatsappURL = "https://api.whatsapp.com/send?text=" + text + currentURL;
-  window.open(whatsappURL, "_blank");
+  openInNewTab(whatsappURL);
 });
+
+function openInNewTab(url) {
+  var newTab = window.open(url, "_blank");
+  newTab.opener = null;
+}
 
 // END
