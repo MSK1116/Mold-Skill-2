@@ -8998,6 +8998,33 @@ a:focus {
 .scroll-to-top i {
   font-weight: 800;
 }
+
+.share {
+  position: fixed;
+  left: 00rem;
+  bottom: 5rem;
+  width: 3.75rem;
+  height: 8.75rem;
+  text-align: center;
+  background: #e3e6f0;
+  line-height: 46px;
+  display: table-row;
+}
+.share:focus,
+.share:hover {
+  color: var(--warning);
+}
+.share:hover {
+  background: #5a5c69;
+}
+.share i {
+  font-weight: 100;
+}
+.share i:hover {
+  font-weight: 800;
+  color: var(--danger);
+}
+
 @-webkit-keyframes growIn {
   0% {
     transform: scale(0.9);
@@ -9884,76 +9911,7 @@ form.user .btn-user {
   border-radius: 10rem;
   padding: 0.75rem 1rem;
 }
-.btn-google {
-  color: #fff;
-  background-color: #ea4335;
-  border-color: #fff;
-}
-.btn-google:hover {
-  color: #fff;
-  background-color: #e12717;
-  border-color: #e6e6e6;
-}
-.btn-google.focus,
-.btn-google:focus {
-  color: #fff;
-  background-color: #e12717;
-  border-color: #e6e6e6;
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-}
-.btn-google.disabled,
-.btn-google:disabled {
-  color: #fff;
-  background-color: #ea4335;
-  border-color: #fff;
-}
-.btn-google:not(:disabled):not(.disabled).active,
-.btn-google:not(:disabled):not(.disabled):active,
-.show > .btn-google.dropdown-toggle {
-  color: #fff;
-  background-color: #d62516;
-  border-color: #dfdfdf;
-}
-.btn-google:not(:disabled):not(.disabled).active:focus,
-.btn-google:not(:disabled):not(.disabled):active:focus,
-.show > .btn-google.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-}
-.btn-facebook {
-  color: #fff;
-  background-color: #3b5998;
-  border-color: #fff;
-}
-.btn-facebook:hover {
-  color: #fff;
-  background-color: #30497c;
-  border-color: #e6e6e6;
-}
-.btn-facebook.focus,
-.btn-facebook:focus {
-  color: #fff;
-  background-color: #30497c;
-  border-color: #e6e6e6;
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-}
-.btn-facebook.disabled,
-.btn-facebook:disabled {
-  color: #fff;
-  background-color: #3b5998;
-  border-color: #fff;
-}
-.btn-facebook:not(:disabled):not(.disabled).active,
-.btn-facebook:not(:disabled):not(.disabled):active,
-.show > .btn-facebook.dropdown-toggle {
-  color: #fff;
-  background-color: #2d4373;
-  border-color: #dfdfdf;
-}
-.btn-facebook:not(:disabled):not(.disabled).active:focus,
-.btn-facebook:not(:disabled):not(.disabled):active:focus,
-.show > .btn-facebook.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-}
+
 .error {
   color: #5a5c69;
   font-size: 7rem;
