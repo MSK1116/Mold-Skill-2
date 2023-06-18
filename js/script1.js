@@ -299,4 +299,27 @@ showPopup(); // Remove this line if you don't want the popup to show automatical
 });
 // Picked from vendor\jquery-easing\jquery.easing.min.js.end
 
+// for share button
+document.getElementById("link-pop").addEventListener("click", function (event) {
+  event.preventDefault();
+  var currentURL = encodeURIComponent(window.location.href);
+  var facebookURL = "https://www.facebook.com/sharer/sharer.php?u=" + currentURL;
+  window.open(facebookURL, "_blank");
+});
+
+document.getElementById("facebookShareLink").addEventListener("click", function (event) {
+  event.preventDefault();
+  var currentURL = encodeURIComponent(window.location.href);
+  var facebookURL = "https://www.facebook.com/sharer/sharer.php?u=" + currentURL;
+  window.open(facebookURL, "_blank");
+});
+
+document.getElementById("whatsappShareLink").addEventListener("click", function (event) {
+  event.preventDefault();
+  var currentURL = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent("Check out this page: ");
+  var whatsappURL = "https://api.whatsapp.com/send?text=" + text + currentURL;
+  window.open(whatsappURL, "_blank");
+});
+
 // END
