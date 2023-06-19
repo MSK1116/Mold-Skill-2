@@ -235,50 +235,6 @@
 
             <ul class="navbar-nav ml-auto">
               <!-- serch function visible on small screen -->
-              <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-search fa-fw"></i>
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                      <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
-                      <div class="input-group-append">
-                        <button
-                          onclick="performSearch()"
-                          class="btn btn-primary"
-                          id="searchDropdown-"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
-                          <h6 class="dropdown-header">Shorted Result</h6>
-                          <!-- SEARCH RESULTS WILL APPEAR HERE -->
-
-                          <div class="dropdown-item d-flex pre-scrollable align-items-center">
-                            <div class="text-truncate" id="searchResults"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-
-                  <!-- <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                      <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form> -->
-                </div>
-              </li>
 
               <!-- end of serch function -->
 
@@ -357,9 +313,29 @@
             </div>
 
             <!-- unknown error -->
-            <div id="np_ widget_wiz1" widget="day-sm" class="nep-wiz" style="width: 300px"></div>
-            <script async src="https://nepalipatro.com.np/np-widgets/nepalipatro.js" id="wi z1"></script>
+
             <!-- end of unknown error -->
+
+            <div id="mobile-div">
+              <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                  <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
+                  <div class="input-group-append">
+                    <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                    <div class="dropdown-list shadow animated--grow-in">
+                      <h6 class="dropdown-header">Shorted Result</h6>
+                      <!-- SEARCH RESULTS WILL APPEAR HERE -->
+
+                      <div class="dropdown-item d-flex pre-scrollable align-items-center">
+                        <div class="text-truncate" id="searchResults"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
 
             <h5><b>MCQ</b></h5>
             <!-- MCQ -->
@@ -557,14 +533,15 @@
     </a>
 
     <!-- Scripted file-->
+    <!-- Asked by console for the jquery requirement -->
+    <script src="js/jquery 3.6.o.js"></script>
     <!-- Importnat for collapse and nav -->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="js/script4.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <!-- MIcs -->
     <script src="js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="js/script5.js"></script>
+    <!-- serch indexing -->
     <script src="js/serch-index.js"></script>
   </body>
 </html>

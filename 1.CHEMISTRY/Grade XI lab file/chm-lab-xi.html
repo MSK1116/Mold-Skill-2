@@ -205,38 +205,25 @@
             <!-- Topbar Search -->
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="SEARCH COMING SOON." id="searchInput" />
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
+                  <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-search fa-sm"></i>
                   </button>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
+                    <h6 class="dropdown-header">Shorted Result</h6>
+                    <!-- SEARCH RESULTS WILL APPEAR HERE -->
+
+                    <div class="dropdown-item d-flex pre-scrollable align-items-center">
+                      <div class="text-truncate" id="searchResults"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div id="searchResults"></div>
             </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                  <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                      <input type="text" class="form-control bg-light border-0 small" placeholder="SEARCH COMING SOON." id="searchInput" />
-                      <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div id="searchResults"></div>
-              </li>
-
               <li class="no-arrow nav-icon">
                 <a href="../../about_us.html" class="btn btn-primary btn-icon-split">
                   <span class="icon text-white-50"> <i class="fas fa-child"></i></span>
@@ -248,11 +235,6 @@
           <!-- End of Topbar -->
 
           <div class="container-fluid row backimage1">
-            <!-- unknown error -->
-            <div id="np_ widget_wiz1" widget="day-sm" class="nep-wiz" style="width: 300px"></div>
-            <script async src="https://nepalipatro.com.np/np-widgets/nepalipatro.js" id="wiz 1"></script>
-            <!-- unknownn error -->
-
             <!-- Main Page xontent -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4 backimage-flask">
@@ -507,17 +489,16 @@
       <i class="fas fa-rocket"></i>
     </a>
 
-    <!-- Scripted file -->
+    <!-- Scripted file-->
+    <!-- Asked by console for the jquery requirement -->
+    <script src="../../js/jquery 3.6.o.js"></script>
     <!-- Importnat for collapse and nav -->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="../../js/script4.js"></script>
-
     <!-- MIcs -->
     <script src="../../js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="../../js/script5.js"></script>
-    <!-- For MCQ  -->
-    <script src="../../js/for-mcq.js"></script>
-    <!-- Scripted file-->
+    <script src="../../js/serch-index-1.js"></script>
+    <!-- serch indexing -->
   </body>
 </html>

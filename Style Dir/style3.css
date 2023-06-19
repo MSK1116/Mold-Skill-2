@@ -10242,3 +10242,18 @@ body.sidebar-toggled footer.sticky-footer {
   margin-bottom: 22px;
   color: var(--indigo);
 }
+
+/* MOBILE DIV */
+@media only screen and (max-width: 767px) {
+  /* Styles for small screens */
+  #mobile-div {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* Styles for larger screens */
+  #mobile-div {
+    display: none;
+  }
+}

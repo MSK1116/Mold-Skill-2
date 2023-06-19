@@ -153,19 +153,6 @@ $(document).ready(function () {
   });
 });
 
-const popupOverlay = document.getElementById("popup-overlay");
-const popupClose = document.getElementById("popup-close");
-
-popupClose.addEventListener("click", () => {
-  popupOverlay.style.display = "none";
-});
-
-function showPopup() {
-  popupOverlay.style.display = "flex";
-}
-
-showPopup(); // Remove this line if you don't want the popup to show automatically
-
 // Picked from vendor\jquery-easing\jquery.easing.min.js
 (function (factory) {
   if (typeof define === "function" && define.amd) {
