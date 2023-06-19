@@ -9,16 +9,7 @@ function searchFunction(query) {
     {title: "about Us", url: "about_us.html"},
     {title: "Result 2", url: "https://example.com/result2"},
     {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
-    {title: "Result 3", url: "https://example.com/result3"},
+    // ... more data
   ];
 
   var filteredResults = data.filter(function (item) {
@@ -29,7 +20,7 @@ function searchFunction(query) {
 }
 
 function displayResults(results) {
-  var resultContainer = document.getElementById("searchResults", "searchResultsDropdown");
+  var resultContainer = document.getElementById("searchResults");
   resultContainer.innerHTML = "";
 
   if (results.length === 0) {
@@ -49,10 +40,24 @@ function displayResults(results) {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  document.getElementById("searchInput").addEventListener("keydown", function (event) {
+  var searchForm = document.querySelector(".navbar-search");
+  var searchInput = document.getElementById("searchInput");
+
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    performSearch();
+  });
+
+  searchInput.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
       performSearch();
     }
+  });
+
+  var searchButton = document.getElementById("searchDropdown-");
+  searchButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    performSearch();
   });
 });
