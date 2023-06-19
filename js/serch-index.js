@@ -5,10 +5,17 @@ function performSearch() {
 }
 
 function searchFunction(query) {
+  // books
   var data = [
-    {title: "about Us", url: "about_us.html"},
-    {title: "Result 2", url: "https://example.com/result2"},
-    {title: "Result 3", url: "https://example.com/result3"},
+    {title: "Concept of Physics-2", url: "Physics Book/Concept of Phy 2.html"},
+    {title: "Concept of Physics-1", url: "Physics Book/Concepts Of Phy 1.html"},
+    {title: "For the Love of Physics", url: "Physics Book/For the Love of Physics.html"},
+    {title: "Introduction to Electrodynamic.", url: "Physics Book/Introduction to Electrodynamics.html"},
+    {title: "NCERT Physics-1", url: "Physics Book/NCERT Physics-1.html"},
+    {title: "NCERT Physics-2", url: "Physics Book/NCERT Physics-2.html"},
+    {title: "Physics Books for grade xi & xii", url: "Physics Book/phy-book.html"},
+    {title: "University Physics solution", url: "Physics Book/University Physics solution.html"},
+    {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
     // ... more data
   ];
 
@@ -24,7 +31,7 @@ function displayResults(results) {
   resultContainer.innerHTML = "";
 
   if (results.length === 0) {
-    resultContainer.innerHTML = "No results found.";
+    resultContainer.innerHTML = "No results found. You may refresh the page!";
     return;
   }
 
@@ -35,6 +42,7 @@ function displayResults(results) {
     link.textContent = result.title;
     link.target = "_blank"; // Open link in a new tab
     resultContainer.appendChild(link);
+    resultContainer.appendChild(document.createElement("br"));
     resultContainer.appendChild(document.createElement("br"));
   }
 }
