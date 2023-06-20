@@ -1,7 +1,28 @@
 function performSearch() {
-  var query = document.getElementById("searchInput").value;
-  var results = searchFunction(query);
-  displayResults(results);
+  var query = document.getElementById("searchInput").value.trim();
+
+  if (query === "") {
+    displayErrorMessage("Please provide at least one word");
+    return;
+  }
+
+  try {
+    var results = searchFunction(query);
+    displayResults(results);
+  } catch (error) {
+    displayErrorMessage("An error occurred while performing the search.");
+    console.error(error);
+  }
+}
+
+function displayErrorMessage(message) {
+  var resultContainer = document.getElementById("searchResults");
+  resultContainer.innerHTML = "";
+
+  var errorElement = document.createElement("p");
+  errorElement.classList.add("error-message");
+  errorElement.textContent = message;
+  resultContainer.appendChild(errorElement);
 }
 
 function searchFunction(query) {
