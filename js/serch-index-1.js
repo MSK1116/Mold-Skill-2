@@ -94,7 +94,7 @@ function searchFunction(query) {
     {title: "English practise set for class 11.", url: "8.English & Nepali que/English practise que-xi/practise-que-eng-xi.html"},
     {title: "Practise set 2 of english [FM:75] based on terminal exam", url: "8.English & Nepali que/English practise que-xi/tm-75-eng-1.1.html"},
     {title: "Practise set 1 of english [FM:40] based on class test.", url: "8.English & Nepali que/English practise que-xi/wk-40-eng-1.1.html"},
-    {title: "HISSAN 2080 nepali question paper for class 11", url: "8.English & Nepali que/Nepali Practise que-xi/HISSAN-75-eng-xi.html"},
+    {title: "HISSAN 2080 nepali question paper for class 11", url: "8.English & Nepali que/Nepali Practise que-xi/HISSAN-75-nep-xi.html"},
     {title: "Nepali practise set for class 11.", url: "8.English & Nepali que/Nepali Practise que-xi/practise-que-nep-xi.html"},
     {title: "Practise set 2 of nepali [FM:75] based on terminal exam", url: "8.English & Nepali que/Nepali Practise que-xi/tm-75-nep-1.1.html"},
     {title: "Practise set 3 of nepali [FM:75] based on terminal exam", url: "8.English & Nepali que/Nepali Practise que-xi/tm-75-nep-2.3.html"},
