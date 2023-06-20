@@ -37,7 +37,7 @@ function searchFunction(query) {
     {title: "Physics Books for grade xi & xii", url: "Physics Book/phy-book.html"},
     {title: "University Physics solution", url: "Physics Book/University Physics solution.html"},
     {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
-    // lab file
+    // lab file of grade xi
     {title: "Chemistry Lab file for class 11", url: "1.CHEMISTRY/Grade XI lab file/chm-lab-xi.html"},
     {title: "To separate the volatile and non-volatile substance from mixture of sand and camphor by sublimation.", url: "1.CHEMISTRY/Grade XI lab file/Exp No-1.html"},
     {title: "To seperate the sand and salt from the mixture by filteration.", url: "1.CHEMISTRY/Grade XI lab file/Exp No-2.html"},
@@ -54,10 +54,61 @@ function searchFunction(query) {
     {title: "To detect the basic radical in the given salt sample by dry & wet test (b3)", url: "1.CHEMISTRY/Grade XI lab file/Exp No-13.html"},
     {title: "To prepare hydrogen gas and study it's properties.", url: "1.CHEMISTRY/Grade XI lab file/Exp No-14.html"},
     {title: "To prepare Ammonia NH3 gas and study it's properties.", url: "1.CHEMISTRY/Grade XI lab file/Exp No-15.html"},
+    // practise question of chm-xi
+    {title: "Practise Question from states of matter with Numerical for class XI", url: "1.CHEMISTRY/practise question XI/bc-00-chm-1.5.html"},
+    {title: "Practise Question from Non-Metal & Metallurgy with Numerical for class XI", url: "1.CHEMISTRY/practise question XI/bc-00-chm-2.6.html"},
+    {title: "Practise Question from Periodic Table for class XI", url: "1.CHEMISTRY/practise question XI/bc-00-chm-3.7.html"},
+    {title: "Practise Question from Organic Chemistry for class XI", url: "1.CHEMISTRY/practise question XI/bc-00-chm-4.8.html"},
+    {title: "2080 HISSAN question of class XI", url: "1.CHEMISTRY/practise question XI/HISSAN-75-chm-xi.html"},
+    {title: "Chemistry practise set for class 11.", url: "1.CHEMISTRY/practise question XI/practise-que-chm-xi.html"},
+    {title: "Practise set 3 of chemistry [FM:75] based on 1st terminal.", url: "1.CHEMISTRY/practise question XI/tm-75-chm-1.2.html"},
+    {title: "Practise set 3 of chemistry [FM:75] based on 2nd terminal.", url: "1.CHEMISTRY/practise question XI/tm-75-chm-2.3.html"},
+    {title: "Practise set 1 of chemistry [FM:40] based on class test.", url: "1.CHEMISTRY/practise question XI/wk-40-chm-1.1.html"},
+    {title: "Practise set 2 of chemistry [FM:40] based on class test.", url: "1.CHEMISTRY/practise question XI/wk-40-chm-2.4.html"},
+    // practise question of mat-xi
+    {title: "Math practise set for class 11.", url: "3.MATH/Practise-que-mat-xi/practise-que-mat-xi.html"},
+    {title: "Practise set 3 of math for class-11 by mold skill", url: "3.MATH/Practise-que-mat-xi/st-00-mat-1.3.html"},
+    {title: "Practise set 4 of math for class-11 by mold skill", url: "3.MATH/Practise-que-mat-xi/st-00-mat-2.4.html"},
+    {title: "Practise set 5 of math for class-11 by mold skill", url: "3.MATH/Practise-que-mat-xi/st-00-mat-3.5.html"},
+    {title: "Practise set 1 of math [FM:75] based on 1st terminal.", url: "3.MATH/Practise-que-mat-xi/tm-75-mat-1.1.html"},
+    {title: "Practise set 2 of math [FM:75] based on 2nd terminal.", url: "3.MATH/Practise-que-mat-xi/tm-75-mat-2.2.html"},
+    // phyics practise question-xi
+    {title: "Practise Question from Dimension & Heat with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-1.html"},
+    {title: "Practise Question from Dimension & Elasticity with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-2.html"},
+    {title: "Practise Question from heat with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-3.html"},
+    {title: "Practise Question from vector with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-4.html"},
+    {title: "Practise Question from optics & electrostatics with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-5.html"},
+    {title: "Practise Question from projectile with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-6.html"},
+    {title: "Practise Question from Electric field & potential with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-7.html"},
+    {title: "Practise Question from Heat with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-8.html"},
+    {title: "Practise Question from circular motion with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-9.html"},
+    {title: "HISSAN 2080 question paper of XI", url: "7.PHYSICS/Practise Question XI/HISSAN-75-phy-2.html"},
+    {title: "Physics practise set for class 11.", url: "7.PHYSICS/Practise Question XI/Practise-Que-xi.html"},
+    {title: "Practise set 3 of physics [FM:75] based on 1st-terminal of grade XI.", url: "7.PHYSICS/Practise Question XI/tm-75-phy-1.html"},
+    {title: "Practise set 4 of physics [FM:75] based on 2nd-terminal of grade XI.", url: "7.PHYSICS/Practise Question XI/tm-75-phy-2.html"},
+    {title: "Practise set 1 of physics [FM:40] based on class test.", url: "7.PHYSICS/Practise Question XI/wk-40-phy-1.html"},
+    {title: "Practise set 2 of physics [FM:40] based on class test.", url: "7.PHYSICS/Practise Question XI/wk-40-phy-2.html"},
+    // now
+    {title: "", url: ""},
+    {title: "", url: ""},
+    {title: "", url: ""},
+    {title: "", url: ""},
   ];
 
+  var words = query
+    .toLowerCase()
+    .split(" ")
+    .filter(function (word) {
+      return word.length > 0; // Filter out empty words
+    });
+
   var filteredResults = data.filter(function (item) {
-    return item.title.toLowerCase().includes(query.toLowerCase());
+    var title = item.title.toLowerCase();
+
+    // Check if all words are present in the title
+    return words.every(function (word) {
+      return title.includes(word);
+    });
   });
 
   return filteredResults;
