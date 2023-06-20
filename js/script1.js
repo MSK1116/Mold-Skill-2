@@ -300,3 +300,4 @@ function shareOnWhatsApp() {
 }
 
 // END
+// stopwatch
