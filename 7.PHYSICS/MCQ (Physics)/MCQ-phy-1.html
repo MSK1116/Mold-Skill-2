@@ -228,11 +228,17 @@
             </ul>
           </nav>
           <!-- End of Topbar -->
+          <!-- stopwatch -->
+          <div class="stopwatch-container">
+            <h3>Stopwatch</h3>
+            <div class="stopwatch-display">00:00:00:00</div>
+            <button id="start-button" class="btn btn-primary">Start</button>
+            <button id="stop-button" class="btn btn-warning">Stop</button>
+            <button id="reset-button" class="btn btn-danger">Reset</button>
+          </div>
+          <!-- end of stopwatch -->
           <!--Main Contain-->
           <div class="container-fluid">
-            <div id="np_ widget_wiz1" widget="day-sm" class="nep-wiz" style="width: 300px"></div>
-            <script async src="https://nepalipatro.com.np/np-widgets/nepalipatro.js" id="wiz1"></script>
-
             <h3>MCQ on Physics</h3>
             <br />
 
@@ -596,18 +602,34 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-rocket"></i>
     </a>
+    <div class="share rounded">
+      <a class="rounded" href="#" target="_blank">
+        <i class="fa fa-external-link"></i>
+      </a>
+      <br />
+      <a class="rounded" id="facebookShareLink" href="#" onclick="shareOnFacebook()">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <br />
+      <a class="rounded" id="whatsappShareLink" href="#" onclick="shareOnWhatsApp()">
+        <i class="fa fa-whatsapp"></i>
+      </a>
+    </div>
 
-    <!-- Scripted file -->
+    <!-- Scripted file-->
+    <!-- Asked by console for the jquery requirement -->
+    <script src="../../js/jquery 3.6.o.js"></script>
     <!-- Importnat for collapse and nav -->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="../../js/script4.js"></script>
-
     <!-- MIcs -->
     <script src="../../js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="../../js/script5.js"></script>
-    <!-- For MCQ  -->
+    <!-- serch indexing -->
+    <script src="../../js/serch-index-1.js"></script>
+    <!-- script stopwatch -->
+    <script src="../../js/stopwatch.js"></script>
+    <!-- for mcq -->
     <script src="../../js/for-mcq.js"></script>
-    <!-- Scripted file-->
   </body>
 </html>
