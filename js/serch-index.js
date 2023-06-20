@@ -59,7 +59,7 @@ function searchFunction(query) {
     {title: "Practise Question from Non-Metal & Metallurgy with Numerical for class XI", url: "1.CHEMISTRY/practise question XI/bc-00-chm-2.6.html"},
     {title: "Practise Question from Periodic Table for class XI", url: "1.CHEMISTRY/practise question XI/bc-00-chm-3.7.html"},
     {title: "Practise Question from Organic Chemistry for class XI", url: "1.CHEMISTRY/practise question XI/bc-00-chm-4.8.html"},
-    {title: "2080 HISSAN question of class XI", url: "1.CHEMISTRY/practise question XI/HISSAN-75-chm-xi.html"},
+    {title: "HISSAN 2080 chemistry Physics question paper of XI", url: "1.CHEMISTRY/practise question XI/HISSAN-75-chm-xi.html"},
     {title: "Chemistry practise set for class 11.", url: "1.CHEMISTRY/practise question XI/practise-que-chm-xi.html"},
     {title: "Practise set 3 of chemistry [FM:75] based on 1st terminal.", url: "1.CHEMISTRY/practise question XI/tm-75-chm-1.2.html"},
     {title: "Practise set 3 of chemistry [FM:75] based on 2nd terminal.", url: "1.CHEMISTRY/practise question XI/tm-75-chm-2.3.html"},
@@ -67,6 +67,7 @@ function searchFunction(query) {
     {title: "Practise set 2 of chemistry [FM:40] based on class test.", url: "1.CHEMISTRY/practise question XI/wk-40-chm-2.4.html"},
     // practise question of mat-xi
     {title: "Math practise set for class 11.", url: "3.MATH/Practise-que-mat-xi/practise-que-mat-xi.html"},
+    {title: "HISSAN 2080 math question paper of XI", url: "../../3.MATH/Practise-que-mat-xi/HISSAN-mat-xi.html"},
     {title: "Practise set 3 of math for class-11 by mold skill", url: "3.MATH/Practise-que-mat-xi/st-00-mat-1.3.html"},
     {title: "Practise set 4 of math for class-11 by mold skill", url: "3.MATH/Practise-que-mat-xi/st-00-mat-2.4.html"},
     {title: "Practise set 5 of math for class-11 by mold skill", url: "3.MATH/Practise-que-mat-xi/st-00-mat-3.5.html"},
@@ -88,10 +89,16 @@ function searchFunction(query) {
     {title: "Practise set 4 of physics [FM:75] based on 2nd-terminal of grade XI.", url: "7.PHYSICS/Practise Question XI/tm-75-phy-2.html"},
     {title: "Practise set 1 of physics [FM:40] based on class test.", url: "7.PHYSICS/Practise Question XI/wk-40-phy-1.html"},
     {title: "Practise set 2 of physics [FM:40] based on class test.", url: "7.PHYSICS/Practise Question XI/wk-40-phy-2.html"},
-    // now
-    {title: "", url: ""},
-    {title: "", url: ""},
-    {title: "", url: ""},
+    // English & Nepali
+    {title: "HISSAN 2080 english question paper of class 11", url: "8.English & Nepali que/English practise que-xi/HISSAN-75-eng-xi.html"},
+    {title: "English practise set for class 11.", url: "8.English & Nepali que/English practise que-xi/practise-que-eng-xi.html"},
+    {title: "Practise set 2 of english [FM:75] based on terminal exam", url: "8.English & Nepali que/English practise que-xi/tm-75-eng-1.1.html"},
+    {title: "Practise set 1 of english [FM:40] based on class test.", url: "8.English & Nepali que/English practise que-xi/wk-40-eng-1.1.html"},
+    {title: "HISSAN 2080 nepali question paper for class 11", url: "8.English & Nepali que/Nepali Practise que-xi/HISSAN-75-eng-xi.html"},
+    {title: "Nepali practise set for class 11.", url: "8.English & Nepali que/Nepali Practise que-xi/practise-que-nep-xi.html"},
+    {title: "Practise set 2 of nepali [FM:75] based on terminal exam", url: "8.English & Nepali que/Nepali Practise que-xi/tm-75-nep-1.1.html"},
+    {title: "Practise set 3 of nepali [FM:75] based on terminal exam", url: "8.English & Nepali que/Nepali Practise que-xi/tm-75-nep-2.3.html"},
+    {title: "Practise set 1 of nepali [FM:40] based on class test.", url: "8.English & Nepali que/Nepali Practise que-xi/wk-40-nep-1.2.html"},
     {title: "", url: ""},
   ];
 

@@ -209,37 +209,25 @@
             <!-- Topbar Search -->
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="SEARCH COMING SOON." id="searchInput" />
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
+                  <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-search fa-sm"></i>
                   </button>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
+                    <h6 class="dropdown-header">Shorted Result</h6>
+
+                    <div class="dropdown-item pre-scrollable align-items-center">
+                      <div class="text-warning" id="searchResults"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div id="searchResults"></div>
             </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                  <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                      <input type="text" class="form-control bg-light border-0 small" placeholder="SEARCH COMING SOON." id="searchInput" />
-                      <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div id="searchResults"></div>
-              </li>
+              <!-- error was removed automatically -->
 
               <li class="no-arrow nav-icon">
                 <a href="../../about_us.html" class="btn btn-primary btn-icon-split">
@@ -250,13 +238,6 @@
             </ul>
           </nav>
           <!-- End of Topbar -->
-
-          <div class="container-fluid row backimage1">
-            <!-- unknown error -->
-            <div id="np_ widget_wiz1" widget="day-sm" class="nep-wiz" style="width: 300px"></div>
-            <script async src="https://nepalipatro.com.np/np-widgets/nepalipatro.js" id="wiz 1"></script>
-            <!-- unknownn error -->
-          </div>
 
           <div class="stopwatch-container">
             <h3>Stopwatch</h3>
@@ -297,7 +278,7 @@
             <!-- 3 -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4 border-bottom-warning">
-                <a href="HISSAN-mat-xi">
+                <a href="HISSAN-mat-xi.html">
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">HISSAN<br />MCQ + Theory</h6>
                     <h6 class="m-0 font-weight-bold text-secondary">Time: 3:00 hrs<br />F.M.:75</h6>
@@ -391,17 +372,18 @@
       <i class="fas fa-rocket"></i>
     </a>
 
-    <!-- Scripted file -->
+    <!-- Scripted file-->
+    <!-- Asked by console for the jquery requirement -->
+    <script src="../../js/jquery 3.6.o.js"></script>
     <!-- Importnat for collapse and nav -->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="../../js/script4.js"></script>
-
     <!-- MIcs -->
     <script src="../../js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="../../js/script5.js"></script>
-    <!-- For MCQ  -->
-    <script src="stopwatch.js"></script>
-    <!-- Scripted file-->
+    <!-- serch indexing -->
+    <script src="../../js/serch-index-1.js"></script>
+    <!-- script stopwatch -->
+    <script src="../../js/stopwatch.js"></script>
   </body>
 </html>
