@@ -10244,15 +10244,13 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 /* MOBILE DIV */
-@media only screen and (max-width: 767px) {
-  /* Styles for small screens */
+@media (max-width: 767px) {
   .mobile-div {
     display: block;
   }
 }
 
-@media only screen and (min-width: 768px) {
-  /* Styles for larger screens */
+@media (min-width: 768px) {
   .mobile-div {
     display: none;
   }
