@@ -209,14 +209,20 @@
             <!-- Topbar Search -->
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="SEARCH COMING SOON." id="searchInput" />
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
+                  <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-search fa-sm"></i>
                   </button>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
+                    <h6 class="dropdown-header">Shorted Result</h6>
+
+                    <div class="dropdown-item pre-scrollable align-items-center">
+                      <div class="text-warning" id="searchResults"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div id="searchResults"></div>
             </form>
 
             <!-- Topbar Navbar -->
@@ -250,6 +256,16 @@
             </ul>
           </nav>
           <!-- End of Topbar -->
+          <div class="container-fluid">
+            <!-- unknown error -->
+            <div class="mobile-div">
+              <p class="text-danger">
+                It seems your browser is preventing from loading search bar and other function, you may open the page on desktop mode or refresh the page, still you can surf the
+                website. <br />(Thank You!)
+              </p>
+            </div>
+            <!-- mobile msg-->
+          </div>
 
           <div class="container-fluid row backimage1">
             <!-- unknown error -->
@@ -429,17 +445,18 @@
       <i class="fas fa-rocket"></i>
     </a>
 
-    <!-- Scripted file -->
+    <!-- Scripted file-->
+    <!-- Asked by console for the jquery requirement -->
+    <script src="../../js/jquery 3.6.o.js"></script>
     <!-- Importnat for collapse and nav -->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="../../js/script4.js"></script>
-
     <!-- MIcs -->
     <script src="../../js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="../../js/script5.js"></script>
-    <!-- For MCQ  -->
-    <script src="stopwatch.js"></script>
-    <!-- Scripted file-->
+    <!-- serch indexing -->
+    <script src="../../js/serch-index-1.js"></script>
+    <!-- script stopwatch -->
+    <script src="../../js/stopwatch.js"></script>
   </body>
 </html>
