@@ -8991,10 +8991,10 @@ a:focus {
 
 .share {
   position: fixed;
-  left: 00rem;
-  bottom: 5rem;
+  right: 00rem;
+  bottom: 7rem;
   width: 3.75rem;
-  height: 8.75rem;
+  height: 9.75rem;
   text-align: center;
   background: #e3e6f0;
   line-height: 46px;

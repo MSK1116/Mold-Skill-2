@@ -100,6 +100,13 @@ function searchFunction(query) {
     {title: "Practise set 3 of nepali [FM:75] based on terminal exam", url: "8.English & Nepali que/Nepali Practise que-xi/tm-75-nep-2.3.html"},
     {title: "Practise set 1 of nepali [FM:40] based on class test.", url: "8.English & Nepali que/Nepali Practise que-xi/wk-40-nep-1.2.html"},
     {title: "", url: ""},
+    // Computer
+    {title: "HISSAN 2080 computer question paper for class 11", url: "4.COMPUTER/practise-que-comp-xi/HISSAN-50-comp-xi.html"},
+    {title: "Computer practise set for class 11.", url: "4.COMPUTER/practise-que-comp-xi/practise-que-comp-xi.html"},
+    {title: "Practise set 2 of computer [FM:50] based on terminal exam", url: "4.COMPUTER/practise-que-comp-xi/tm-50-comp-1.2.html"},
+    {title: "Practise set 3 of computer [FM:50] based on terminal exam", url: "4.COMPUTER/practise-que-comp-xi/tm-50-comp-2.3.html"},
+    {title: "computer set 1 of computer [FM:40] based on class test.", url: "4.COMPUTER/practise-que-comp-xi/wk-40-comp-1.1.html"},
+    {title: "", url: ""},
   ];
 
   var words = query
