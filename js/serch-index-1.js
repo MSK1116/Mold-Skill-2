@@ -107,6 +107,22 @@ function searchFunction(query) {
     {title: "Practise set 3 of computer [FM:50] based on terminal exam", url: "4.COMPUTER/practise-que-comp-xi/tm-50-comp-2.3.html"},
     {title: "computer set 1 of computer [FM:40] based on class test.", url: "4.COMPUTER/practise-que-comp-xi/wk-40-comp-1.1.html"},
     {title: "", url: ""},
+    // Physics Notes
+    {title: "Circular Motion class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/circular motion-4-xi.html"},
+    {title: " Elasticity class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/elasticity-3-xi.html"},
+    {title: " Electric Charge class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/Electric Charge-6-xi.html"},
+    {title: " Electric Field class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/Electric Field-7-xi.html"},
+    {title: " Electric Potential & Energy class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/electric p&e-xi-8.html"},
+    {title: "Gravitation class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/Gravitaion-5-xi.html"},
+    {title: " Heat & Temperature class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/heat & Temperature-12-xi.html"},
+    {title: "Kinematics class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/kine-2-xi.html"},
+    {title: "Physics class 11 notes in pdf  class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/phy-grade-xi.html"},
+    {title: "Quantity of Heat class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/quantity of heat-14-xi.html"},
+    {title: "Refraction at Curved Mirror class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/ref-at-cur-mirror-9-xi.html"},
+    {title: "Refraction at plane surface class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/ref-at-plan-sur-10-xi.html"},
+    {title: " Refraction Through Prism class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/ref-thr-prism-11-xi.html"},
+    {title: "Thermal Expansion class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/thermla expansion-13-xi.html"},
+    {title: "Vector class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/vectro-1-xi.html"},
   ];
 
   var words = query
