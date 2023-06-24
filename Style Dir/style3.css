@@ -8992,12 +8992,12 @@ a:focus {
 .share {
   position: fixed;
   right: 00rem;
-  bottom: 7rem;
+  bottom: 9rem;
   width: 3.75rem;
   height: 10.75rem;
   text-align: center;
   background: #e3e6f0;
-  line-height: 50px;
+  line-height: 40px;
   display: table-row;
 }
 .share:focus,
