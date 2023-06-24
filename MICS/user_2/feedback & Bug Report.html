@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="By Student for Student! We are open to everyone, join us now" />
+    <meta name="MANISH SINGH MAHATO" content="By Student for Student" />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" />
+
+    <style>
+      #loading-screen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff; /* You can customize the background color */
+        z-index: 9999; /* Adjust the z-index to ensure it appears above other elements */
+        /* Add any other styling you desire */
+      }
+
+      #loading-content {
+        text-align: center;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        var loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.display = "none";
+      });
+    </script>
+
+    <title>Feedback & Bug report</title>
+
+    <!-- STYLE DIR-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="../../Style Dir/style3.css" rel="stylesheet" />
+    <link href="../../Style Dir/style1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- END OF STYLE DIR-->
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Starting of sidebar -->
+
+        <li class="nav-item active">
+          <a class="nav-link" href="../../index.html">
+            <img class="logo" src="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" alt="" />
+            <hr class="sidebar-divider" />
+            <i class="fa fa-home"></i>
+            <span>Home Page</span></a
+          >
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Choose you subject (Quick Link)</div>
+
+        <!-- Main items-->
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#phy" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-rocket"></i>
+            <span>Physics</span>
+          </a>
+          <div id="phy" class="collapse" aria-labelledby="phy" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../Physics Book/phy-book.html">Books</a>
+              <a class="collapse-item" href="../../7.PHYSICS/MCQ (Physics)/MCQ-phy.html">MCQ</a>
+              <a class="collapse-item" href="../../7.PHYSICS/Practise Question XI/Practise-Que-xi.html">Practise Question<small> Grade XI</small></a>
+              <a class="collapse-item" href="../../7.PHYSICS/note-phy-xi/phy-grade-xi.html">Notes 11</a>
+              <a class="collapse-item" href="../../7.PHYSICS/note-phy-xii/phy-grade-xii.html">Notes 12<small> Updating</small></a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#chm" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-flask"></i>
+            <span>Chemistry</span>
+          </a>
+          <div id="chm" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../1.CHEMISTRY/Grade XI lab file/chm-lab-xi.html">Lab File-1</a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/MCQ (Chemistry)/MCQ-chm.html">MCQ</a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/practise question XI/practise-que-chm-xi.html">Practise Question<small> Grade XI</small></a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/notes-chm-xi/chm-grade-xi.html">Notes 11<small> Updating</small></a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/notes-chm-xii/chm-grade-xii.html">Notes 12<small> Updating</small></a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#mat" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-calculator"></i>
+            <span>Math</span>
+          </a>
+          <div id="mat" class="collapse" aria-labelledby="mat" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../3.MATH/MCQ (Math)/MCQ-mat.html">MCQ</a>
+              <a class="collapse-item" href="../../3.MATH/Practise-que-mat-xi/practise-que-mat-xi.html">Practise Question <small> Grade XI</small></a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#cop" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-desktop"></i>
+            <span>Computer</span>
+          </a>
+          <div id="cop" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../4.COMPUTER/practise-que-comp-xi/practise-que-comp-xi.html">Practise Question <small> Grade XI</small></a>
+              <a class="collapse-item" href="../../4.COMPUTER/c programming/C++.html">C & C++ <small> Grade XI</small></a>
+              <a class="collapse-item" href="../../4.COMPUTER//MCQ (Computer)/mcq-comp-xi.html"> MCQ</a>
+            </div>
+          </div>
+        </li>
+        <hr class="sidebar-divider" />
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#zoo" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-frog"></i>
+            <span>Zoology</span>
+          </a>
+          <div id="zoo" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <a class="collapse-item" target="_blank" href="https://user.msmahato.com.np"
+              ><div class="bg-white collapse-inner rounded">
+                <h6 class="collapse-header">Help Us to bring more <br />content. click me to join</h6>
+              </div></a
+            >
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#bot" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-seedling"></i>
+            <span>Botany</span>
+          </a>
+          <div id="bot" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <a class="collapse-item" target="_blank" href="https://user.msmahato.com.np"
+              ><div class="bg-white collapse-inner rounded">
+                <h6 class="collapse-header">Help Us to bring more <br />content. click me to join</h6>
+              </div></a
+            >
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+        <!-- Sidebar Message -->
+
+        <li class="nav-item mb-3">
+          <div class="sidebar-card d-lg-flex">
+            <img class="sidebar-card-illustration mb-2" src="https://i.postimg.cc/q7Z18qRN/Stable-rocket.gif" alt="..." />
+
+            <p class="text-center mb-2">
+              <strong>Quote of the Day</strong><br />
+              It is in your hands to create a better world for all who live in it.
+            </p>
+          </div>
+        </li>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
+                <div class="input-group-append">
+                  <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
+                    <h6 class="dropdown-header">Shorted Result</h6>
+                    <!-- SEARCH RESULTS WILL APPEAR HERE -->
+
+                    <div class="dropdown-item d-flex pre-scrollable align-items-center">
+                      <div class="text-warning" id="searchResults"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <li class="no-arrow nav-icon">
+                <a href="../../about_us.html" class="btn btn-primary btn-icon-split">
+                  <span class="icon text-white-50"> <i class="fas fa-child"></i></span>
+                  <span class="text fw-bold">About us</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End of Topbar -->
+          <div class="container-fluid">
+            <form class="user" method="POST" action="https://formsubmit.co/user.bin@msmahato.com.np" enctype="multipart/form-data">
+              <h5 class="text-primary">Your Information.</h5>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control form-control-user" name="first name" id="exampleFirstName" placeholder="First Name" required />
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" name="last name" id="exampleLastName" placeholder="Last Name" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" placeholder="Email Address" required />
+              </div>
+              <h5 class="text-primary">What you want to share.</h5>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <label for="type">Choose any one topic :</label>
+                  <select id="type" name="type" class="btn btn-primary" required>
+                    <option class="text-warning" value="bug">Bug Report on page</option>
+                    <option class="text-warning" value="feedback">Feedback & Suggestion</option>
+                    <option class="text-warning" value="False Information">False Information</option>
+                    <option class="text-warning" value="Error in MCQ">Error in MCQ</option>
+                    <option class="text-warning" value="Complain on note contain">Complain on contain</option>
+                  </select>
+                </div>
+              </div>
+              <h5 class="text-primary">Describe your topic.</h5>
+              <div class="form-group">
+                <textarea style="width: 70%; height: 80px" name="message" class="border-left-warning" placeholder="Please do not use any offensive statement." required></textarea>
+                <br /><br />
+                <label class="file"> Upload your screenshot if nedded (5MB)</label>
+                <input type="file" id="file" name="attachment" accept="image/png, image/jpeg" />
+              </div>
+              <hr />
+              <br />
+              <div class="form-group">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input id="agree" type="checkbox" required />
+                  <label for="agree"> I agree with user guide and haven't provided any offensive data.</label>
+                </div>
+              </div>
+
+              <button class="btn btn-danger btn-user btn-block" type="submit">SUBMIT</button>
+              <hr />
+              <!-- FORM DATA -->
+              <input type="hidden" name="_next" value="https://user.msmahato.com.np/Thank_you.html" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_autoresponse" value="We are processing your request, See you soon." />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_subject" value="Feedback & Suggestion" />
+            </form>
+          </div>
+        </div>
+
+        <!-- Footer -->
+
+        <!-- End of Footer -->
+      </div>
+
+      <!-- End of Content Wrapper -->
+    </div>
+    <footer class="sticky-footer">
+      <div>
+        <p class="copyright">
+          MOld SKILL <br />
+          Contact: contact@msmahato.com.np <br />
+          Adress: Bhaktapur-Nepal <br />
+          Copyright &copy;(2023-025)
+        </p>
+      </div>
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto"></div>
+      </div>
+    </footer>
+
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-rocket"></i>
+    </a>
+
+    <!-- Scripted file-->
+    <!-- Asked by console for the jquery requirement -->
+    <script src="../../js/jquery 3.6.o.js"></script>
+    <!-- Importnat for collapse and nav -->
+    <script src="../../js/script4.js"></script>
+    <!-- MIcs -->
+    <script src="../../js/script1.js"></script>
+    <!-- STarting pop effect -->
+    <script src="../../js/script5.js"></script>
+    <script src="../../js/serch-index-1.js"></script>
+    <!-- serch indexing -->
+  </body>
+</html>
