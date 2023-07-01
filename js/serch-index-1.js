@@ -37,6 +37,9 @@ function searchFunction(query) {
     {title: "Physics Books for grade xi & xii", url: "Physics Book/phy-book.html"},
     {title: "University Physics solution", url: "Physics Book/University Physics solution.html"},
     {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
+    {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics Book\Extreme Physics.html"},
+    {title: "", url: ""},
+   
     // lab file of grade xi
     {title: "Chemistry Lab file for class 11", url: "1.CHEMISTRY/Grade XI lab file/chm-lab-xi.html"},
     {title: "To separate the volatile and non-volatile substance from mixture of sand and camphor by sublimation.", url: "1.CHEMISTRY/Grade XI lab file/Exp No-1.html"},
@@ -65,6 +68,7 @@ function searchFunction(query) {
     {title: "Practise set 3 of chemistry [FM:75] based on 2nd terminal.", url: "1.CHEMISTRY/practise question XI/tm-75-chm-2.3.html"},
     {title: "Practise set 1 of chemistry [FM:40] based on class test.", url: "1.CHEMISTRY/practise question XI/wk-40-chm-1.1.html"},
     {title: "Practise set 2 of chemistry [FM:40] based on class test.", url: "1.CHEMISTRY/practise question XI/wk-40-chm-2.4.html"},
+    {title: "", url: ""},
     // practise question of mat-xi
     {title: "Math practise set for class 11.", url: "3.MATH/Practise-que-mat-xi/practise-que-mat-xi.html"},
     {title: "HISSAN 2080 math question paper of XI", url: "../../3.MATH/Practise-que-mat-xi/HISSAN-mat-xi.html"},
@@ -73,6 +77,7 @@ function searchFunction(query) {
     {title: "Practise set 5 of math for class-11 by mold skill", url: "3.MATH/Practise-que-mat-xi/st-00-mat-3.5.html"},
     {title: "Practise set 1 of math [FM:75] based on 1st terminal.", url: "3.MATH/Practise-que-mat-xi/tm-75-mat-1.1.html"},
     {title: "Practise set 2 of math [FM:75] based on 2nd terminal.", url: "3.MATH/Practise-que-mat-xi/tm-75-mat-2.2.html"},
+    {title: "", url: ""},
     // phyics practise question-xi
     {title: "Practise Question from Dimension & Heat with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-1.html"},
     {title: "Practise Question from Dimension & Elasticity with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-2.html"},
@@ -83,12 +88,13 @@ function searchFunction(query) {
     {title: "Practise Question from Electric field & potential with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-7.html"},
     {title: "Practise Question from Heat with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-8.html"},
     {title: "Practise Question from circular motion with Numerical for class XI", url: "7.PHYSICS/Practise Question XI/bc-00-phy-9.html"},
-    {title: "HISSAN 2080 question paper of XI", url: "7.PHYSICS/Practise Question XI/HISSAN-75-phy-2.html"},
+    {title: "HISSAN physics 2080 question paper of XI", url: "7.PHYSICS/Practise Question XI/HISSAN-75-phy-2.html"},
     {title: "Physics practise set for class 11.", url: "7.PHYSICS/Practise Question XI/Practise-Que-xi.html"},
     {title: "Practise set 3 of physics [FM:75] based on 1st-terminal of grade XI.", url: "7.PHYSICS/Practise Question XI/tm-75-phy-1.html"},
     {title: "Practise set 4 of physics [FM:75] based on 2nd-terminal of grade XI.", url: "7.PHYSICS/Practise Question XI/tm-75-phy-2.html"},
     {title: "Practise set 1 of physics [FM:40] based on class test.", url: "7.PHYSICS/Practise Question XI/wk-40-phy-1.html"},
     {title: "Practise set 2 of physics [FM:40] based on class test.", url: "7.PHYSICS/Practise Question XI/wk-40-phy-2.html"},
+    {title: "", url: ""},
     // English & Nepali
     {title: "HISSAN 2080 english question paper of class 11", url: "8.English & Nepali que/English practise que-xi/HISSAN-75-eng-xi.html"},
     {title: "English practise set for class 11.", url: "8.English & Nepali que/English practise que-xi/practise-que-eng-xi.html"},
@@ -111,10 +117,10 @@ function searchFunction(query) {
     {title: "Circular Motion class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/circular motion-4-xi.html"},
     {title: " Elasticity class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/elasticity-3-xi.html"},
     {title: " Electric Charge class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/Electric Charge-6-xi.html"},
-    {title: " Electric Field class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/Electric Field-7-xi.html"},
-    {title: " Electric Potential & Energy class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/electric p&e-xi-8.html"},
+    {title: "Electric Field class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/Electric Field-7-xi.html"},
+    {title: "Electric Potential & Energy class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/electric p&e-xi-8.html"},
     {title: "Gravitation class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/Gravitaion-5-xi.html"},
-    {title: " Heat & Temperature class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/heat & Temperature-12-xi.html"},
+    {title: "Heat & Temperature class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/heat & Temperature-12-xi.html"},
     {title: "Kinematics class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/kine-2-xi.html"},
     {title: "Physics class 11 notes in pdf  class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/phy-grade-xi.html"},
     {title: "Quantity of Heat class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/quantity of heat-14-xi.html"},
@@ -123,6 +129,7 @@ function searchFunction(query) {
     {title: " Refraction Through Prism class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/ref-thr-prism-11-xi.html"},
     {title: "Thermal Expansion class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/thermla expansion-13-xi.html"},
     {title: "Vector class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/vectro-1-xi.html"},
+    {title: "", url: ""},
   ];
 
   var words = query
