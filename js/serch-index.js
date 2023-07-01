@@ -37,7 +37,7 @@ function searchFunction(query) {
     {title: "Physics Books for grade xi & xii", url: "Physics Book/phy-book.html"},
     {title: "University Physics solution", url: "Physics Book/University Physics solution.html"},
     {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
-    {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics Book\Extreme Physics.html"},
+    {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics Book/Extreme Physics.html"},
     {title: "", url: ""},
    
     // lab file of grade xi
