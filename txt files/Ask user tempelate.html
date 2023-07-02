@@ -18,3 +18,90 @@
     </div>
   </div>
 </div>
+
+<form id="quizForm">
+  <!-- Question 1 -->
+  <div class="question">
+    <h4>1&#41; What is radix of the decimal number system?</h4>
+    <input type="radio" name="q1" value="option1" data-correct="false" id="q1-o1" />
+    <label for="q1-o1"> 8</label><br />
+    <input type="radio" name="q1" value="option2" data-correct="true" id="q1-o2" />
+    <label for="q1-o2"> 10</label><br />
+    <input type="radio" name="q1" value="option3" data-correct="false" id="q1-o3" />
+    <label for="q1-o3"> 11</label><br />
+  </div>
+  <!-- Add more questions here -->
+</form>
+
+<script>
+  function shuffleOptions(question) {
+    var options = question.getElementsByTagName("input");
+    var optionLabels = question.getElementsByTagName("label");
+    var currentIndex = options.length;
+    var temporaryValue, temporaryLabel, randomIndex;
+
+    // While there are elements to shuffle
+    while (currentIndex !== 0) {
+      // Pick a remaining element
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // Swap the current element with the random element
+      temporaryValue = options[currentIndex].value;
+      options[currentIndex].value = options[randomIndex].value;
+      options[randomIndex].value = temporaryValue;
+
+      temporaryLabel = optionLabels[currentIndex].innerHTML;
+      optionLabels[currentIndex].innerHTML = optionLabels[randomIndex].innerHTML;
+      optionLabels[randomIndex].innerHTML = temporaryLabel;
+    }
+  }
+
+  function checkAnswers() {
+    var score = 0;
+
+    var form = document.getElementById("quizForm");
+    var resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "";
+
+    var questions = form.getElementsByClassName("question");
+    for (var i = 0; i < questions.length; i++) {
+      var question = questions[i];
+      shuffleOptions(question); // Shuffle the options before checking the answers
+      var options = question.getElementsByTagName("input");
+      var selectedOption = getSelectedOption(options);
+
+      if (selectedOption && selectedOption.dataset.correct === "true") {
+        score++;
+      } else if (selectedOption) {
+        var correctOption = question.querySelector("input[data-correct='true']");
+        var correctLabel = correctOption.nextElementSibling;
+        var correctAnswer = getOptionLabel(correctLabel);
+
+        var incorrectAnswerDiv = document.createElement("div");
+        incorrectAnswerDiv.innerHTML = "Incorrect Answer. The correct answer is: " + correctAnswer;
+        incorrectAnswerDiv.style.color = "red";
+        incorrectAnswerDiv.style.fontWeight = "bold";
+        question.parentNode.insertBefore(incorrectAnswerDiv, question.nextSibling);
+      }
+    }
+
+    resultDiv.innerHTML = "YOUR OBTAINED MARK: " + score + "/" + questions.length;
+
+    // Disable the submit button
+    document.getElementById("submit").disabled = true;
+  }
+
+  function getSelectedOption(options) {
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].checked) {
+        return options[i];
+      }
+    }
+    return null;
+  }
+
+  function getOptionLabel(option) {
+    return option.textContent.trim();
+  }
+</script>
