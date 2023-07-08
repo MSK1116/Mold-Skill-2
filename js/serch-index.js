@@ -39,7 +39,7 @@ function searchFunction(query) {
     {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
     {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics Book/Extreme Physics.html"},
     {title: "", url: ""},
-   
+
     // lab file of grade xi
     {title: "Chemistry Lab file for class 11", url: "1.CHEMISTRY/Grade XI lab file/chm-lab-xi.html"},
     {title: "To separate the volatile and non-volatile substance from mixture of sand and camphor by sublimation.", url: "1.CHEMISTRY/Grade XI lab file/Exp No-1.html"},
@@ -129,6 +129,19 @@ function searchFunction(query) {
     {title: " Refraction Through Prism class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/ref-thr-prism-11-xi.html"},
     {title: "Thermal Expansion class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/thermla expansion-13-xi.html"},
     {title: "Vector class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/vectro-1-xi.html"},
+    {title: "", url: ""},
+    // mcq-phy
+    {title: "", url: ""},
+    {title: "", url: ""},
+    {title: "", url: ""},
+    // mcq-chm
+    {title: "", url: ""},
+    {title: "", url: ""},
+    // mcq-comp
+    {title: "", url: ""},
+    {title: "", url: ""},
+    // mcq-mat
+    {title: "", url: ""},
     {title: "", url: ""},
   ];
 
