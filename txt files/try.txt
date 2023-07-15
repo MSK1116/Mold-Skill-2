@@ -140,5 +140,22 @@ function getOptionLabel(questionName, optionValue) {
 </html>
 
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyC9JYxmu2_9EovJdkrd3W4vII5u6nInMfA",
+  authDomain: "mold-skill-eafde.firebaseapp.com",
+  databaseURL: "https://mold-skill-eafde-default-rtdb.firebaseio.com",
+  projectId: "mold-skill-eafde",
+  storageBucket: "mold-skill-eafde.appspot.com",
+  messagingSenderId: "648939616010",
+  appId: "1:648939616010:web:11f7961cc838f25e262cf3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
   
