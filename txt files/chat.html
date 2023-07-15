@@ -3,15 +3,58 @@
   <head>
     <title>Discussion Page</title>
     <style>
-      #opinions {
-        list-style-type: none;
-        padding: 0;
+      body {
+        font-family: Arial, sans-serif;
       }
 
-      #opinions li {
-        margin-bottom: 10px;
+      .chat-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
         border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .message {
+        margin-bottom: 10px;
         padding: 10px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+      }
+
+      .message p {
+        margin: 0;
+      }
+
+      .message .sender {
+        font-weight: bold;
+      }
+
+      .message .timestamp {
+        font-size: 12px;
+        color: #888;
+      }
+
+      .input-area {
+        display: flex;
+        margin-top: 10px;
+      }
+
+      .input-area textarea {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      .input-area button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
       }
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
@@ -19,16 +62,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
   </head>
   <body>
-    <h1>Discussion Page</h1>
+    <div class="chat-container">
+      <h1>Discussion Page</h1>
 
-    <input type="file" id="imageFile" accept="image/*" />
-    <br />
-    <textarea id="opinion" placeholder="Enter your opinion"></textarea>
-    <br />
-    <button onclick="postOpinion()">Post</button>
+      <div id="chat-messages"></div>
 
-    <h2>Opinions:</h2>
-    <ul id="opinions"></ul>
+      <div class="input-area">
+        <textarea id="opinion" placeholder="Enter your opinion"></textarea>
+        <button onclick="postOpinion()">Send</button>
+      </div>
+    </div>
 
     <script>
       // Your web app's Firebase configuration
@@ -54,42 +97,56 @@
       // Listen for new opinions and update the UI
       opinionsRef.on("child_added", function (data) {
         var opinion = data.val();
-
-        var listItem = document.createElement("li");
-        listItem.textContent = opinion;
-
-        var opinionsList = document.getElementById("opinions");
-        opinionsList.appendChild(listItem);
+        displayMessage(opinion);
       });
+
+      function displayMessage(opinion) {
+        var chatMessages = document.getElementById("chat-messages");
+
+        var messageContainer = document.createElement("div");
+        messageContainer.classList.add("message");
+
+        var sender = document.createElement("p");
+        sender.classList.add("sender");
+        sender.textContent = opinion.sender;
+
+        var text = document.createElement("p");
+        text.textContent = opinion.opinion;
+
+        var timestamp = document.createElement("p");
+        timestamp.classList.add("timestamp");
+        timestamp.textContent = formatDate(opinion.timestamp);
+
+        messageContainer.appendChild(sender);
+        messageContainer.appendChild(text);
+        messageContainer.appendChild(timestamp);
+
+        chatMessages.appendChild(messageContainer);
+      }
 
       function postOpinion() {
         var opinion = document.getElementById("opinion").value;
-        var file = document.getElementById("imageFile").files[0];
+        var sender = "User"; // Set the sender name as desired
 
-        if (file) {
-          var storageRef = firebase.storage().ref("images/" + file.name);
-
-          // Upload the image file to Firebase Storage
-          var uploadTask = storageRef.put(file);
-
-          // Get the download URL of the uploaded image and save the opinion with the URL
-          uploadTask.then(function () {
-            storageRef.getDownloadURL().then(function (url) {
-              opinionsRef.push({
-                opinion: opinion,
-                imageUrl: url,
-              });
-            });
-          });
-        } else {
-          // If no image is selected, save only the opinion without an image URL
-          opinionsRef.push({
-            opinion: opinion,
-          });
-        }
+        opinionsRef.push({
+          sender: sender,
+          opinion: opinion,
+          timestamp: firebase.database.ServerValue.TIMESTAMP,
+        });
 
         document.getElementById("opinion").value = "";
-        document.getElementById("imageFile").value = null;
+      }
+
+      function formatDate(timestamp) {
+        var date = new Date(timestamp);
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? "PM" : "AM";
+        hours %= 12;
+        hours = hours || 12;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        var formattedTime = hours + ":" + minutes + " " + ampm;
+        return formattedTime;
       }
     </script>
   </body>
