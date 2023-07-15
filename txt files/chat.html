@@ -18,12 +18,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
   </head>
   <body>
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import {initializeApp} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+    <h1>Discussion Page</h1>
 
+    <textarea id="opinion" placeholder="Enter your opinion"></textarea>
+    <br />
+    <button onclick="postOpinion()">Post</button>
+
+    <h2>Opinions:</h2>
+    <ul id="opinions"></ul>
+
+    <script>
       // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyC9JYxmu2_9EovJdkrd3W4vII5u6nInMfA",
@@ -36,18 +40,8 @@
       };
 
       // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-    </script>
-    <h1>Discussion Page</h1>
+      firebase.initializeApp(firebaseConfig);
 
-    <textarea id="opinion" placeholder="Enter your opinion"></textarea>
-    <br />
-    <button onclick="postOpinion()">Post</button>
-
-    <h2>Opinions:</h2>
-    <ul id="opinions"></ul>
-
-    <script>
       // Retrieve a reference to the Firebase database
       var database = firebase.database();
 
