@@ -159,3 +159,113 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
   
+
+  <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyC9JYxmu2_9EovJdkrd3W4vII5u6nInMfA",
+        authDomain: "mold-skill-eafde.firebaseapp.com",
+        databaseURL: "https://mold-skill-eafde-default-rtdb.firebaseio.com",
+        projectId: "mold-skill-eafde",
+        storageBucket: "mold-skill-eafde.appspot.com",
+        messagingSenderId: "648939616010",
+        appId: "1:648939616010:web:11f7961cc838f25e262cf3",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Retrieve a reference to the Firebase database
+      var database = firebase.database();
+
+      // Get the reference to the "opinions" node in the database
+      var opinionsRef = database.ref("opinions");
+
+      // Listen for new opinions and update the UI
+      opinionsRef.on("child_added", function (data) {
+        var opinion = data.val();
+        displayMessage(opinion);
+      });
+
+      function displayMessage(opinion) {
+        var chatMessages = document.getElementById("chat-messages");
+
+        var messageContainer = document.createElement("div");
+        messageContainer.classList.add("message");
+
+        var sender = document.createElement("p");
+        sender.classList.add("sender");
+        sender.textContent = opinion.sender;
+
+        var text = document.createElement("p");
+        text.textContent = opinion.opinion;
+
+        var timestamp = document.createElement("p");
+        timestamp.classList.add("timestamp");
+        timestamp.textContent = formatDate(opinion.timestamp);
+
+        messageContainer.appendChild(sender);
+        messageContainer.appendChild(text);
+        messageContainer.appendChild(timestamp);
+
+        if (opinion.imageUrl) {
+          var image = document.createElement("img");
+          image.src = opinion.imageUrl;
+          messageContainer.appendChild(image);
+        }
+
+        chatMessages.appendChild(messageContainer);
+      }
+
+      function postOpinion() {
+        var opinion = document.getElementById("opinion").value;
+        var sender = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var file = document.getElementById("imageFile").files[0];
+
+        if (file) {
+          var storageRef = firebase.storage().ref("images/" + file.name);
+
+          // Upload the image file to Firebase Storage
+          var uploadTask = storageRef.put(file);
+
+          // Get the download URL of the uploaded image and save the opinion with the URL
+          uploadTask.then(function () {
+            storageRef.getDownloadURL().then(function (url) {
+              opinionsRef.push({
+                sender: sender,
+                email: email,
+                opinion: opinion,
+                imageUrl: url,
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+              });
+            });
+          });
+        } else {
+          // If no image is selected, save the opinion without an image URL
+          opinionsRef.push({
+            sender: sender,
+            email: email,
+            opinion: opinion,
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
+          });
+        }
+
+        document.getElementById("opinion").value = "";
+        document.getElementById("username").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("imageFile").value = null;
+      }
+
+      function formatDate(timestamp) {
+        var date = new Date(timestamp);
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? "PM" : "AM";
+        hours %= 12;
+        hours = hours || 12;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        var formattedTime = hours + ":" + minutes + " " + ampm;
+        return formattedTime;
+      }
+    </script>
