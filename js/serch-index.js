@@ -170,6 +170,8 @@ function displayResults(results) {
 
   if (results.length === 0) {
     resultContainer.innerHTML = "No results found. You may refresh the page!";
+    window.location.href = "404-noresult.html";
+
     return;
   }
 

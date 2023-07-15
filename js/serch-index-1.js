@@ -37,9 +37,9 @@ function searchFunction(query) {
     {title: "Physics Books for grade xi & xii", url: "Physics Book/phy-book.html"},
     {title: "University Physics solution", url: "Physics Book/University Physics solution.html"},
     {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
-    {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics Book\Extreme Physics.html"},
+    {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics BookExtreme Physics.html"},
     {title: "", url: ""},
-   
+
     // lab file of grade xi
     {title: "Chemistry Lab file for class 11", url: "1.CHEMISTRY/Grade XI lab file/chm-lab-xi.html"},
     {title: "To separate the volatile and non-volatile substance from mixture of sand and camphor by sublimation.", url: "1.CHEMISTRY/Grade XI lab file/Exp No-1.html"},
@@ -157,6 +157,7 @@ function displayResults(results) {
 
   if (results.length === 0) {
     resultContainer.innerHTML = "No results found. You may refresh the page!";
+    window.location.href = "../../404-noresult.html";
     return;
   }
 
