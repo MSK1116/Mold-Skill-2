@@ -31,31 +31,12 @@
     <meta property="og:type" content="Educational Materail for free for +2 level." />
     <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" />
 
-    <style>
-      #loading-screen {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #fff; /* You can customize the background color */
-        z-index: 9999; /* Adjust the z-index to ensure it appears above other elements */
-        /* Add any other styling you desire */
-      }
-
-      #loading-content {
-        text-align: center;
-      }
-    </style>
     <!-- CHAT BOX -->
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
 
-    <title>Discuss in public.</title>
+    <title>Discuss in public - Mold Skill</title>
 
     <!-- STYLE DIR-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
@@ -244,11 +225,20 @@
           <!-- End of Topbar -->
           <div class="container-fluid">
             <div class="input-area">
-              <input type="text" id="username" placeholder="Enter your username" />
-              <input type="email" id="email" placeholder="Enter your email" />
-              <textarea id="opinion" placeholder="Enter your opinion"></textarea>
+              <h5 class="text-primary">Discuss with other members publicaly</h5>
+              <div class="form-group row">
+                <div class="mb-3 mb-sm-0">
+                  <input type="text" id="username" class="form-control form-control-user" placeholder="Enter Your Name" required />
+                </div>
+              </div>
+              <div class="form-group row">
+                <input type="email" class="form-control form-control-user" id="email" placeholder="Enter your email" required />
+              </div>
+              <div class="form-group row">
+                <textarea id="opinion" placeholder="Enter your opinion"></textarea>
+              </div>
               <input type="file" id="imageFile" accept="image/*" />
-              <button onclick="postOpinion()">Send</button>
+              <button type="submit" class="btn btn-info" onclick="postOpinion()">Send</button>
             </div>
             <div id="chat-messages"></div>
           </div>
