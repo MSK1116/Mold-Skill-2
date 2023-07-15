@@ -16,10 +16,13 @@
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
   </head>
   <body>
     <h1>Discussion Page</h1>
 
+    <input type="file" id="imageFile" accept="image/*" />
+    <br />
     <textarea id="opinion" placeholder="Enter your opinion"></textarea>
     <br />
     <button onclick="postOpinion()">Post</button>
@@ -61,11 +64,32 @@
 
       function postOpinion() {
         var opinion = document.getElementById("opinion").value;
+        var file = document.getElementById("imageFile").files[0];
 
-        // Push the new opinion to the database
-        opinionsRef.push(opinion);
+        if (file) {
+          var storageRef = firebase.storage().ref("images/" + file.name);
+
+          // Upload the image file to Firebase Storage
+          var uploadTask = storageRef.put(file);
+
+          // Get the download URL of the uploaded image and save the opinion with the URL
+          uploadTask.then(function () {
+            storageRef.getDownloadURL().then(function (url) {
+              opinionsRef.push({
+                opinion: opinion,
+                imageUrl: url,
+              });
+            });
+          });
+        } else {
+          // If no image is selected, save only the opinion without an image URL
+          opinionsRef.push({
+            opinion: opinion,
+          });
+        }
 
         document.getElementById("opinion").value = "";
+        document.getElementById("imageFile").value = null;
       }
     </script>
   </body>
