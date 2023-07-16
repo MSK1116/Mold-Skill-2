@@ -48,6 +48,12 @@
         cursor: pointer;
         margin-bottom: 30px;
       }
+      .image-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 10px;
+      }
+
       .sender {
         color: #044cac;
         font-weight: bolder;
@@ -271,7 +277,7 @@
             <div class="form-group row">
               <textarea id="opinion" placeholder="Enter your opinion"></textarea>
             </div>
-            <input type="file" id="imageFile" accept="image/*" />
+            <input type="file" id="imageFiles" accept="image/*" multiple />
             <button type="submit" class="btn btn-info" onclick="postOpinion()">Send</button>
             <input type="password" id="deleteCode" placeholder="Enter delete code" required />
           </div>
@@ -371,16 +377,23 @@
         messageContainer.appendChild(sender);
         messageContainer.appendChild(text);
 
-        if (opinion.imageUrl) {
-          var image = document.createElement("img");
-          image.src = opinion.imageUrl;
-          image.classList.add("image-preview");
+        if (opinion.imageUrls && opinion.imageUrls.length > 0) {
+          var imageContainer = document.createElement("div");
+          imageContainer.classList.add("image-container");
 
-          image.addEventListener("click", function () {
-            window.open(opinion.imageUrl, "_blank");
-          });
+          for (var i = 0; i < opinion.imageUrls.length; i++) {
+            var image = document.createElement("img");
+            image.src = opinion.imageUrls[i];
+            image.classList.add("image-preview");
 
-          messageContainer.appendChild(image);
+            image.addEventListener("click", function () {
+              window.open(this.src, "_blank");
+            });
+
+            imageContainer.appendChild(image);
+          }
+
+          messageContainer.appendChild(imageContainer);
         }
 
         messageContainer.appendChild(deleteButton);
@@ -392,43 +405,55 @@
         var email = document.getElementById("email").value;
         var opinion = document.getElementById("opinion").value;
         var deleteCode = document.getElementById("deleteCode").value;
-        var file = document.getElementById("imageFile").files[0];
+        var files = document.getElementById("imageFiles").files;
 
-        if (validateInputs(username, email, opinion, deleteCode, file)) {
-          if (file) {
-            if (file.size <= 4 * 1024 * 1024) {
-              var storageRef = firebase.storage().ref("images/" + file.name);
+        if (validateInputs(username, email, opinion, deleteCode, files)) {
+          var imageUrls = [];
 
-              var uploadTask = storageRef.put(file);
+          if (files.length > 0) {
+            var fileCount = files.length;
+            var uploadedCount = 0;
 
-              uploadTask.then(function () {
-                storageRef.getDownloadURL().then(function (url) {
-                  opinionsRef.push({
-                    sender: username,
-                    email: email,
-                    opinion: opinion,
-                    deleteCode: deleteCode,
-                    imageUrl: url,
+            for (var i = 0; i < fileCount; i++) {
+              var file = files[i];
+              if (file.size <= 4 * 1024 * 1024) {
+                var storageRef = firebase.storage().ref("images/" + file.name);
+                var uploadTask = storageRef.put(file);
+
+                uploadTask.then(function (snapshot) {
+                  snapshot.ref.getDownloadURL().then(function (url) {
+                    imageUrls.push(url);
+                    uploadedCount++;
+
+                    if (uploadedCount === fileCount) {
+                      saveOpinion(username, email, opinion, deleteCode, imageUrls);
+                    }
                   });
                 });
-              });
-            } else {
-              alert("Please select an image file smaller than 4 MB.");
+              } else {
+                alert("Please select image files smaller than 4 MB.");
+              }
             }
           } else {
-            opinionsRef.push({
-              sender: username,
-              email: email,
-              opinion: opinion,
-              deleteCode: deleteCode,
-            });
+            saveOpinion(username, email, opinion, deleteCode, imageUrls);
           }
 
           clearInputs();
         }
       }
 
-      function validateInputs(username, email, opinion, deleteCode, file) {
+      function saveOpinion(username, email, opinion, deleteCode, imageUrls) {
+        opinionsRef.push({
+          sender: username,
+          email: email,
+          opinion: opinion,
+          deleteCode: deleteCode,
+          imageUrls: imageUrls,
+          timestamp: new Date().getTime(),
+        });
+      }
+
+      function validateInputs(username, email, opinion, deleteCode, files) {
         if (!username || !email || !opinion || !deleteCode) {
           alert("Please fill in all the required fields.");
           return false;
@@ -439,9 +464,14 @@
           return false;
         }
 
-        if (file && file.size > 4 * 1024 * 1024) {
-          alert("Please select an image file smaller than 4 MB.");
-          return false;
+        if (files && files.length > 0) {
+          for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            if (file.size > 4 * 1024 * 1024) {
+              alert("Please select image files smaller than 4 MB.");
+              return false;
+            }
+          }
         }
 
         return true;
@@ -457,7 +487,7 @@
         document.getElementById("email").value = "";
         document.getElementById("opinion").value = "";
         document.getElementById("deleteCode").value = "";
-        document.getElementById("imageFile").value = null;
+        document.getElementById("imageFiles").value = null;
       }
     </script>
   </body>
