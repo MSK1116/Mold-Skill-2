@@ -35,10 +35,23 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
-
+    <style>
+      .msg-area {
+        display: flex;
+        height: 50%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+      .image-preview {
+        max-width: 200px;
+        max-height: 200px;
+        cursor: pointer;
+      }
+    </style>
     <title>Discuss in public - Mold Skill</title>
 
     <!-- STYLE DIR-->
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="../../Style Dir/style3.css" rel="stylesheet" />
@@ -223,35 +236,31 @@
             </ul>
           </nav>
           <!-- End of Topbar -->
-          <div class="container-fluid row">
-            <div id="chat-messages"></div>
+          <div class="msg-area border-bottom-warning container-fluid">
+            <div class="scrollable-div" id="chat-messages"></div>
           </div>
-          <div class="container-fluid">
-            <div id="chat-messages"></div>
-            <div class="input-area">
-              <h5 class="text-primary">Discuss with other members publicaly</h5>
-              <div class="form-group row">
-                <div class="mb-3 mb-sm-0">
-                  <input type="text" id="username" class="form-control form-control-user" placeholder="Enter Your Name" required />
-                </div>
+          <div class="input-area container-fluid">
+            <h5 class="text-primary">Discuss with other members publicaly</h5>
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" id="username" class="form-control form-control-user" placeholder="Enter Your Name" required />
               </div>
-              <div class="form-group row">
-                <input type="email" class="form-control form-control-user" id="email" placeholder="Enter your email" required />
-              </div>
-              <div class="form-group row">
-                <textarea id="opinion" placeholder="Enter your opinion"></textarea>
-              </div>
-              <input type="file" id="imageFile" accept="image/*" />
-              <button type="submit" class="btn btn-info" onclick="postOpinion()">Send</button>
-              <input type="password" id="deleteCode" placeholder="Enter delete code" required />
+              <div class="col-sm-6"><input type="email" class="form-control form-control-user" id="email" placeholder="Enter your email" required /></div>
             </div>
-            <div id="chat-messages"></div>
+
+            <div class="form-group row">
+              <textarea id="opinion" placeholder="Enter your opinion"></textarea>
+            </div>
+            <input type="file" id="imageFile" accept="image/*" />
+            <button type="submit" class="btn btn-info" onclick="postOpinion()">Send</button>
+            <input type="password" id="deleteCode" placeholder="Enter delete code" required />
           </div>
         </div>
       </div>
 
       <!-- End of Content Wrapper -->
     </div>
+
     <footer class="sticky-footer">
       <div>
         <p class="copyright">
@@ -323,14 +332,16 @@
         text.textContent = "Opinion: " + opinion.opinion;
 
         var deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete Message";
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Replace text content with a dustbin icon
+        deleteButton.classList.add("delete-button");
+
         deleteButton.addEventListener("click", function () {
           var deleteCode = prompt("Enter the delete code:");
           if (deleteCode === opinion.deleteCode) {
             opinionsRef.child(messageId).remove();
             messageContainer.remove();
           } else {
-            alert("Doesn't match the code, That you have provided");
+            alert("Doesn't match the code that you have provided");
           }
         });
 
@@ -341,6 +352,12 @@
         if (opinion.imageUrl) {
           var image = document.createElement("img");
           image.src = opinion.imageUrl;
+          image.classList.add("image-preview");
+
+          image.addEventListener("click", function () {
+            window.open(opinion.imageUrl, "_blank");
+          });
+
           messageContainer.appendChild(image);
         }
 
@@ -356,13 +373,11 @@
 
         if (validateInputs(username, email, opinion, deleteCode, file)) {
           if (file) {
-            if (file.size <= 2 * 1024 * 1024) {
+            if (file.size <= 4 * 1024 * 1024) {
               var storageRef = firebase.storage().ref("images/" + file.name);
 
-              // Upload the image file to Firebase Storage
               var uploadTask = storageRef.put(file);
 
-              // Get the download URL of the uploaded image and save the opinion with the URL
               uploadTask.then(function () {
                 storageRef.getDownloadURL().then(function (url) {
                   opinionsRef.push({
@@ -378,7 +393,6 @@
               alert("Please select an image file smaller than 2 MB.");
             }
           } else {
-            // If no image is selected, save the opinion without an image URL
             opinionsRef.push({
               sender: username,
               email: email,

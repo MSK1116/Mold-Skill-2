@@ -1,51 +1,184 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Discussion Page</title>
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <title>Chat App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+      .container-fluid {
+        height: 100vh;
+      }
+
+      .scrollable-div {
+        height: 70%;
+        overflow-y: auto;
+      }
+
+      .image-preview {
+        max-width: 200px;
+        max-height: 200px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <div class="chat-container">
-      <h1>Discussion Page</h1>
-
-      <div id="chat-messages"></div>
-
-      <div class="input-area">
-        <input type="text" id="username" placeholder="Enter your username" required />
-        <input type="email" id="email" placeholder="Enter your email" required />
-        <textarea id="opinion" placeholder="Enter your opinion" required></textarea>
-        <input type="text" id="deleteCode" placeholder="Enter delete code" required />
-        <input type="file" id="imageFile" accept="image/*" />
-        <button onclick="postOpinion()">Send</button>
-      </div>
+    <div class="container-fluid row">
+      <div id="chat-messages" class="scrollable-div"></div>
     </div>
 
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Discussion Page</title>
-        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
-      </head>
-      <body>
-        <div class="chat-container">
-          <h1>Discussion Page</h1>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="email" id="email" placeholder="Email" />
+    <textarea id="opinion" placeholder="Opinion"></textarea>
+    <input type="password" id="deleteCode" placeholder="Delete Code" />
+    <input type="file" id="imageFile" />
 
-          <div id="chat-messages"></div>
+    <button onclick="postOpinion()">Post Opinion</button>
 
-          <div class="input-area">
-            <input type="text" id="username" placeholder="Enter your username" required />
-            <input type="email" id="email" placeholder="Enter your email" required />
-            <textarea id="opinion" placeholder="Enter your opinion" required></textarea>
-            <input type="text" id="deleteCode" placeholder="Enter delete code" required />
-            <input type="file" id="imageFile" accept="image/*" />
-            <button onclick="postOpinion()">Send</button>
-          </div>
-        </div>
-      </body>
-    </html>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyC9JYxmu2_9EovJdkrd3W4vII5u6nInMfA",
+        authDomain: "mold-skill-eafde.firebaseapp.com",
+        databaseURL: "https://mold-skill-eafde-default-rtdb.firebaseio.com",
+        projectId: "mold-skill-eafde",
+        storageBucket: "mold-skill-eafde.appspot.com",
+        messagingSenderId: "648939616010",
+        appId: "1:648939616010:web:11f7961cc838f25e262cf3",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Retrieve a reference to the Firebase database
+      var database = firebase.database();
+
+      // Get the reference to the "opinions" node in the database
+      var opinionsRef = database.ref("opinions");
+
+      // Listen for new opinions and update the UI
+      opinionsRef.on("child_added", function (data) {
+        var opinion = data.val();
+        displayMessage(opinion, data.key);
+      });
+
+      function displayMessage(opinion, messageId) {
+        var chatMessages = document.getElementById("chat-messages");
+
+        var messageContainer = document.createElement("div");
+
+        var sender = document.createElement("p");
+        sender.textContent = "Sender: " + opinion.sender;
+
+        var text = document.createElement("p");
+        text.textContent = "Opinion: " + opinion.opinion;
+
+        var deleteButton = document.createElement("button");
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Replace text content with a dustbin icon
+        deleteButton.classList.add("delete-button");
+
+        deleteButton.addEventListener("click", function () {
+          var deleteCode = prompt("Enter the delete code:");
+          if (deleteCode === opinion.deleteCode) {
+            opinionsRef.child(messageId).remove();
+            messageContainer.remove();
+          } else {
+            alert("Doesn't match the code that you have provided");
+          }
+        });
+
+        messageContainer.appendChild(sender);
+        messageContainer.appendChild(text);
+        messageContainer.appendChild(deleteButton);
+
+        if (opinion.imageUrl) {
+          var image = document.createElement("img");
+          image.src = opinion.imageUrl;
+          image.classList.add("image-preview");
+
+          image.addEventListener("click", function () {
+            window.open(opinion.imageUrl, "_blank");
+          });
+
+          messageContainer.appendChild(image);
+        }
+
+        chatMessages.appendChild(messageContainer);
+      }
+
+      function postOpinion() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var opinion = document.getElementById("opinion").value;
+        var deleteCode = document.getElementById("deleteCode").value;
+        var file = document.getElementById("imageFile").files[0];
+
+        if (validateInputs(username, email, opinion, deleteCode, file)) {
+          if (file) {
+            if (file.size <= 4 * 1024 * 1024) {
+              var storageRef = firebase.storage().ref("images/" + file.name);
+
+              var uploadTask = storageRef.put(file);
+
+              uploadTask.then(function () {
+                storageRef.getDownloadURL().then(function (url) {
+                  opinionsRef.push({
+                    sender: username,
+                    email: email,
+                    opinion: opinion,
+                    deleteCode: deleteCode,
+                    imageUrl: url,
+                  });
+                });
+              });
+            } else {
+              alert("Please select an image file smaller than 2 MB.");
+            }
+          } else {
+            opinionsRef.push({
+              sender: username,
+              email: email,
+              opinion: opinion,
+              deleteCode: deleteCode,
+            });
+          }
+
+          clearInputs();
+        }
+      }
+
+      function validateInputs(username, email, opinion, deleteCode, file) {
+        if (!username || !email || !opinion || !deleteCode) {
+          alert("Please fill in all the required fields.");
+          return false;
+        }
+
+        if (!isValidEmail(email)) {
+          alert("Please enter a valid email address.");
+          return false;
+        }
+
+        if (file && file.size > 2 * 1024 * 1024) {
+          alert("Please select an image file smaller than 2 MB.");
+          return false;
+        }
+
+        return true;
+      }
+
+      function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function clearInputs() {
+        document.getElementById("username").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("opinion").value = "";
+        document.getElementById("deleteCode").value = "";
+        document.getElementById("imageFile").value = null;
+      }
+    </script>
   </body>
 </html>
