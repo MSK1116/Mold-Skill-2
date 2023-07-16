@@ -42,21 +42,24 @@
         overflow-y: scroll;
         overflow-x: hidden;
       }
-      .image-preview {
-        max-width: 200px;
-        max-height: 200px;
-        cursor: pointer;
-        margin-bottom: 30px;
-      }
       .image-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         grid-gap: 10px;
+      }
+
+      .image-preview {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 1/1; /* Maintains a square aspect ratio */
+        cursor: grab;
       }
 
       .sender {
         color: #044cac;
         font-weight: bolder;
+        margin-bottom: 0;
       }
       .delete-button {
         margin-bottom: 45px;
@@ -271,15 +274,28 @@
               <div class="col-sm-6 mb-3 mb-sm-0">
                 <input type="text" id="username" class="form-control form-control-user" placeholder="Enter Your Name" required />
               </div>
-              <div class="col-sm-6"><input type="email" class="form-control form-control-user" id="email" placeholder="Enter your email" required /></div>
+              <div class="col-sm-6">
+                <input type="email" class="form-control form-control-user" id="email" placeholder="Enter your email" required />
+              </div>
             </div>
 
             <div class="form-group row">
-              <textarea id="opinion" placeholder="Enter your opinion"></textarea>
+              <textarea class="form-control form-control-user" id="opinion" placeholder="Type Your Message"></textarea>
             </div>
-            <input type="file" id="imageFiles" accept="image/*" multiple />
-            <button type="submit" class="btn btn-info" onclick="postOpinion()">Send</button>
-            <input type="password" id="deleteCode" placeholder="Enter delete code" required />
+
+            <div class="form-group row">
+              <div class="col-sm-1 mb-3 mb-sm-0">
+                <label for="imageFiles" class="btn btn-info">
+                  <i class="fas fa-camera"></i>
+                </label>
+                <input type="file" id="imageFiles" accept="image/*" multiple style="display: none" />
+              </div>
+              <div class="col-sm-6">
+                <input type="password" id="deleteCode" class="form-control form-control-user" placeholder="Enter delete code (Use to delete message later)" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-warning" onclick="postOpinion()">Send</button>
           </div>
         </div>
       </div>
@@ -356,6 +372,10 @@
         sender.classList.add("sender");
         sender.textContent = "By: " + opinion.sender;
 
+        var timestamp = document.createElement("p");
+        timestamp.classList.add("timestamp");
+        timestamp.textContent = "" + new Date(opinion.timestamp).toLocaleString();
+
         var text = document.createElement("p");
         text.classList.add("txt");
         text.textContent = "Opinion: " + opinion.opinion;
@@ -375,6 +395,7 @@
         });
 
         messageContainer.appendChild(sender);
+        messageContainer.appendChild(timestamp);
         messageContainer.appendChild(text);
 
         if (opinion.imageUrls && opinion.imageUrls.length > 0) {
@@ -410,7 +431,8 @@
         if (validateInputs(username, email, opinion, deleteCode, files)) {
           var imageUrls = [];
 
-          if (files.length > 0) {
+          if (files.length > 0 && files.length <= 5) {
+            // Check if the number of files is within the limit
             var fileCount = files.length;
             var uploadedCount = 0;
 
@@ -435,7 +457,7 @@
               }
             }
           } else {
-            saveOpinion(username, email, opinion, deleteCode, imageUrls);
+            alert("Please select up to 5 image files.");
           }
 
           clearInputs();
