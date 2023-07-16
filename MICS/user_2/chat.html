@@ -46,6 +46,26 @@
         max-width: 200px;
         max-height: 200px;
         cursor: pointer;
+        margin-bottom: 30px;
+      }
+      .sender {
+        color: #044cac;
+        font-weight: bolder;
+      }
+      .delete-button {
+        margin-bottom: 45px;
+        border: 0;
+        color: brown;
+      }
+      .txt {
+        max-width: 70%;
+        text-align: justify;
+        word-wrap: break-word;
+        word-break: break-all;
+        border-color: crimson;
+        background-color: aliceblue;
+        border-radius: 4%;
+        border: 3px solid whitesmoke;
       }
     </style>
     <title>Discuss in public - Mold Skill</title>
@@ -324,15 +344,18 @@
         var chatMessages = document.getElementById("chat-messages");
 
         var messageContainer = document.createElement("div");
+        messageContainer.classList.add("message-container");
 
         var sender = document.createElement("p");
-        sender.textContent = "Sender: " + opinion.sender;
+        sender.classList.add("sender");
+        sender.textContent = "By: " + opinion.sender;
 
         var text = document.createElement("p");
+        text.classList.add("txt");
         text.textContent = "Opinion: " + opinion.opinion;
 
         var deleteButton = document.createElement("button");
-        deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Replace text content with a dustbin icon
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i> Delete';
         deleteButton.classList.add("delete-button");
 
         deleteButton.addEventListener("click", function () {
@@ -341,13 +364,12 @@
             opinionsRef.child(messageId).remove();
             messageContainer.remove();
           } else {
-            alert("Doesn't match the code that you have provided");
+            alert("The delete code you provided doesn't match.");
           }
         });
 
         messageContainer.appendChild(sender);
         messageContainer.appendChild(text);
-        messageContainer.appendChild(deleteButton);
 
         if (opinion.imageUrl) {
           var image = document.createElement("img");
@@ -361,6 +383,7 @@
           messageContainer.appendChild(image);
         }
 
+        messageContainer.appendChild(deleteButton);
         chatMessages.appendChild(messageContainer);
       }
 
@@ -390,7 +413,7 @@
                 });
               });
             } else {
-              alert("Please select an image file smaller than 2 MB.");
+              alert("Please select an image file smaller than 4 MB.");
             }
           } else {
             opinionsRef.push({
@@ -416,8 +439,8 @@
           return false;
         }
 
-        if (file && file.size > 2 * 1024 * 1024) {
-          alert("Please select an image file smaller than 2 MB.");
+        if (file && file.size > 4 * 1024 * 1024) {
+          alert("Please select an image file smaller than 4 MB.");
           return false;
         }
 
