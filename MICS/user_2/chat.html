@@ -223,7 +223,11 @@
             </ul>
           </nav>
           <!-- End of Topbar -->
+          <div class="container-fluid row">
+            <div id="chat-messages"></div>
+          </div>
           <div class="container-fluid">
+            <div id="chat-messages"></div>
             <div class="input-area">
               <h5 class="text-primary">Discuss with other members publicaly</h5>
               <div class="form-group row">
@@ -239,6 +243,7 @@
               </div>
               <input type="file" id="imageFile" accept="image/*" />
               <button type="submit" class="btn btn-info" onclick="postOpinion()">Send</button>
+              <input type="password" id="deleteCode" placeholder="Enter delete code" required />
             </div>
             <div id="chat-messages"></div>
           </div>
@@ -303,29 +308,35 @@
       // Listen for new opinions and update the UI
       opinionsRef.on("child_added", function (data) {
         var opinion = data.val();
-        displayMessage(opinion);
+        displayMessage(opinion, data.key);
       });
 
-      function displayMessage(opinion) {
+      function displayMessage(opinion, messageId) {
         var chatMessages = document.getElementById("chat-messages");
 
         var messageContainer = document.createElement("div");
-        messageContainer.classList.add("message");
 
         var sender = document.createElement("p");
-        sender.classList.add("sender");
-        sender.textContent = opinion.sender;
+        sender.textContent = "Sender: " + opinion.sender;
 
         var text = document.createElement("p");
-        text.textContent = opinion.opinion;
+        text.textContent = "Opinion: " + opinion.opinion;
 
-        var timestamp = document.createElement("p");
-        timestamp.classList.add("timestamp");
-        timestamp.textContent = formatDate(opinion.timestamp);
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete Message";
+        deleteButton.addEventListener("click", function () {
+          var deleteCode = prompt("Enter the delete code:");
+          if (deleteCode === opinion.deleteCode) {
+            opinionsRef.child(messageId).remove();
+            messageContainer.remove();
+          } else {
+            alert("Doesn't match the code, That you have provided");
+          }
+        });
 
         messageContainer.appendChild(sender);
         messageContainer.appendChild(text);
-        messageContainer.appendChild(timestamp);
+        messageContainer.appendChild(deleteButton);
 
         if (opinion.imageUrl) {
           var image = document.createElement("img");
@@ -337,55 +348,79 @@
       }
 
       function postOpinion() {
-        var opinion = document.getElementById("opinion").value;
-        var sender = document.getElementById("username").value;
+        var username = document.getElementById("username").value;
         var email = document.getElementById("email").value;
+        var opinion = document.getElementById("opinion").value;
+        var deleteCode = document.getElementById("deleteCode").value;
         var file = document.getElementById("imageFile").files[0];
 
-        if (file) {
-          var storageRef = firebase.storage().ref("images/" + file.name);
+        if (validateInputs(username, email, opinion, deleteCode, file)) {
+          if (file) {
+            if (file.size <= 2 * 1024 * 1024) {
+              var storageRef = firebase.storage().ref("images/" + file.name);
 
-          // Upload the image file to Firebase Storage
-          var uploadTask = storageRef.put(file);
+              // Upload the image file to Firebase Storage
+              var uploadTask = storageRef.put(file);
 
-          // Get the download URL of the uploaded image and save the opinion with the URL
-          uploadTask.then(function () {
-            storageRef.getDownloadURL().then(function (url) {
-              opinionsRef.push({
-                sender: sender,
-                email: email,
-                opinion: opinion,
-                imageUrl: url,
-                timestamp: firebase.database.ServerValue.TIMESTAMP,
+              // Get the download URL of the uploaded image and save the opinion with the URL
+              uploadTask.then(function () {
+                storageRef.getDownloadURL().then(function (url) {
+                  opinionsRef.push({
+                    sender: username,
+                    email: email,
+                    opinion: opinion,
+                    deleteCode: deleteCode,
+                    imageUrl: url,
+                  });
+                });
               });
+            } else {
+              alert("Please select an image file smaller than 2 MB.");
+            }
+          } else {
+            // If no image is selected, save the opinion without an image URL
+            opinionsRef.push({
+              sender: username,
+              email: email,
+              opinion: opinion,
+              deleteCode: deleteCode,
             });
-          });
-        } else {
-          // If no image is selected, save the opinion without an image URL
-          opinionsRef.push({
-            sender: sender,
-            email: email,
-            opinion: opinion,
-            timestamp: firebase.database.ServerValue.TIMESTAMP,
-          });
-        }
+          }
 
-        document.getElementById("opinion").value = "";
-        document.getElementById("username").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("imageFile").value = null;
+          clearInputs();
+        }
       }
 
-      function formatDate(timestamp) {
-        var date = new Date(timestamp);
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var ampm = hours >= 12 ? "PM" : "AM";
-        hours %= 12;
-        hours = hours || 12;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        var formattedTime = hours + ":" + minutes + " " + ampm;
-        return formattedTime;
+      function validateInputs(username, email, opinion, deleteCode, file) {
+        if (!username || !email || !opinion || !deleteCode) {
+          alert("Please fill in all the required fields.");
+          return false;
+        }
+
+        if (!isValidEmail(email)) {
+          alert("Please enter a valid email address.");
+          return false;
+        }
+
+        if (file && file.size > 2 * 1024 * 1024) {
+          alert("Please select an image file smaller than 2 MB.");
+          return false;
+        }
+
+        return true;
+      }
+
+      function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function clearInputs() {
+        document.getElementById("username").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("opinion").value = "";
+        document.getElementById("deleteCode").value = "";
+        document.getElementById("imageFile").value = null;
       }
     </script>
   </body>
