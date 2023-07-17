@@ -280,12 +280,14 @@
             </div>
 
             <div class="form-group row">
-              <div class="col-sm-1 mb-3 mb-sm-0">
+              <div class="col-sm-6 mb-3 mb-sm-0">
                 <label for="imageFiles" class="btn btn-info">
                   <i class="fas fa-camera"></i>
                 </label>
-                <input type="file" id="imageFiles" accept="image/*" multiple />
+                <input type="file" id="imageFiles" accept="image/*" multiple onchange="updateFileNames()" style="display: none" />
+                <span id="selectedFileNames"></span>
               </div>
+
               <div class="col-sm-5 mb-3 mb-sm-0">
                 <textarea class="form-control form-control-user" id="opinion" placeholder="Type Your Message"></textarea>
               </div>
@@ -338,6 +340,19 @@
     <script src="../../js/serch-index-1.js"></script>
     <!-- serch indexing -->
     <script>
+      function updateFileNames() {
+        var input = document.getElementById("imageFiles");
+        var fileNameSpan = document.getElementById("selectedFileNames");
+
+        if (input.files && input.files.length > 0) {
+          var fileNames = Array.from(input.files).map((file) => file.name);
+          var displayText = fileNames.slice(0, 1) + (fileNames.length > 1 ? " and " + (fileNames.length - 1) + " more" : "");
+          fileNameSpan.textContent = displayText;
+        } else {
+          fileNameSpan.textContent = "";
+        }
+      }
+
       // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyC9JYxmu2_9EovJdkrd3W4vII5u6nInMfA",
@@ -433,7 +448,7 @@
         if (validateInputs(username, email, opinion, deleteCode, files)) {
           var imageUrls = [];
 
-          if ((files.length > 0 && files.length <= 5) || files.length > 0) {
+          if (files.length > 0 && files.length <= 5) {
             // Check if the number of files is within the limit
             var fileCount = files.length;
             var uploadedCount = 0;
@@ -458,6 +473,9 @@
                 alert("Please select image files smaller than 4 MB.");
               }
             }
+          } else if (files.length === 0) {
+            // Handle case when no files are selected
+            saveOpinion(username, email, opinion, deleteCode, imageUrls);
           } else {
             alert("Please select up to 1-5 image files.");
           }
