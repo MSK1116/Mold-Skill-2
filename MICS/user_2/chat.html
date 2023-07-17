@@ -76,6 +76,24 @@
         border-radius: 4%;
         border: 3px solid whitesmoke;
       }
+      .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        border-top-color: #000;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
     <title>Discuss in public - Mold Skill</title>
 
@@ -419,14 +437,30 @@
           var imageContainer = document.createElement("div");
           imageContainer.classList.add("image-container");
 
+          var loadedImages = 0;
+          var numImages = opinion.imageUrls.length;
+
+          function checkAllImagesLoaded() {
+            loadedImages++;
+            if (loadedImages === numImages) {
+              imageContainer.removeChild(loadingSpinner);
+            }
+          }
+
+          var loadingSpinner = document.createElement("div");
+          loadingSpinner.classList.add("spinner");
+          imageContainer.appendChild(loadingSpinner);
+
           for (var i = 0; i < opinion.imageUrls.length; i++) {
             var image = document.createElement("img");
             image.src = opinion.imageUrls[i];
             image.classList.add("image-preview");
 
-            image.addEventListener("click", function () {
-              window.open(this.src, "_blank");
-            });
+            // Listen for the load event of each image
+            image.addEventListener("load", checkAllImagesLoaded);
+
+            // Listen for the error event of each image
+            image.addEventListener("error", checkAllImagesLoaded);
 
             imageContainer.appendChild(image);
           }

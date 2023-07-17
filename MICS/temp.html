@@ -1,40 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Opinions with Multiple Images</title>
+    <meta charset="utf-8" />
+    <!-- MSG TO BLOCKER -->
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-9494024234731058?ers=1" nonce="jWe20h_ndfsauY9014ZNFA"></script>
+    <script nonce="jWe20h_ndfsauY9014ZNFA">
+      (function () {
+        function signalGooglefcPresent() {
+          if (!window.frames["googlefcPresent"]) {
+            if (document.body) {
+              const iframe = document.createElement("iframe");
+              iframe.style = "width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;";
+              iframe.style.display = "none";
+              iframe.name = "googlefcPresent";
+              document.body.appendChild(iframe);
+            } else {
+              setTimeout(signalGooglefcPresent, 0);
+            }
+          }
+        }
+        signalGooglefcPresent();
+      })();
+    </script>
+    <!-- ./MSG TO AD-BLOCKER -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="By Student for Student! We are open to everyone, join us now" />
+
+    <meta property="og:image" content="https://i.postimg.cc/j5KdQ2jH/Why-Mold-Skill.png" />
+    <meta property="og:type" content="Educational Materail for free for +2 level." />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" />
+
+    <!-- CHAT BOX -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
     <style>
+      .msg-area {
+        display: flex;
+        height: 50%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
       .image-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         grid-gap: 10px;
       }
 
       .image-preview {
         width: 100%;
         height: auto;
-        cursor: pointer;
+        object-fit: cover;
+        aspect-ratio: 1/1; /* Maintains a square aspect ratio */
+        cursor: grab;
+      }
+
+      .sender {
+        color: #044cac;
+        font-weight: bolder;
+        margin-bottom: 0;
+      }
+      .delete-button {
+        margin-bottom: 45px;
+        border: 0;
+        color: brown;
+      }
+      .txt {
+        max-width: 70%;
+        text-align: justify;
+        word-wrap: break-word;
+        word-break: break-all;
+        border-color: crimson;
+        background-color: aliceblue;
+        border-radius: 4%;
+        border: 3px solid whitesmoke;
       }
     </style>
+    <title>Discuss in public - Mold Skill</title>
+
+    <!-- STYLE DIR-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="../../Style Dir/style3.css" rel="stylesheet" />
+    <link href="../../Style Dir/style1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- END OF STYLE DIR-->
   </head>
-  <body>
-    <div id="chat-messages"></div>
 
-    <form onsubmit="event.preventDefault(); postOpinion();">
-      <input type="text" id="username" placeholder="Username" required />
-      <input type="email" id="email" placeholder="Email" required />
-      <textarea id="opinion" placeholder="Opinion" required></textarea>
-      <input type="text" id="deleteCode" placeholder="Delete Code" required />
-      <input type="file" id="imageFiles" multiple />
-      <button type="submit">Submit</button>
-    </form>
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Starting of sidebar -->
 
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+        <li class="nav-item active">
+          <a class="nav-link" href="../../index.html">
+            <img class="logo" src="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" alt="" />
+            <hr class="sidebar-divider" />
+            <i class="fa fa-home"></i>
+            <span>Home Page</span></a
+          >
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
 
+        <!-- Heading -->
+        <div class="sidebar-heading">Choose you subject (Quick Link)</div>
+
+        <!-- Main items-->
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#phy" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-rocket"></i>
+            <span>Physics</span>
+          </a>
+          <div id="phy" class="collapse" aria-labelledby="phy" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../Physics Book/phy-book.html">Books</a>
+              <a class="collapse-item" href="../../7.PHYSICS/MCQ (Physics)/MCQ-phy.html">MCQ</a>
+              <a class="collapse-item" href="../../7.PHYSICS/Practise Question XI/Practise-Que-xi.html">Practise Question<small> Grade XI</small></a>
+              <a class="collapse-item" href="../../7.PHYSICS/note-phy-xi/phy-grade-xi.html">Notes 11</a>
+              <a class="collapse-item" href="../../7.PHYSICS/note-phy-xii/phy-grade-xii.html">Notes 12<small> Updating</small></a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#chm" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-flask"></i>
+            <span>Chemistry</span>
+          </a>
+          <div id="chm" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../1.CHEMISTRY/Grade XI lab file/chm-lab-xi.html">Lab File-1</a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/MCQ (Chemistry)/MCQ-chm.html">MCQ</a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/practise question XI/practise-que-chm-xi.html">Practise Question<small> Grade XI</small></a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/notes-chm-xi/chm-grade-xi.html">Notes 11<small> Updating</small></a>
+              <a class="collapse-item" href="../../1.CHEMISTRY/notes-chm-xii/chm-grade-xii.html">Notes 12<small> Updating</small></a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#mat" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-calculator"></i>
+            <span>Math</span>
+          </a>
+          <div id="mat" class="collapse" aria-labelledby="mat" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../3.MATH/MCQ (Math)/MCQ-mat.html">MCQ</a>
+              <a class="collapse-item" href="../../3.MATH/Practise-que-mat-xi/practise-que-mat-xi.html">Practise Question <small> Grade XI</small></a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#cop" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-desktop"></i>
+            <span>Computer</span>
+          </a>
+          <div id="cop" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a class="collapse-item" href="../../4.COMPUTER/practise-que-comp-xi/practise-que-comp-xi.html">Practise Question <small> Grade XI</small></a>
+              <a class="collapse-item" href="../../4.COMPUTER/c programming/C++.html">C & C++ <small> Grade XI</small></a>
+              <a class="collapse-item" href="../../4.COMPUTER//MCQ (Computer)/mcq-comp-xi.html"> MCQ</a>
+            </div>
+          </div>
+        </li>
+        <hr class="sidebar-divider" />
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#zoo" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-frog"></i>
+            <span>Zoology</span>
+          </a>
+          <div id="zoo" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <a class="collapse-item" target="_blank" href="https://user.msmahato.com.np"
+              ><div class="bg-white collapse-inner rounded">
+                <h6 class="collapse-header">Help Us to bring more <br />content. click me to join</h6>
+              </div></a
+            >
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#bot" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-seedling"></i>
+            <span>Botany</span>
+          </a>
+          <div id="bot" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+            <a class="collapse-item" target="_blank" href="https://user.msmahato.com.np"
+              ><div class="bg-white collapse-inner rounded">
+                <h6 class="collapse-header">Help Us to bring more <br />content. click me to join</h6>
+              </div></a
+            >
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+        <!-- Sidebar Message -->
+
+        <li class="nav-item mb-3">
+          <div class="sidebar-card d-lg-flex">
+            <img class="sidebar-card-illustration mb-2" src="https://i.postimg.cc/q7Z18qRN/Stable-rocket.gif" alt="..." />
+
+            <p class="text-center mb-2">
+              <strong>Quote of the Day</strong><br />
+              It is in your hands to create a better world for all who live in it.
+            </p>
+          </div>
+        </li>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
+                <div class="input-group-append">
+                  <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
+                    <h6 class="dropdown-header">Shorted Result</h6>
+                    <!-- SEARCH RESULTS WILL APPEAR HERE -->
+
+                    <div class="dropdown-item d-flex pre-scrollable align-items-center">
+                      <div class="text-warning" id="searchResults"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <li class="no-arrow nav-icon">
+                <a href="../../about_us.html" class="btn btn-primary btn-icon-split">
+                  <span class="icon text-white-50"> <i class="fas fa-child"></i></span>
+                  <span class="text fw-bold">About us</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End of Topbar -->
+          <div class="msg-area border-bottom-warning container-fluid">
+            <div class="scrollable-div" id="chat-messages"></div>
+          </div>
+          <div class="input-area container-fluid">
+            <h5 class="text-primary">Discuss with other members publicaly</h5>
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" id="username" class="form-control form-control-user" placeholder="Enter Your Name" required />
+              </div>
+              <div class="col-sm-6">
+                <input type="email" class="form-control form-control-user" id="email" placeholder="Enter your email" required />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="imageFiles" class="btn btn-info">
+                  <i class="fas fa-camera"></i>
+                </label>
+                <input type="file" id="imageFiles" accept="image/*" multiple onchange="updateFileNames()" style="display: none" />
+                <span id="selectedFileNames"></span>
+              </div>
+
+              <div class="col-sm-5 mb-3 mb-sm-0">
+                <textarea class="form-control form-control-user" id="opinion" placeholder="Type Your Message"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <input type="password" id="deleteCode" class="form-control form-control-user" placeholder="Enter delete code (Use to delete message later)" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-warning" onclick="postOpinion()">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- End of Content Wrapper -->
+    </div>
+
+    <footer class="sticky-footer">
+      <div>
+        <p class="copyright">
+          MOld SKILL <br />
+          Contact: contact@msmahato.com.np <br />
+          Adress: Bhaktapur-Nepal <br />
+          Copyright &copy;(2023-025)
+        </p>
+      </div>
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto"></div>
+      </div>
+    </footer>
+
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-rocket"></i>
+    </a>
+
+    <!-- Scripted file-->
+    <!-- Asked by console for the jquery requirement -->
+    <script src="../../js/jquery 3.6.o.js"></script>
+    <!-- Importnat for collapse and nav -->
+    <script src="../../js/script4.js"></script>
+    <!-- MIcs -->
+    <script src="../../js/script1.js"></script>
+    <!-- STarting pop effect -->
+    <script src="../../js/script5.js"></script>
+    <script src="../../js/serch-index-1.js"></script>
+    <!-- serch indexing -->
     <script>
+      function updateFileNames() {
+        var input = document.getElementById("imageFiles");
+        var fileNameSpan = document.getElementById("selectedFileNames");
+
+        if (input.files && input.files.length > 0) {
+          var fileNames = Array.from(input.files).map((file) => file.name);
+          var displayText = fileNames.slice(0, 1) + (fileNames.length > 1 ? " and " + (fileNames.length - 1) + " more" : "");
+          fileNameSpan.textContent = displayText;
+        } else {
+          fileNameSpan.textContent = "";
+        }
+      }
+
       // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyC9JYxmu2_9EovJdkrd3W4vII5u6nInMfA",
@@ -71,6 +389,10 @@
         sender.classList.add("sender");
         sender.textContent = "By: " + opinion.sender;
 
+        var timestamp = document.createElement("p");
+        timestamp.classList.add("timestamp");
+        timestamp.textContent = "" + new Date(opinion.timestamp).toLocaleString();
+
         var text = document.createElement("p");
         text.classList.add("txt");
         text.textContent = "Opinion: " + opinion.opinion;
@@ -90,6 +412,7 @@
         });
 
         messageContainer.appendChild(sender);
+        messageContainer.appendChild(timestamp);
         messageContainer.appendChild(text);
 
         if (opinion.imageUrls && opinion.imageUrls.length > 0) {
@@ -125,7 +448,8 @@
         if (validateInputs(username, email, opinion, deleteCode, files)) {
           var imageUrls = [];
 
-          if (files.length > 0) {
+          if (files.length > 0 && files.length <= 5) {
+            // Check if the number of files is within the limit
             var fileCount = files.length;
             var uploadedCount = 0;
 
@@ -149,8 +473,11 @@
                 alert("Please select image files smaller than 4 MB.");
               }
             }
-          } else {
+          } else if (files.length === 0) {
+            // Handle case when no files are selected
             saveOpinion(username, email, opinion, deleteCode, imageUrls);
+          } else {
+            alert("Please select up to 1-5 image files.");
           }
 
           clearInputs();
@@ -198,11 +525,39 @@
       }
 
       function clearInputs() {
-        document.getElementById("username").value = "";
-        document.getElementById("email").value = "";
         document.getElementById("opinion").value = "";
         document.getElementById("deleteCode").value = "";
         document.getElementById("imageFiles").value = null;
+      }
+
+      if (opinion.imageUrls && opinion.imageUrls.length > 0) {
+        var imageContainer = document.createElement("div");
+        imageContainer.classList.add("image-container");
+
+        for (var i = 0; i < opinion.imageUrls.length; i++) {
+          var image = document.createElement("img");
+          image.src = opinion.imageUrls[i];
+          image.classList.add("image-preview");
+
+          // Add loading spinner
+          var loadingSpinner = document.createElement("div");
+          loadingSpinner.classList.add("spinner");
+          imageContainer.appendChild(loadingSpinner);
+
+          // Listen for the load event of each image
+          image.addEventListener("load", function () {
+            imageContainer.removeChild(loadingSpinner); // Remove the loading spinner
+          });
+
+          // Listen for the error event of each image
+          image.addEventListener("error", function () {
+            imageContainer.removeChild(loadingSpinner); // Remove the loading spinner
+          });
+
+          imageContainer.appendChild(image);
+        }
+
+        messageContainer.appendChild(imageContainer);
       }
     </script>
   </body>
