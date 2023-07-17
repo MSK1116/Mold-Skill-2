@@ -433,7 +433,7 @@
         if (validateInputs(username, email, opinion, deleteCode, files)) {
           var imageUrls = [];
 
-          if (files.length > 0 && files.length <= 5) {
+          if ((files.length > 0 && files.length <= 5) || files.length > 0) {
             // Check if the number of files is within the limit
             var fileCount = files.length;
             var uploadedCount = 0;
@@ -459,7 +459,7 @@
               }
             }
           } else {
-            alert("Please select up to 5 image files.");
+            alert("Please select up to 1-5 image files.");
           }
 
           clearInputs();
