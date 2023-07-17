@@ -286,24 +286,6 @@
             </button>
 
             <!-- Topbar Search -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-              <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
-                <div class="input-group-append">
-                  <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-sm"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
-                    <h6 class="dropdown-header">Shorted Result</h6>
-                    <!-- SEARCH RESULTS WILL APPEAR HERE -->
-
-                    <div class="dropdown-item d-flex pre-scrollable align-items-center">
-                      <div class="text-warning" id="searchResults"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -320,7 +302,8 @@
             <div class="scrollable-div" id="chat-messages"></div>
           </div>
           <div class="input-area container-fluid">
-            <h5 class="text-primary">Discuss with other members publicaly</h5>
+            <h5 class="text-primary margin-top">Discuss with other members publicaly</h5>
+            <div id="upload-progress"></div>
             <div class="form-group row">
               <div class="col-sm-6 mb-3 mb-sm-0">
                 <input type="text" id="username" class="form-control form-control-user" placeholder="Enter Your Name" required />
@@ -349,7 +332,6 @@
                 <input type="password" id="deleteCode" class="form-control form-control-user" placeholder="Enter delete code (Use to delete message later)" required />
               </div>
             </div>
-            <div id="upload-progress"></div>
 
             <button type="submit" class="btn btn-lg btn-warning" onclick="postOpinion()">Send</button>
           </div>
@@ -389,8 +371,7 @@
     <script src="../../js/script1.js"></script>
     <!-- STarting pop effect -->
     <script src="../../js/script5.js"></script>
-    <script src="../../js/serch-index-1.js"></script>
-    <!-- serch indexing -->
+
     <script>
       function updateFileNames() {
         var input = document.getElementById("imageFiles");
@@ -648,6 +629,7 @@
         document.getElementById("opinion").value = "";
         document.getElementById("deleteCode").value = "";
         document.getElementById("imageFiles").value = null;
+        document.getElementById("selectedFileNames").textContent = "";
       }
     </script>
   </body>
