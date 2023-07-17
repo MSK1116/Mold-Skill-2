@@ -474,13 +474,18 @@
             image.src = opinion.imageUrls[i];
             image.classList.add("image-preview");
 
+            var imageLink = document.createElement("a");
+            imageLink.href = opinion.imageUrls[i];
+            imageLink.target = "_blank"; // Open the link in a new tab/window
+
+            imageLink.appendChild(image);
+            imageContainer.appendChild(imageLink);
+
             // Listen for the load event of each image
             image.addEventListener("load", checkAllImagesLoaded);
 
             // Listen for the error event of each image
             image.addEventListener("error", checkAllImagesLoaded);
-
-            imageContainer.appendChild(image);
           }
 
           messageContainer.appendChild(imageContainer);
