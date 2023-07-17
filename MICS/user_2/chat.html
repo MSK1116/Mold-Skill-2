@@ -94,6 +94,39 @@
           transform: rotate(360deg);
         }
       }
+
+      .progress-container {
+        width: 100%;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        height: 20px;
+        margin-top: 10px;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background-color: #42b983;
+        border-radius: 4px;
+        position: relative;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background-color: #42b983;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+      }
+
+      .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+      }
     </style>
     <title>Discuss in public - Mold Skill</title>
 
@@ -316,6 +349,7 @@
                 <input type="password" id="deleteCode" class="form-control form-control-user" placeholder="Enter delete code (Use to delete message later)" required />
               </div>
             </div>
+            <div id="upload-progress"></div>
 
             <button type="submit" class="btn btn-lg btn-warning" onclick="postOpinion()">Send</button>
           </div>
@@ -483,32 +517,53 @@
           var imageUrls = [];
 
           if (files.length > 0 && files.length <= 5) {
-            // Check if the number of files is within the limit
             var fileCount = files.length;
             var uploadedCount = 0;
+            var processedFilenames = [];
+
+            var progressBar = document.createElement("div");
+            progressBar.classList.add("progress-bar");
+
+            var progressFill = document.createElement("div");
+            progressFill.classList.add("progress-fill");
+            progressBar.appendChild(progressFill);
+
+            var progressText = document.createElement("div");
+            progressText.classList.add("progress-text");
+            progressText.textContent = "Uploading...";
+            progressBar.appendChild(progressText);
+
+            var progressContainer = document.createElement("div");
+            progressContainer.classList.add("progress-container");
+            progressContainer.appendChild(progressBar);
+
+            document.getElementById("upload-progress").appendChild(progressContainer);
 
             for (var i = 0; i < fileCount; i++) {
               var file = files[i];
               if (file.size <= 4 * 1024 * 1024) {
-                var storageRef = firebase.storage().ref("images/" + file.name);
-                var uploadTask = storageRef.put(file);
+                if (processedFilenames.includes(file.name)) {
+                  alert("File with name " + file.name + " has already been uploaded. Skipping duplicate file.");
+                  continue;
+                }
 
-                uploadTask.then(function (snapshot) {
-                  snapshot.ref.getDownloadURL().then(function (url) {
-                    imageUrls.push(url);
-                    uploadedCount++;
+                processedFilenames.push(file.name);
 
-                    if (uploadedCount === fileCount) {
-                      saveOpinion(username, email, opinion, deleteCode, imageUrls);
-                    }
-                  });
+                uploadFile(file, username, email, opinion, deleteCode, imageUrls, fileCount, progressBar, function () {
+                  uploadedCount++;
+
+                  if (uploadedCount === fileCount) {
+                    // All files have finished uploading
+                    clearUploadProgress();
+                    saveOpinion(username, email, opinion, deleteCode, imageUrls);
+                  }
                 });
               } else {
                 alert("Please select image files smaller than 4 MB.");
+                clearUploadProgress();
               }
             }
           } else if (files.length === 0) {
-            // Handle case when no files are selected
             saveOpinion(username, email, opinion, deleteCode, imageUrls);
           } else {
             alert("Please select up to 1-5 image files.");
@@ -516,6 +571,37 @@
 
           clearInputs();
         }
+      }
+
+      function uploadFile(file, username, email, opinion, deleteCode, imageUrls, fileCount, progressBar, completeCallback) {
+        var storageRef = firebase.storage().ref("images/" + file.name);
+        var uploadTask = storageRef.put(file);
+
+        uploadTask.on(
+          "state_changed",
+          function (snapshot) {
+            // Update progress bar during upload
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            progressBar.firstChild.style.width = progress + "%";
+          },
+          function (error) {
+            console.log(error);
+            alert("An error occurred during upload. Please try again.");
+            clearUploadProgress();
+          },
+          function () {
+            // Upload completed successfully
+            uploadTask.snapshot.ref.getDownloadURL().then(function (url) {
+              imageUrls.push(url);
+              completeCallback(); // Call the complete callback function
+            });
+          }
+        );
+      }
+
+      function clearUploadProgress() {
+        var uploadProgress = document.getElementById("upload-progress");
+        uploadProgress.innerHTML = "";
       }
 
       function saveOpinion(username, email, opinion, deleteCode, imageUrls) {
