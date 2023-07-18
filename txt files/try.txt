@@ -136,7 +136,10 @@ function getOptionLabel(questionName, optionValue) {
   </form>
 
   <div id="result"></div>
-</body>
+<script>
+      document.cookie = "cookieName=value; SameSite=None; Secure";
+    </script>
+  </body>
 </html>
 
 
@@ -272,312 +275,320 @@ const app = initializeApp(firebaseConfig);
 
 
     <form id="quizForm">
-                  <!-- Question 1 -->
-                  <div class="question">
-                    <h4>
-                      1&#41; A particle has a velocity U towards east at T=0. Its acceleration is towards wesst and is constant. Let X<sub>A</sub> and X<sub>B</sub> be the
-                      magnitude of displacements in the first 10 seconds and the next 10 seconds
-                    </h4>
-                    <input type="radio" name="q1" value="option1" data-correct="false" id="q1-o1" />
-                    <label for="q1-o1"> X<sub>A</sub> < X<sub>B</sub></label> <br />
-                    <input type="radio" name="q1" value="option2" data-correct="true" id="q1-o2" />
-                    <label for="q1-o2"> the information is insufficient to decide the relation</label> <br />
-                    <input type="radio" name="q1" value="option3" data-correct="false" id="q1-o3" />
-                    <label for="q1-o3"> X<sub>A</sub> = X<sub>B</sub></label> <br />
-                  </div>
+              <!-- Question 1 -->
+              <div class="question">
+                <h4>
+                  1&#41; A particle has a velocity U towards east at T=0. Its acceleration is towards wesst and is constant. Let X<sub>A</sub> and X<sub>B</sub> be the magnitude of
+                  displacements in the first 10 seconds and the next 10 seconds
+                </h4>
+                <input type="radio" name="q1" value="option1" data-correct="f" id="q1-o1" />
+                <label for="q1-o1"> X<sub>A</sub> < X<sub>B</sub></label> <br />
+                <input type="radio" name="q1" value="option2" data-correct="t" id="q1-o2" />
+                <label for="q1-o2"> the information is insufficient to decide the relation</label> <br />
+                <input type="radio" name="q1" value="option3" data-correct="f" id="q1-o3" />
+                <label for="q1-o3"> X<sub>A</sub> = X<sub>B</sub></label> <br />
+              </div>
 
-                  <br />
+              <br />
 
-                  <!-- Question 2 -->
-                  <div class="question">
-                    <h4>2&#41; A stone is released from an elevator going up with an acceleration A of the stone after the relesse is</h4>
-                    <input type="radio" name="q2" value="option1" data-correct="true" id="q2-o1" />
-                    <label for="q2-o1"> G downward</label> <br />
-                    <input type="radio" name="q2" value="option2" data-correct="false" id="q2-o2" />
-                    <label for="q2-o2"> A upward</label> <br />
-                    <input type="radio" name="q2" value="option3" data-correct="false" id="q2-o3" />
-                    <label for="q2-o3"> (G-A) downward</label><br />
-                  </div>
+              <!-- Question 2 -->
+              <div class="question">
+                <h4>2&#41; A stone is released from an elevator going up with an acceleration A of the stone after the relesse is</h4>
+                <input type="radio" name="q2" value="option1" data-correct="t" id="q2-o1" />
+                <label for="q2-o1"> G downward</label> <br />
+                <input type="radio" name="q2" value="option2" data-correct="f" id="q2-o2" />
+                <label for="q2-o2"> A upward</label> <br />
+                <input type="radio" name="q2" value="option3" data-correct="f" id="q2-o3" />
+                <label for="q2-o3"> (G-A) downward</label><br />
+              </div>
 
-                  <br />
+              <br />
 
-                  <!-- Question 3 -->
-                  <div class="question">
-                    <h4>3&#41; Cosider the motion of the tip of the minute hand of a clock</h4>
-                    <input type="radio" name="q3" value="option1" data-correct="false" id="q3-o1" />
-                    <label for="q3-o1"> the distance covered is zero</label> <br />
-                    <input type="radio" name="q3" value="option2" data-correct="false" id="q3-o2" />
-                    <label for="q3-o2"> the average speed is zero</label><br />
-                    <input type="radio" name="q3" value="option3" data-correct="true" id="q3-o3" />
-                    <label for="q3-o3"> the displacement is zero</label> <br />
-                  </div>
+              <!-- Question 3 -->
+              <div class="question">
+                <h4>3&#41; Cosider the motion of the tip of the minute hand of a clock</h4>
+                <input type="radio" name="q3" value="option1" data-correct="f" id="q3-o1" />
+                <label for="q3-o1"> the distance covered is zero</label> <br />
+                <input type="radio" name="q3" value="option2" data-correct="f" id="q3-o2" />
+                <label for="q3-o2"> the average speed is zero</label><br />
+                <input type="radio" name="q3" value="option3" data-correct="t" id="q3-o3" />
+                <label for="q3-o3"> the displacement is zero</label> <br />
+              </div>
 
-                  <br />
+              <br />
 
-                  <!-- Question 4 -->
-                  <div class="question">
-                    <h4>4&#41; An object may have</h4>
-                    <input type="radio" name="q4" value="option1" data-correct="false" id="q4-o1" />
-                    <label for="q4-o1"> varying speed without having varying velocity</label><br />
-                    <input type="radio" name="q4" value="option2" data-correct="false" id="q4-o2" />
-                    <label for="q4-o2"> non zero acceleration without having varying velocity</label> <br />
-                    <input type="radio" name="q4" value="option3" data-correct="true" id="q4-o3" />
-                    <label for="q4-o3">v arying velocity without having varying speed</label><br />
-                  </div>
+              <!-- Question 4 -->
+              <div class="question">
+                <h4>4&#41; An object may have</h4>
+                <input type="radio" name="q4" value="option1" data-correct="f" id="q4-o1" />
+                <label for="q4-o1"> varying speed without having varying velocity</label><br />
+                <input type="radio" name="q4" value="option2" data-correct="f" id="q4-o2" />
+                <label for="q4-o2"> non zero acceleration without having varying velocity</label> <br />
+                <input type="radio" name="q4" value="option3" data-correct="t" id="q4-o3" />
+                <label for="q4-o3">v arying velocity without having varying speed</label><br />
+              </div>
 
-                  <br />
+              <br />
 
-                  <!-- Question 5 -->
-                  <div class="question">
-                    <h4>5&#41; The velocity of particle is zero at t=0</h4>
-                    <input type="radio" name="q5" value="option1" data-correct="false" id="q5-o1" />
-                    <label for="q5-o1"> The acceleration at t=0 must be zero.</label><br />
-                    <input type="radio" name="q5" value="option2" data-correct="true" id="q5-o2" />
-                    <label for="q5-o2"> If the speed is zero from t=0 to t=10s the acceleration is also zero in this interval.</label><br />
-                    <input type="radio" name="q5" value="option3" data-correct="false" id="q5-o3" />
-                    <label for="q5-o3"> All of the above.</label><br />
-                  </div>
+              <!-- Question 5 -->
+              <div class="question">
+                <h4>5&#41; The velocity of particle is zero at t=0</h4>
+                <input type="radio" name="q5" value="option1" data-correct="f" id="q5-o1" />
+                <label for="q5-o1"> The acceleration at t=0 must be zero.</label><br />
+                <input type="radio" name="q5" value="option2" data-correct="t" id="q5-o2" />
+                <label for="q5-o2"> If the speed is zero from t=0 to t=10s the acceleration is also zero in this interval.</label><br />
+                <input type="radio" name="q5" value="option3" data-correct="f" id="q5-o3" />
+                <label for="q5-o3"> All of the above.</label><br />
+              </div>
 
-                  <br />
-                  <!-- Question 6 -->
-                  <div class="question">
-                    <h4>6&#41; A particle is going in spiral path with constant speed.</h4>
-                    <input type="radio" name="q6" value="option1" data-correct="true" id="q6-o1" />
-                    <label for="q6-o1"> The magnitude of acceleration is constant</label>
-                    <br />
-                    <input type="radio" name="q6" value="option2" data-correct="false" id="q6-o2" />
-                    <label for="q6-o2"> The velocity of the particle is constant</label>
-                    <br />
-                    <input type="radio" name="q6" value="option3" data-correct="false" id="q6-o3" />
-                    <label for="q6-o3"> The acceleration of the particle is constant</label>
-                    <br />
-                  </div>
+              <br />
+              <!-- Question 6 -->
+              <div class="question">
+                <h4>6&#41; A particle is going in spiral path with constant speed.</h4>
+                <input type="radio" name="q6" value="option1" data-correct="t" id="q6-o1" />
+                <label for="q6-o1"> The magnitude of acceleration is constant</label>
+                <br />
+                <input type="radio" name="q6" value="option2" data-correct="f" id="q6-o2" />
+                <label for="q6-o2"> The velocity of the particle is constant</label>
+                <br />
+                <input type="radio" name="q6" value="option3" data-correct="f" id="q6-o3" />
+                <label for="q6-o3"> The acceleration of the particle is constant</label>
+                <br />
+              </div>
 
-                  <br />
-                  <!-- Question 7 -->
-                  <div class="question">
-                    <h4>7&#41; A block of mass M slides down a smooth vetical circular track. During the motion, the block is in</h4>
-                    <input type="radio" name="q7" value="option1" data-correct="false" id="q7-o1" /><label for="q7-o1"> vertical equilibrium</label><br />
-                    <input type="radio" name="q7" value="option2" data-correct="false" id="q7-o2" /><label for="q7-o2">horizontal equlibrium</label><br />
-                    <input type="radio" name="q7" value="option3" data-correct="true" id="q7-o3" /><label for="q7-o3">none of these</label><br />
-                  </div>
+              <br />
+              <!-- Question 7 -->
+              <div class="question">
+                <h4>7&#41; A block of mass M slides down a smooth vetical circular track. During the motion, the block is in</h4>
+                <input type="radio" name="q7" value="option1" data-correct="f" id="q7-o1" />
+                <label for="q7-o1"> vertical equilibrium</label><br />
+                <input type="radio" name="q7" value="option2" data-correct="f" id="q7-o2" />
+                <label for="q7-o2">horizontal equlibrium</label><br />
+                <input type="radio" name="q7" value="option3" data-correct="t" id="q7-o3" />
+                <label for="q7-o3">none of these</label><br />
+              </div>
 
-                  <br />
-                  <!-- Question 8 -->
-                  <div class="question">
-                    <h4>
-                      8&#41; The acceleration of moon with respect to earth is 0.0027 m s<sup>-2</sup> and the acceleration of an apple fallling on earth's surface is about 10 m
-                      s<sup>-2</sup>. Assume that the radius of moon is one forth of the earth's radus. if the moon is stooped for an instant and relesed, it will fall towards the
-                      earth the earth. The initial acceleration of the moon towards the earth will be
-                    </h4>
-                    <input type="radio" name="q8" value="option1" data-correct="false" id="q8-o1" /><label for="q8-o1"> 10 m s<sup>-2</sup></label>
-                    <br />
-                    <input type="radio" name="q8" value="option2" data-correct="true" id="q8-o2" /> <label for="q8-o2"> 6.4 m s<sup>-2</sup></label
-                    ><br />
-                    <input type="radio" name="q8" value="option3" data-correct="false" id="q8-03" /><label for="q8-03"> 0.0027 m s<sup>-2</sup></label
-                    ><br />
-                  </div>
+              <br />
+              <!-- Question 8 -->
+              <div class="question">
+                <h4>
+                  8&#41; The acceleration of moon with respect to earth is 0.0027 m s<sup>-2</sup> and the acceleration of an apple fallling on earth's surface is about 10 m
+                  s<sup>-2</sup>. Assume that the radius of moon is one forth of the earth's radus. if the moon is stooped for an instant and relesed, it will fall towards the
+                  earth the earth. The initial acceleration of the moon towards the earth will be
+                </h4>
+                <input type="radio" name="q8" value="option1" data-correct="f" id="q8-o1" />
+                <label for="q8-o1"> 10 m s<sup>-2</sup></label>
+                <br />
+                <input type="radio" name="q8" value="option2" data-correct="t" id="q8-o2" /> <label for="q8-o2"> 6.4 m s<sup>-2</sup></label
+                ><br />
+                <input type="radio" name="q8" value="option3" data-correct="f" id="q8-03" />
+                <label for="q8-03"> 0.0027 m s<sup>-2</sup></label
+                ><br />
+              </div>
 
-                  <br />
-                  <!-- Question 9 -->
-                  <div class="question">
-                    <h4>9&#41; Inside a uniform spherical shell</h4>
-                    <input type="radio" name="q9" value="option1" data-correct="false" id="q9-o1" />
-                    <label for="q9-o1"> the gravitational potential is zero</label>
-                    <br />
-                    <input type="radio" name="q9" value="option2" data-correct="true" id="q9-o2" />
-                    <label for="q9-o2"> the gravitational potential is same everywhere </label>
-                    <br />
-                    <input type="radio" name="q9" value="option3" data-correct="false" id="q9-o3" />
-                    <label for="q9-o3"> the gravitational field is more than that of potential</label>
-                    <br />
-                  </div>
+              <br />
 
-                  <br />
+              <!-- Question 9 -->
+              <div class="question">
+                <h4>9&#41; Inside a uniform spherical shell</h4>
+                <input type="radio" name="q9" value="option1" data-correct="f" id="q9-o1" />
+                <label for="q9-o1"> the gravitational potential is zero</label>
+                <br />
+                <input type="radio" name="q9" value="option2" data-correct="t" id="q9-o2" />
+                <label for="q9-o2"> the gravitational potential is same everywhere </label>
+                <br />
+                <input type="radio" name="q9" value="option3" data-correct="f" id="q9-o3" />
+                <label for="q9-o3"> the gravitational field is more than that of potential</label>
+                <br />
+              </div>
 
-                  <!-- Question 10 -->
-                  <div class="question">
-                    <h4>10&#41; A barometer kept in an elevator accelerating upward reads 76 cm. the air pressure in the elevator is</h4>
-                    <input type="radio" name="q10" value="option1" data-correct="true" id="q10-o1" />
-                    <label for="q10-o1"> greater than 76 cm</label><br />
-                    <input type="radio" name="q10" value="option2" data-correct="false" id="q10-o2" />
-                    <label for="q10-o2"> 76cm</label> <br />
-                    <input type="radio" name="q10" value="option3" data-correct="false" id="q10-03" />
-                    <label for="q10-03"> less than 76cm</label>
-                    <br />
-                  </div>
+              <br />
 
-                  <br />
-                  <!-- Question 11 -->
-                  <div class="question">
-                    <h4>11&#41; Which of the folloing is mechnical wave ?</h4>
-                    <input type="radio" name="q11" value="option1" data-correct="false" id="q11-o1" />
-                    <label for="q11-o1"> radio wave</label> <br />
-                    <input type="radio" name="q11" value="option2" data-correct="true" id="q11-o2" />
-                    <label for="q11-o2"> sound wave</label> <br />
-                    <input type="radio" name="q11" value="option3" data-correct="false" id="q11-o3" />
-                    <label for="q11-o3"> light wave</label> <br />
-                  </div>
+              <!-- Question 10 -->
+              <div class="question">
+                <h4>10&#41; A barometer kept in an elevator accelerating upward reads 76 cm. the air pressure in the elevator is</h4>
+                <input type="radio" name="q10" value="option1" data-correct="t" id="q10-o1" />
+                <label for="q10-o1"> greater than 76 cm</label><br />
+                <input type="radio" name="q10" value="option2" data-correct="f" id="q10-o2" />
+                <label for="q10-o2"> 76cm</label> <br />
+                <input type="radio" name="q10" value="option3" data-correct="f" id="q10-03" />
+                <label for="q10-03"> less than 76cm</label>
+                <br />
+              </div>
 
-                  <br />
-                  <!-- Question 12 -->
-                  <div class="question">
-                    <h4>12&#41; The size of an object as percevied by an eye depends primarily on</h4>
-                    <input type="radio" name="q12" value="option1" data-correct="true" id="q12-o1" />
-                    <label for="q12-o1"> size of the image formed on the retina</label><br />
-                    <input type="radio" name="q12" value="option2" data-correct="false" id="q12-o2" />
-                    <label for="q12-o2"> distance of the object frome eye</label>
-                    <br />
-                    <input type="radio" name="q12" value="option3" data-correct="false" id="q12-o3" />
-                    <label for="q12-o3"> aperture of pupil</label>
-                    <br />
-                  </div>
+              <br />
+              <!-- Question 11 -->
+              <div class="question">
+                <h4>11&#41; Which of the folloing is mechnical wave ?</h4>
+                <input type="radio" name="q11" value="option1" data-correct="f" id="q11-o1" />
+                <label for="q11-o1"> radio wave</label> <br />
+                <input type="radio" name="q11" value="option2" data-correct="t" id="q11-o2" />
+                <label for="q11-o2"> sound wave</label> <br />
+                <input type="radio" name="q11" value="option3" data-correct="f" id="q11-o3" />
+                <label for="q11-o3"> light wave</label> <br />
+              </div>
 
-                  <br />
-                  <!-- Question 13 -->
-                  <div class="question">
-                    <h4>13&#41; When we see an object, the image formed on retina is</h4>
-                    <input type="radio" name="q13" value="option1" data-correct="false" id="q13-o1" />
-                    <label for="q13-o1"> erect</label><br />
-                    <input type="radio" name="q13" value="option2" data-correct="false" id="q13-o2" />
-                    <label for="q13-o2"> virtual</label> <br />
-                    <input type="radio" name="q13" value="option3" data-correct="true" id="q13-o3" />
-                    <label for="q13-o3"> real</label> <br />
-                  </div>
+              <br />
+              <!-- Question 12 -->
+              <div class="question">
+                <h4>12&#41; The size of an object as percevied by an eye depends primarily on</h4>
+                <input type="radio" name="q12" value="option1" data-correct="t" id="q12-o1" />
+                <label for="q12-o1"> size of the image formed on the retina</label><br />
+                <input type="radio" name="q12" value="option2" data-correct="f" id="q12-o2" />
+                <label for="q12-o2"> distance of the object frome eye</label>
+                <br />
+                <input type="radio" name="q12" value="option3" data-correct="f" id="q12-o3" />
+                <label for="q12-o3"> aperture of pupil</label>
+                <br />
+              </div>
 
-                  <br />
+              <br />
+              <!-- Question 13 -->
+              <div class="question">
+                <h4>13&#41; When we see an object, the image formed on retina is</h4>
+                <input type="radio" name="q13" value="option1" data-correct="f" id="q13-o1" />
+                <label for="q13-o1"> erect</label><br />
+                <input type="radio" name="q13" value="option2" data-correct="f" id="q13-o2" />
+                <label for="q13-o2"> virtual</label> <br />
+                <input type="radio" name="q13" value="option3" data-correct="t" id="q13-o3" />
+                <label for="q13-o3"> real</label> <br />
+              </div>
 
-                  <!-- Question 14 -->
-                  <div class="question">
-                    <h4>14&#41; The focal length of a converging lene are f<sub>v</sub> and f<sub>r</sub> for violet and red llight respectively.</h4>
-                    <input type="radio" name="q14" value="option1" data-correct="true" id="q14-o1" />
-                    <label for="q14-o1"> f<sub>v</sub> less than f<sub>r</sub></label>
-                    <br />
-                    <input type="radio" name="q14" value="option2" data-correct="false" id="q14-o2" />
-                    <label for="q14-o2"> f<sub>v</sub> = f<sub>r</sub></label>
-                    <br />
-                    <input type="radio" name="q14" value="option3" data-correct="false" id="q14-o3" />
-                    <label for="q14-o3">f<sub>v</sub> greater than f<sub>r</sub></label>
-                    <br />
-                  </div>
+              <br />
 
-                  <br />
-                  <!-- Question 15 -->
-                  <div class="question">
-                    <h4>15&#41; As the wavelength is incresed from violet to red, the lumionoosity</h4>
-                    <input type="radio" name="q15" value="option1" data-correct="false" id="q15-o1" />
-                    <label for="q15-o1"> continuously increases</label><br />
-                    <input type="radio" name="q15" value="option2" data-correct="false" id="q15-o2" /><label for="q15-o2"> decreases then increses</label>
-                    <br />
-                    <input type="radio" name="q15" value="option3" data-correct="true" id="q15-o3" /><label for="q15-o3"> increases then decreases</label>
-                    <br />
-                  </div>
+              <!-- Question 14 -->
+              <div class="question">
+                <h4>14&#41; The focal length of a converging lene are f<sub>v</sub> and f<sub>r</sub> for violet and red llight respectively.</h4>
+                <input type="radio" name="q14" value="option1" data-correct="t" id="q14-o1" />
+                <label for="q14-o1"> f<sub>v</sub> less than f<sub>r</sub></label>
+                <br />
+                <input type="radio" name="q14" value="option2" data-correct="f" id="q14-o2" />
+                <label for="q14-o2"> f<sub>v</sub> = f<sub>r</sub></label>
+                <br />
+                <input type="radio" name="q14" value="option3" data-correct="f" id="q14-o3" />
+                <label for="q14-o3">f<sub>v</sub> greater than f<sub>r</sub></label>
+                <br />
+              </div>
 
-                  <br />
-                  <!-- Question 16 -->
-                  <div class="question">
-                    <h4>16&#41; Newtons first law of motion gives the concept of:</h4>
-                    <input type="radio" name="q16" value="option1" data-correct="true" id="q16-o1" /> <label for="q16-o1"> Inertia</label><br />
-                    <input type="radio" name="q16" value="option2" data-correct="false" id="q16-o2" /> <label for="q16-o2"> Force</label><br />
-                    <input type="radio" name="q16" value="option3" data-correct="false" id="q16-o3" /><label for="q16-o3"> Momentum</label> <br />
-                  </div>
+              <br />
+              <!-- Question 15 -->
+              <div class="question">
+                <h4>15&#41; As the wavelength is incresed from violet to red, the lumionoosity</h4>
+                <input type="radio" name="q15" value="option1" data-correct="f" id="q15-o1" />
+                <label for="q15-o1"> continuously increases</label><br />
+                <input type="radio" name="q15" value="option2" data-correct="f" id="q15-o2" />
+                <label for="q15-o2"> decreases then increses</label>
+                <br />
+                <input type="radio" name="q15" value="option3" data-correct="t" id="q15-o3" />
+                <label for="q15-o3"> increases then decreases</label>
+                <br />
+              </div>
 
-                  <br />
-                  <!-- Question 17 -->
-                  <div class="question">
-                    <h4>17&#41; The dimensional formulae of impulse is:</h4>
-                    <input type="radio" name="q17" value="option1" data-correct="false" id="q17-o1" /><label for="q17-o1"> [M<sup>0</sup>L<sup>0</sup>T<sup>-2</sup>]</label><br />
-                    <input type="radio" name="q17" value="option2" data-correct="true" id="q17-o2" />
-                    <label for="q17-o2"> [M<sup>0</sup>L<sup>0</sup>T<sup>-1</sup>]</label><br />
-                    <input type="radio" name="q17" value="option3" data-correct="false" id="q17-o3" />
-                    <label for="q17-o3"> [M<sup>0</sup>L<sup>2</sup>T<sup>-1</sup>]</label><br />
-                  </div>
+              <br />
+              <!-- Question 16 -->
+              <div class="question">
+                <h4>16&#41; Newtons first law of motion gives the concept of:</h4>
+                <input type="radio" name="q16" value="option1" data-correct="t" id="q16-o1" /> <label for="q16-o1"> Inertia</label><br />
+                <input type="radio" name="q16" value="option2" data-correct="f" id="q16-o2" /> <label for="q16-o2"> Force</label><br />
+                <input type="radio" name="q16" value="option3" data-correct="f" id="q16-o3" /> <label for="q16-o3"> Momentum</label> <br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 18 -->
-                  <div class="question">
-                    <h4>
-                      18&#41; A metallic rod at room temperature of 77<sup>0</sup>C radiattes at the rate of 10W. If its temperature is increased to 227<sup>0</sup>C, it will
-                      radiate at rate of:
-                    </h4>
-                    <input type="radio" name="q18" value="option1" data-correct="true" id="q18-o1" /><label for="q18-o1"> 42W</label><br />
-                    <input type="radio" name="q18" value="option2" data-correct="false" id="q18-o2" /><label for="q18-o2"> (277/77)x10W</label> <br />
-                    <input type="radio" name="q18" value="option3" data-correct="false" id="q18-o3" /><label for="q18-o3"> 160W</label> <br />
-                  </div>
+              <br />
+              <!-- Question 17 -->
+              <div class="question">
+                <h4>17&#41; The dimensional formulae of impulse is:</h4>
+                <input type="radio" name="q17" value="option1" data-correct="f" id="q17-o1" /> <label for="q17-o1"> [M<sup>0</sup>L<sup>0</sup>T<sup>-2</sup>]</label><br />
+                <input type="radio" name="q17" value="option2" data-correct="t" id="q17-o2" />
+                <label for="q17-o2"> [M<sup>0</sup>L<sup>0</sup>T<sup>-1</sup>]</label><br />
+                <input type="radio" name="q17" value="option3" data-correct="f" id="q17-o3" />
+                <label for="q17-o3"> [M<sup>0</sup>L<sup>2</sup>T<sup>-1</sup>]</label><br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 19 -->
-                  <div class="question">
-                    <h4>19&#41; The coefficient of linear expansion depends upon:</h4>
-                    <input type="radio" name="q19" value="option1" data-correct="false" id="q19-o1" /><label for="q19-o1"> Initial length</label>
-                    <br />
-                    <input type="radio" name="q19" value="option2" data-correct="true" id="q19-o2" /> <label for="q19-o2"> Nature of substance</label><br />
-                    <input type="radio" name="q19" value="option3" data-correct="false" id="q19-o3" /><label for="q19-o3"> Change in length</label>
-                    <br />
-                  </div>
+              <br />
+              <br />
+              <!-- Question 18 -->
+              <div class="question">
+                <h4>
+                  18&#41; A metallic rod at room temperature of 77<sup>0</sup>C radiattes at the rate of 10W. If its temperature is increased to 227<sup>0</sup>C, it will radiate
+                  at rate of:
+                </h4>
+                <input type="radio" name="q18" value="option1" data-correct="t" id="q18-o1" /> <label for="q18-o1"> 42W</label><br />
+                <input type="radio" name="q18" value="option2" data-correct="f" id="q18-o2" /> <label for="q18-o2"> (277/77)x10W</label> <br />
+                <input type="radio" name="q18" value="option3" data-correct="f" id="q18-o3" /> <label for="q18-o3"> 160W</label> <br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 20 -->
-                  <div class="question">
-                    <h4>20&#41; Which of the following shows the maximum thermal expansion?</h4>
-                    <input type="radio" name="q20" value="option1" data-correct="false" id="q20-o1" /><label for="q20-o1"> Water</label> <br />
-                    <input type="radio" name="q20" value="option2" data-correct="true" id="q20-o2" /><label for="q20-o2"> Hydrogen gas</label> <br />
-                    <input type="radio" name="q20" value="option3" data-correct="false" id="q20-o3" /><label for="q20-o3"> Aluminium rod</label> <br />
-                  </div>
+              <br />
+              <br />
+              <!-- Question 19 -->
+              <div class="question">
+                <h4>19&#41; The coefficient of linear expansion depends upon:</h4>
+                <input type="radio" name="q19" value="option1" data-correct="f" id="q19-o1" /> <label for="q19-o1"> Initial length</label>
+                <br />
+                <input type="radio" name="q19" value="option2" data-correct="t" id="q19-o2" /> <label for="q19-o2"> Nature of substance</label><br />
+                <input type="radio" name="q19" value="option3" data-correct="f" id="q19-o3" /> <label for="q19-o3"> Change in length</label>
+                <br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 21 -->
-                  <div class="question">
-                    <h4>21&#41; Two bodies will be in thermal equlibrium if they have same:</h4>
-                    <input type="radio" name="q21" value="option1" data-correct="false" id="q21-o1" /><label for="q21-o1"> Specific heat</label> <br />
-                    <input type="radio" name="q21" value="option2" data-correct="false" id="q21-o2" /><label for="q21-o2"> Heat energy</label> <br />
-                    <input type="radio" name="q21" value="option3" data-correct="true" id="q21-o3" /><label for="q21-o3"> Temperature</label> <br />
-                  </div>
+              <br />
+              <br />
+              <!-- Question 20 -->
+              <div class="question">
+                <h4>20&#41; Which of the following shows the maximum thermal expansion?</h4>
+                <input type="radio" name="q20" value="option1" data-correct="f" id="q20-o1" /> <label for="q20-o1"> Water</label> <br />
+                <input type="radio" name="q20" value="option2" data-correct="t" id="q20-o2" /> <label for="q20-o2"> Hydrogen gas</label> <br />
+                <input type="radio" name="q20" value="option3" data-correct="f" id="q20-o3" /> <label for="q20-o3"> Aluminium rod</label> <br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 22 -->
-                  <div class="question">
-                    <h4>22&#41; If a slab is kept in parallel plate capicitor, then electric feild intensity:</h4>
-                    <input type="radio" name="q22" value="option1" data-correct="true" id="q22-o1" /><label for="q22-o1"> Increases</label> <br />
-                    <input type="radio" name="q22" value="option2" data-correct="false" id="q22-o2" /><label for="q22-o2"> Decreases</label> <br />
-                    <input type="radio" name="q22" value="option3" data-correct="false" id="q22-o3" /><label for="q22-o3"> fluctutates with thickness</label>
-                    <br />
-                  </div>
+              <br />
+              <br />
+              <!-- Question 21 -->
+              <div class="question">
+                <h4>21&#41; Two bodies will be in thermal equlibrium if they have same:</h4>
+                <input type="radio" name="q21" value="option1" data-correct="f" id="q21-o1" /> <label for="q21-o1"> Specific heat</label> <br />
+                <input type="radio" name="q21" value="option2" data-correct="f" id="q21-o2" /> <label for="q21-o2"> Heat energy</label> <br />
+                <input type="radio" name="q21" value="option3" data-correct="t" id="q21-o3" /> <label for="q21-o3"> Temperature</label> <br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 23 -->
-                  <div class="question">
-                    <h4>23&#41; The caapacitance C is charged through a resistor R. The time constant of charging circuit is given by:</h4>
-                    <input type="radio" name="q23" value="option1" data-correct="true" id="q23-o1" /><label for="q23-o1"> RC</label> <br />
-                    <input type="radio" name="q23" value="option2" data-correct="false" id="q23-o2" /><label for="q23-o2"> C/R</label> <br />
-                    <input type="radio" name="q23" value="option3" data-correct="false" id="q23-o3" /><label for="q23-o3"> 1/RC</label> <br />
-                  </div>
+              <br />
+              <br />
+              <!-- Question 22 -->
+              <div class="question">
+                <h4>22&#41; If a slab is kept in parallel plate capicitor, then electric feild intensity:</h4>
+                <input type="radio" name="q22" value="option1" data-correct="t" id="q22-o1" /> <label for="q22-o1"> Increases</label> <br />
+                <input type="radio" name="q22" value="option2" data-correct="f" id="q22-o2" /> <label for="q22-o2"> Decreases</label> <br />
+                <input type="radio" name="q22" value="option3" data-correct="f" id="q22-o3" /> <label for="q22-o3"> fluctutates with thickness</label>
+                <br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 24 -->
-                  <div class="question">
-                    <h4>24&#41; IF a wire of resistance R is stretched by 20%. What is change in resistance?</h4>
-                    <input type="radio" name="q24" value="option1" data-correct="false" id="q24-o1" /><label for="q24-o1"> 20%</label> <br />
-                    <input type="radio" name="q24" value="option2" data-correct="false" id="q24-o2" /><label for="q24-o2"> 40%</label> <br />
-                    <input type="radio" name="q24" value="option3" data-correct="true" id="q24-o3" /> <label for="q24-o3"> 44%</label><br />
-                  </div>
+              <br />
+              <br />
+              <!-- Question 23 -->
+              <div class="question">
+                <h4>23&#41; The caapacitance C is charged through a resistor R. The time constant of charging circuit is given by:</h4>
+                <input type="radio" name="q23" value="option1" data-correct="t" id="q23-o1" /> <label for="q23-o1"> RC</label> <br />
+                <input type="radio" name="q23" value="option2" data-correct="f" id="q23-o2" /> <label for="q23-o2"> C/R</label> <br />
+                <input type="radio" name="q23" value="option3" data-correct="f" id="q23-o3" /> <label for="q23-o3"> 1/RC</label> <br />
+              </div>
 
-                  <br />
-                  <br />
-                  <!-- Question 25 -->
-                  <div class="question">
-                    <h4>25&#41; Quark combination of proton is:</h4>
-                    <input type="radio" name="q25" value="option1" data-correct="true" id="q25-o1" /><label for="q25-o1"> uud</label> <br />
-                    <input type="radio" name="q25" value="option2" data-correct="false" id="q25-o2" /><label for="q25-o2"> Uss</label><br />
-                    <input type="radio" name="q25" value="option3" data-correct="false" id="q25-o3" /><label for="q25-o3"> uus</label> <br />
-                  </div>
+              <br />
+              <br />
+              <!-- Question 24 -->
+              <div class="question">
+                <h4>24&#41; IF a wire of resistance R is stretched by 20%. What is change in resistance?</h4>
+                <input type="radio" name="q24" value="option1" data-correct="f" id="q24-o1" /> <label for="q24-o1"> 20%</label> <br />
+                <input type="radio" name="q24" value="option2" data-correct="f" id="q24-o2" /> <label for="q24-o2"> 40%</label> <br />
+                <input type="radio" name="q24" value="option3" data-correct="t" id="q24-o3" /> <label for="q24-o3"> 44%</label><br />
+              </div>
 
-                  <br />
-                </form>
+              <br />
+              <br />
+              <!-- Question 25 -->
+              <div class="question">
+                <h4>25&#41; Quark combination of proton is:</h4>
+                <input type="radio" name="q25" value="option1" data-correct="t" id="q25-o1" /> <label for="q25-o1"> uud</label> <br />
+                <input type="radio" name="q25" value="option2" data-correct="f" id="q25-o2" /> <label for="q25-o2"> Uss</label><br />
+                <input type="radio" name="q25" value="option3" data-correct="f" id="q25-o3" /> <label for="q25-o3"> uus</label> <br />
+              </div>
+
+              <br />
+            </form>

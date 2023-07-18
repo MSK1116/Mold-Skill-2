@@ -76,7 +76,7 @@
         <div id="content">
           <!-- Topbar -->
           <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <button title="sidebarToggleTop" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
             </button>
 
@@ -361,6 +361,9 @@
     <!-- STarting pop effect -->
     <script src="../js/script5.js"></script>
     <!-- Scripted file-->
+  <script>
+      document.cookie = "cookieName=value; SameSite=None; Secure";
+    </script>
   </body>
 </html>
 
@@ -368,7 +371,7 @@
   <div class="input-group">
     <input type="text" class="form-control bg-light border-0 small" placeholder="SEARCH COMING SOON." id="searchInput" />
     <div class="input-group-append">
-      <button onclick="performSearch()" class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button title="" onclick="performSearch()" class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-search fa-sm"></i>
       </button>
     </div>

@@ -84,7 +84,7 @@
 
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
-            <img class="logo" src="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" alt="" />
+            <img class="logo" src="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" alt="Loading PNG" />
             <hr class="sidebar-divider" />
             <i class="fa fa-home"></i>
             <span>Home Page</span></a
@@ -192,14 +192,14 @@
         <hr class="sidebar-divider d-none d-md-block" />
 
         <div class="text-center d-none d-md-inline">
-          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          <button title="sidebar-toggler" class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
 
         <!-- Sidebar Message -->
 
         <li class="nav-item mb-3">
           <div class="sidebar-card d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="https://i.postimg.cc/q7Z18qRN/Stable-rocket.gif" alt="..." />
+            <img class="sidebar-card-illustration mb-2" src="https://i.postimg.cc/q7Z18qRN/Stable-rocket.gif" alt="Quote of day" />
 
             <p class="text-center mb-2">
               <strong>Quote of the Day</strong><br />
@@ -217,7 +217,7 @@
           <!-- Topbar -->
           <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
             <!-- sidebar toggler -->
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <button title="sidebarToggleTop" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
             </button>
 
@@ -226,7 +226,15 @@
               <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
                 <div class="input-group-append">
-                  <button onclick="performSearch()" class="btn btn-primary" id="searchDropdown-" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button
+                    onclick="performSearch()"
+                    class="btn btn-primary"
+                    id="searchDropdown-"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-label="search"
+                    aria-expanded="false">
                     <i class="fas fa-search fa-sm"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
@@ -527,23 +535,23 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a title="flot" class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-rocket"></i>
     </a>
     <div class="share rounded">
-      <a class="rounded" href="#" target="_blank">
+      <a title="flot" class="rounded" href="#" target="_blank">
         <i class="fa fa-external-link"></i>
       </a>
       <br />
-      <a class="rounded" id="facebookShareLink" href="#" onclick="shareOnFacebook()">
+      <a title="flot" class="rounded" id="facebookShareLink" href="#" onclick="shareOnFacebook()">
         <i class="fa fa-facebook"></i>
       </a>
       <br />
-      <a class="rounded" id="whatsappShareLink" href="#" onclick="shareOnWhatsApp()">
+      <a title="flot" class="rounded" id="whatsappShareLink" href="#" onclick="shareOnWhatsApp()">
         <i class="fa fa-whatsapp"></i>
       </a>
       <br />
-      <a class="rounded" href="../../MICS/user_2/feedback & Bug Report.html" target="_blank">
+      <a title="flot" class="rounded" href="../../MICS/user_2/feedback & Bug Report.html" target="_blank">
         <i class="fas fa-comment"></i>
       </a>
     </div>
@@ -559,5 +567,8 @@
     <script src="js/script5.js"></script>
     <!-- serch indexing -->
     <script src="js/serch-index.js"></script>
+    <script>
+      document.cookie = "cookieName=value; SameSite=None; Secure";
+    </script>
   </body>
 </html>
