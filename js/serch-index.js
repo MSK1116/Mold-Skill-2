@@ -24,7 +24,6 @@ function displayErrorMessage(message) {
   errorElement.textContent = message;
   resultContainer.appendChild(errorElement);
 }
-
 function searchFunction(query) {
   var data = [
     // books
@@ -37,7 +36,7 @@ function searchFunction(query) {
     {title: "Physics Books for grade xi & xii", url: "Physics Book/phy-book.html"},
     {title: "University Physics solution", url: "Physics Book/University Physics solution.html"},
     {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
-    {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics Book/Extreme Physics.html"},
+    {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics BookExtreme Physics.html"},
     {title: "", url: ""},
 
     // lab file of grade xi
@@ -130,19 +129,6 @@ function searchFunction(query) {
     {title: "Thermal Expansion class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/thermla expansion-13-xi.html"},
     {title: "Vector class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/vectro-1-xi.html"},
     {title: "", url: ""},
-    // mcq-phy
-    {title: "", url: ""},
-    {title: "", url: ""},
-    {title: "", url: ""},
-    // mcq-chm
-    {title: "", url: ""},
-    {title: "", url: ""},
-    // mcq-comp
-    {title: "", url: ""},
-    {title: "", url: ""},
-    // mcq-mat
-    {title: "", url: ""},
-    {title: "", url: ""},
   ];
 
   var words = query
@@ -188,24 +174,22 @@ function displayResults(results) {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  var searchForm = document.getElementById("searchForm");
   var searchInput = document.getElementById("searchInput");
+  var searchButton = document.getElementById("searchDropdown-");
 
-  searchForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    performSearch();
-  });
+  if (searchInput && searchButton) {
+    searchInput.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        performSearch();
+      }
+    });
 
-  searchInput.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
+    searchButton.addEventListener("click", function (event) {
       event.preventDefault();
       performSearch();
-    }
-  });
-
-  var searchButton = document.getElementById("searchButton");
-  searchButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    performSearch();
-  });
+    });
+  } else {
+    console.error("One or more elements not found in the DOM.");
+  }
 });

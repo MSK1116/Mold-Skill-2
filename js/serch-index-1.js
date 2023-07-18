@@ -174,24 +174,22 @@ function displayResults(results) {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  var searchForm = document.getElementById("searchForm");
   var searchInput = document.getElementById("searchInput");
+  var searchButton = document.getElementById("searchDropdown-");
 
-  searchForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    performSearch();
-  });
+  if (searchInput && searchButton) {
+    searchInput.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        performSearch();
+      }
+    });
 
-  searchInput.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
+    searchButton.addEventListener("click", function (event) {
       event.preventDefault();
       performSearch();
-    }
-  });
-
-  var searchButton = document.getElementById("searchButton");
-  searchButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    performSearch();
-  });
+    });
+  } else {
+    console.error("One or more elements not found in the DOM.");
+  }
 });
