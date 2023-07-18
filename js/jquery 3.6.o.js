@@ -502,7 +502,7 @@
             (d.qsa = K.test(C.querySelectorAll)) &&
               (ce(function (e) {
                 var t;
-                (a.appendChild(e).innerHTML = "<a title=" " id='" + S + "'></a><select id='" + S + "-\r\\' msallowcapture=''><option selected=''></option></select>"),
+                (a.appendChild(e).innerHTML = "<a id='" + S + "'></a><select id='" + S + "-\r\\' msallowcapture=''><option selected=''></option></select>"),
                   e.querySelectorAll("[msallowcapture^='']").length && v.push("[*^$]=" + M + "*(?:''|\"\")"),
                   e.querySelectorAll("[selected]").length || v.push("\\[" + M + "*(?:value|" + R + ")"),
                   e.querySelectorAll("[id~=" + S + "-]").length || v.push("~="),
@@ -515,7 +515,7 @@
                   v.push("[\\r\\n\\f]");
               }),
               ce(function (e) {
-                e.innerHTML = "<a title=" " href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
+                e.innerHTML = "<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
                 var t = C.createElement("input");
                 t.setAttribute("type", "hidden"),
                   e.appendChild(t).setAttribute("name", "D"),
@@ -1140,7 +1140,7 @@
         return 1 & e.compareDocumentPosition(C.createElement("fieldset"));
       })),
       ce(function (e) {
-        return (e.innerHTML = "<a title=" " href='#'></a>"), "#" === e.firstChild.getAttribute("href");
+        return (e.innerHTML = "<a href='#'></a>"), "#" === e.firstChild.getAttribute("href");
       }) ||
         fe("type|href|height|width", function (e, t, n) {
           if (!n) return e.getAttribute(t, "type" === t.toLowerCase() ? 1 : 2);
@@ -1462,7 +1462,7 @@
             always: function () {
               return s.done(arguments).fail(arguments), this;
             },
-            "catch": function (e) {
+            catch: function (e) {
               return a.then(null, e);
             },
             pipe: function () {
@@ -2200,7 +2200,7 @@
         pageY: !0,
         shiftKey: !0,
         view: !0,
-        "char": !0,
+        char: !0,
         code: !0,
         charCode: !0,
         key: !0,
@@ -3203,7 +3203,7 @@
           },
         },
       },
-      propFix: {"for": "htmlFor", "class": "className"},
+      propFix: {for: "htmlFor", class: "className"},
     }),
     y.optSelected ||
       (S.propHooks.selected = {
