@@ -1,5 +1,3 @@
-document.cookie = "cookieName=value; SameSite=None; Secure";
-
 !(function (t, e) {
   "object" == typeof exports && "undefined" != typeof module
     ? e(exports, require("jquery"))
