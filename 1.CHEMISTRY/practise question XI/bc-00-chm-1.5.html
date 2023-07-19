@@ -195,20 +195,19 @@
       // Path to the file in the Firebase Storage bucket
       var filePath = "Chemistry Practise Question/bc-00-chm-1.5_watermark.pdf";
 
-      // Generate download URL and embed the file in the webpage
+      // Generate download URL
       storageRef
         .child(filePath)
         .getDownloadURL()
         .then(function (url) {
-          // Create an embed element and set the source URL
-          var embedElement = document.createElement("embed");
-          embedElement.src = url;
-          embedElement.type = "application/pdf";
-          embedElement.width = "100%";
-          embedElement.height = "600px";
+          // Create an iframe element and set the source URL
+          var iframeElement = document.createElement("iframe");
+          iframeElement.src = url;
+          iframeElement.style.width = "100%";
+          iframeElement.style.height = "600px";
 
-          // Append the embed element to the container div
-          document.getElementById("fileEmbedContainer").appendChild(embedElement);
+          // Append the iframe element to the container div
+          document.getElementById("fileEmbedContainer").appendChild(iframeElement);
         })
         .catch(function (error) {
           // Handle any errors that occur during URL generation
