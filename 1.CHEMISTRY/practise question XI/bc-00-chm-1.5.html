@@ -121,7 +121,7 @@
           </div>
           <!-- end of stopwatch -->
           <div class="container-fluid">
-            <embed src="Chemistry Practise Question/bc-00-chm-1.5_watermark.pdf" width="100%" height="600px" type="application/pdf" />
+            <div class="row align" id="pdfContainer"></div>
             <!-- Loading screen -->
             <div id="loading-screen">
               <div id="loading-content">
@@ -182,6 +182,45 @@
     <!-- Scripted file -->
 
     <script src="../../js/stopwatch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+      var pdfFilePath = "../../Chemistry Practise Question/bc-00-chm-1.5_watermark.pdf";
+
+      // Asynchronous function to load and render the PDF
+      async function renderPDF() {
+        const loadingTask = pdfjsLib.getDocument(pdfFilePath);
+        const pdf = await loadingTask.promise;
+        const numPages = pdf.numPages;
+        const pdfContainer = document.getElementById("pdfContainer");
+
+        // Loop through each page and render it
+        for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
+
+          // Set the desired scale and other rendering options
+          const viewport = page.getViewport({scale: 1});
+
+          // Create a canvas element for the page
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          // Append the canvas to the PDF container
+          pdfContainer.appendChild(canvas);
+
+          // Render the page on the canvas
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport,
+          };
+          await page.render(renderContext).promise;
+        }
+      }
+
+      // Call the renderPDF function to initiate rendering
+      renderPDF();
+    </script>
 
     <!-- Scripted file-->
   </body>

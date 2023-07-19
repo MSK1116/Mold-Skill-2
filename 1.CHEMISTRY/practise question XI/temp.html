@@ -1,80 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PDF Viewer</title>
+    <title>Custom PDF Viewer</title>
     <style>
-      .pdf-viewer {
+      #pdfContainer {
         width: 100%;
-        height: 100%;
+        height: 600px;
+        overflow: auto;
       }
     </style>
   </head>
   <body>
-    <div id="fileEmbedContainer"></div>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <div id="pdfContainer"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js"></script>
     <script>
-      window.addEventListener("load", function () {
-        // Initialize Firebase with your project's configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyAtIAW-qFNdN4jbWMzlWJFHkfVgD2GIVr0",
-          authDomain: "mold-skill-2.firebaseapp.com",
-          projectId: "mold-skill-2",
-          storageBucket: "mold-skill-2.appspot.com",
-          messagingSenderId: "552584001357",
-          appId: "1:552584001357:web:4ea772bcfc0fe36cdbe904",
-          measurementId: "G-QWSN6MQ1Q2",
-        };
+      var pdfFilePath = "../../Chemistry Practise Question/bc-00-chm-1.5_watermark.pdf";
 
-        firebase.initializeApp(firebaseConfig);
+      // Asynchronous function to load and render the PDF
+      async function renderPDF() {
+        const loadingTask = pdfjsLib.getDocument(pdfFilePath);
+        const pdf = await loadingTask.promise;
+        const numPages = pdf.numPages;
+        const pdfContainer = document.getElementById("pdfContainer");
 
-        // Get a reference to the storage service
-        var storage = firebase.storage();
-        var storageRef = storage.ref();
+        // Loop through each page and render it
+        for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
 
-        // Path to the file in the Firebase Storage bucket
-        var filePath = "Chemistry Practise Question/bc-00-chm-1.5_watermark.pdf";
+          // Set the desired scale and other rendering options
+          const scale = 1.5;
+          const viewport = page.getViewport({scale});
 
-        // Generate download URL
-        storageRef
-          .child(filePath)
-          .getDownloadURL()
-          .then(function (url) {
-            // Load the PDF
-            var loadingTask = pdfjsLib.getDocument(url);
-            loadingTask.promise.then(function (pdf) {
-              // Create a PDF viewer container element
-              var viewerContainer = document.createElement("div");
-              viewerContainer.className = "pdf-viewer";
+          // Create a canvas element for the page
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
 
-              // Append the viewer container to the container div
-              document.getElementById("fileEmbedContainer").appendChild(viewerContainer);
+          // Append the canvas to the PDF container
+          pdfContainer.appendChild(canvas);
 
-              // Loop through each page of the PDF and render it
-              for (var pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-                pdf.getPage(pageNumber).then(function (page) {
-                  // Create a canvas element for the page
-                  var canvas = document.createElement("canvas");
-                  viewerContainer.appendChild(canvas);
+          // Render the page on the canvas
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport,
+          };
+          await page.render(renderContext).promise;
+        }
+      }
 
-                  // Render the page on the canvas
-                  var viewport = page.getViewport({scale: 1});
-                  var context = canvas.getContext("2d");
-                  canvas.width = viewport.width;
-                  canvas.height = viewport.height;
-                  page.render({canvasContext: context, viewport: viewport});
-                });
-              }
-            });
-          })
-          .catch(function (error) {
-            // Handle any errors that occur during URL generation
-            console.error("Error generating download URL:", error);
-          });
-      });
+      // Call the renderPDF function to initiate rendering
+      renderPDF();
     </script>
   </body>
 </html>
