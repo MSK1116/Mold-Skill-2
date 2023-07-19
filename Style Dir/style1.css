@@ -16,12 +16,14 @@
   width: 90%;
   margin: auto;
   max-height: 900px;
+  overflow-y: scroll;
 }
 
 #pdfContainer canvas {
   width: 85%;
   margin: 10px 0;
   max-height: 900px;
+  overflow-y: scroll;
 }
 
 .align-center {
