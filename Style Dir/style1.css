@@ -16,7 +16,7 @@
 }
 
 #pdfContainer canvas {
-  display: block;
+  width: 75%;
   margin: 10px 0;
 }
 
