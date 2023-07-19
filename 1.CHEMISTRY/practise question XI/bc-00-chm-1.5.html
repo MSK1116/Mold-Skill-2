@@ -109,7 +109,7 @@
           <!-- end of stopwatch -->
           <div class="container-fluid">
             <div class="row align">
-              <iframe title=" " width="85%" height="800px" src="https://drive.google.com/file/d/13YaQwp4MV7sBZkLYpwAjlYWz5dC15xnt/preview" allow="autoplay"></iframe>
+              <div id="fileEmbedContainer"></div>
             </div>
 
             <!-- Loading screen -->
@@ -174,6 +174,49 @@
     <!-- MIcs -->
     <script src="../../js/script1.js"></script>
     <script src="../../js/stopwatch.js"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-storage.js"></script>
+    <script>
+      // Initialize Firebase with your project's configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAtIAW-qFNdN4jbWMzlWJFHkfVgD2GIVr0",
+        authDomain: "mold-skill-2.firebaseapp.com",
+        projectId: "mold-skill-2",
+        storageBucket: "mold-skill-2.appspot.com",
+        messagingSenderId: "552584001357",
+        appId: "1:552584001357:web:4ea772bcfc0fe36cdbe904",
+        measurementId: "G-QWSN6MQ1Q2",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      // Get a reference to the storage service
+      var storage = firebase.storage();
+      var storageRef = storage.ref();
+
+      // Path to the file in the Firebase Storage bucket
+      var filePath = "Chemistry Practise Question/bc-00-chm-1.5_watermark.pdf";
+
+      // Generate download URL and embed the file in the webpage
+      storageRef
+        .child(filePath)
+        .getDownloadURL()
+        .then(function (url) {
+          // Create an embed element and set the source URL
+          var embedElement = document.createElement("embed");
+          embedElement.src = url;
+          embedElement.type = "application/pdf";
+          embedElement.width = "100%";
+          embedElement.height = "600px";
+
+          // Append the embed element to the container div
+          document.getElementById("fileEmbedContainer").appendChild(embedElement);
+        })
+        .catch(function (error) {
+          // Handle any errors that occur during URL generation
+          console.error("Error generating download URL:", error);
+        });
+    </script>
     <!-- Scripted file-->
     <script>
       document.cookie = "cookieName=value; SameSite=None; Secure";
