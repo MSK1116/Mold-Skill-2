@@ -26,15 +26,17 @@
 
 /* Basic styles for the PDF viewer container */
 /* Styles for the PDF viewer container */
+/* Styles for the PDF viewer container */
 #pdfViewer {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 90%;
-  overflow: auto;
+  max-height: 700px; /* Adjust this value as needed */
+  overflow-y: auto; /* Show scrollbar if content overflows */
   border: 1px solid #ccc;
   background-color: #696666;
-  max-height: 700px;
+  box-sizing: border-box; /* Make sure border size is included in the total height */
 }
 
 /* Styles for the individual pages */
@@ -42,7 +44,8 @@ canvas {
   display: block;
   margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-height: 900px;
+  max-height: 100%; /* Pages will scale to fit available height */
+  width: auto; /* Allow pages to adjust width as needed */
 }
 
 /* Styles for the navigation buttons and page indicator */
