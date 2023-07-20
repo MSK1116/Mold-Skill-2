@@ -33,7 +33,7 @@
   flex-direction: column;
   width: 90%;
   max-height: 700px; /* Adjust this value as needed */
-  overflow-y: auto; /* Show scrollbar if content overflows */
+  overflow-y: auto;
   border: 1px solid #ccc;
   background-color: #696666;
   box-sizing: border-box; /* Make sure border size is included in the total height */
