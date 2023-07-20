@@ -7,7 +7,7 @@
   margin-left: 10px;
 }
 
-#pdfContainer {
+/* #pdfContainer {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -15,20 +15,84 @@
   overflow: auto;
   width: 90%;
   margin: auto;
-  max-height: 900px;
   overflow-y: scroll;
 }
 
 #pdfContainer canvas {
   width: 85%;
   margin: 10px 0;
-  max-height: 900px;
   overflow-y: scroll;
+} */
+
+/* Basic styles for the PDF viewer container */
+/* Styles for the PDF viewer container */
+#pdfViewer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  overflow: auto;
+  border: 1px solid #ccc;
+  background-color: #696666;
+  max-height: 700px;
 }
 
-.align-center {
-  text-align: center;
-  margin-top: 12px;
+/* Styles for the individual pages */
+canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 900px;
+}
+
+/* Styles for the navigation buttons and page indicator */
+#navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f6f6f6;
+}
+
+#prevPageBtn[disabled],
+#nextPageBtn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#currentPageIndicator {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Custom scrollbar for the PDF viewer container */
+#pdfViewer::-webkit-scrollbar {
+  width: 10px;
+}
+
+#pdfViewer::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+#pdfViewer::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3;
+}
+
+#pdfViewer::-webkit-scrollbar-track {
+  background-color: #f6f6f6;
+}
+
+/* Media queries for responsive styles */
+@media (max-width: 768px) {
+  /* For mobile devices with width up to 768px */
+  #pdfViewer {
+    width: 100%;
+    max-height: 100vh;
+  }
+  canvas {
+    max-width: 90%;
+  }
 }
 
 .for_navdata {

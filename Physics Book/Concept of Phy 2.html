@@ -116,50 +116,16 @@
           <div class="container-fluid">
             <!-- MCQ -->
             <div>
-              <!-- dispaly pdf -->
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
-              <script>
-                var pdfFilePath = "../../DATA DIR/Physics International Books/Concepts of Physics 2.pdf";
-
-                // Asynchronous function to load and render the PDF
-                async function renderPDF() {
-                  const loadingTask = pdfjsLib.getDocument(pdfFilePath);
-                  const pdf = await loadingTask.promise;
-                  const numPages = pdf.numPages;
-                  const pdfContainer = document.getElementById("pdfContainer");
-
-                  // Loop through each page and render it
-                  for (let pageNum = 1; pageNum <= numPages; pageNum++) {
-                    const page = await pdf.getPage(pageNum);
-
-                    // Set the desired scale and other rendering options
-                    const viewport = page.getViewport({scale: 1});
-
-                    // Create a canvas element for the page
-                    const canvas = document.createElement("canvas");
-                    const context = canvas.getContext("2d");
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
-
-                    // Append the canvas to the PDF container
-                    pdfContainer.appendChild(canvas);
-
-                    // Render the page on the canvas
-                    const renderContext = {
-                      canvasContext: context,
-                      viewport: viewport,
-                    };
-                    await page.render(renderContext).promise;
-                  }
-                }
-
-                // Call the renderPDF function to initiate rendering
-                renderPDF();
-              </script>
-              <div class="d-flex flex-column" id="pdfContainer">
-                <!-- Display pdf -->
+              <div>
+                <button id="prevPageBtn">Previous Page</button>
+                <button class="btn btn-warning" id="nextPageBtn">Next Page</button>
+                <input type="number" id="pageNumberInput" min="1" max="1" value="1" />
+                <span class="text-info" id="currentPageIndicator">Page 1 of 1</span>
               </div>
+              <!-- HTML structure for the PDF viewer and navigation buttons -->
+              <div id="pdfViewer"></div>
             </div>
+
             <!-- MORE -->
             <h3><b>More:</b></h3>
 
@@ -389,7 +355,7 @@
         <i class="fa fa-whatsapp"></i>
       </a>
       <br />
-      <a title=" " class="rounded" href="../../MICS/user_2/feedback & Bug Report.html" target="_blank">
+      <a title=" " class="rounded" href="../MICS/user_2/feedback & Bug Report.html" target="_blank">
         <i class="fas fa-comment"></i>
       </a>
     </div>
@@ -399,8 +365,12 @@
     </a>
 
     <!-- Scripted file -->
-    <script src="../js/jquery 3.6.o.js"></script>
-    <script src="../js/script1.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+      var pdfFileURL = "../DATA DIR/Physics International Books/Concepts of Physics 1.pdf";
+    </script>
+    <script src="../js/pdf.js"></script>
     <script>
       document.cookie = "cookieName=value; SameSite=None; Secure";
     </script>
