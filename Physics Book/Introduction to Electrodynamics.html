@@ -97,12 +97,35 @@
             </ul>
           </nav>
           <!-- End of Topbar -->
+          <div class="container-fluid mb-2 margin-top">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9494024234731058" crossorigin="anonymous"></script>
+            <!-- DIV -->
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-9494024234731058"
+              data-ad-slot="2346176016"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
           <!--Main Contain-->
           <div class="container-fluid">
-            <!-- MCQ -->
-            <div class="row align">
-              <embed width="85%" height="700px" src="https://drive.google.com/file/d/1zKbY2NuCxT-oBgd45hyyrwwZ6Dv7nktd/preview" allow="autoplay" />
+            <div>
+              <div>
+                <h4 class="text-center font-weight-bold text-info">Introduction To Electrodynamic</h4>
+                <button class="btn btn-danger" id="prevPageBtn">Previous</button>
+                <button class="btn btn-warning" id="nextPageBtn">Next Page</button>
+                <input label="input" type="number" id="pageNumberInput" min="1" max="1" value="1" />
+                <br />
+                <span class="text-info" id="currentPageIndicator">Page 1 of 1</span>
+              </div>
+              <!-- HTML structure for the PDF viewer and navigation buttons -->
+              <div id="pdfViewer"></div>
             </div>
+
             <!-- MORE -->
             <h3><b>More:</b></h3>
 
@@ -276,7 +299,7 @@
               <div id="loading-content">
                 <h4>Mold Skill <sub>web</sub></h4>
                 <!-- Add loading animations or text here -->
-                <img title=" " src="https://i.postimg.cc/cJKHndfC/Loading-GIF-2.gif" />
+                <img title="Loading" src="https://i.postimg.cc/cJKHndfC/Loading-GIF-2.gif" />
                 <h5>
                   Loading..<br />
                   Introduction to Electrodynamic.
@@ -341,8 +364,12 @@
     </a>
 
     <!-- Scripted file -->
-    <script src="../js/jquery 3.6.o.js"></script>
-    <script src="../js/script1.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+      var pdfFileURL = "../DATA DIR/Physics International Books/Concepts of Physics 1.pdf";
+    </script>
+    <script src="../js/pdf.js"></script>
     <script>
       document.cookie = "cookieName=value; SameSite=None; Secure";
     </script>

@@ -199,6 +199,18 @@ canvas {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.container9-tb {
+  background-image: url(https://i.postimg.cc/fLmyFsSr/Brf-ans-t-bg-que.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.container10-tb {
+  background-image: url(https://i.postimg.cc/nctRNGgR/College-phy.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .backcolor {
   background-color: red;
 }
