@@ -38,6 +38,8 @@ function searchFunction(query) {
     {title: "University Physics solution", url: "Physics Book/University Physics solution.html"},
     {title: "University Physics 13 edition", url: "Physics Book/University-Physics-13edt.html"},
     {title: "Xtreme Physics by santosh pandit for +2 ", url: "Physics BookExtreme Physics.html"},
+    {title: "College Physics", url: "Physics Book/clz-phy.html"},
+    {title: "Brief Answer To the Big Question", url: "Physics Book\brief-ans-t-bg-que.html"},
     {title: "", url: ""},
 
     // lab file of grade xi
