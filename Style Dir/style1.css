@@ -28,15 +28,6 @@ canvas {
   margin-bottom: 3px;
 }
 
-/* Styles for the navigation buttons and page indicator */
-#navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #f6f6f6;
-}
-
 #prevPageBtn[disabled],
 #nextPageBtn[disabled] {
   opacity: 0.5;
