@@ -77,8 +77,22 @@
           <!-- End of Topbar -->
           <!--Main Contain-->
           <div class="container-fluid">
-            <div class="row align">
-              <iframe title=" " width="85%" height="800px" src="https://drive.google.com/file/d/1KJ8P9qmO7BHGLzia1gXohoKWcUODJEP3/preview" allow="autoplay"></iframe>
+            <div>
+              <div>
+                <h4 class="text-center font-weight-bold text-info">Electric Potential & Energy</h4>
+                <button class="btn btn-danger" id="prevPageBtn">Previous</button>
+                <button class="btn btn-warning" id="nextPageBtn">Next Page</button>
+                <input title="input" label="input" type="number" id="pageNumberInput" min="1" max="1" value="1" />
+                <br />
+                <span class="text-info" id="currentPageIndicator">Page 1 of ...</span>
+              </div>
+              <!-- HTML structure for the PDF viewer and navigation buttons -->
+              <div id="pdfModal" class="modal" style="display: none">
+                <canvas id="modalCanvas"></canvas>
+              </div>
+
+              <div id="loadingIndicator" class="loader"></div>
+              <div id="pdfViewer"></div>
             </div>
             <!-- End of more -->
             <div id="loading-screen">
@@ -140,15 +154,14 @@
       </a>
     </div>
 
-    <!-- Scripted file-->
-    <!-- Asked by console for the jquery requirement -->
-    <script src="../../js/jquery 3.6.o.js"></script>
-    <!-- Importnat for collapse and nav -->
-    <script src="../../js/script4.js"></script>
-    <!-- MIcs -->
-    <script src="../../js/script1.js"></script>
-    <!-- STarting pop effect -->
-    <script src="../../js/script5.js"></script>
+    <!-- Scripted file -->
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+      var pdfFileURL = "../../DATA DIR/Physics-11-xi-own/Electric Potential _ Energy-11-03.pdf";
+    </script>
+    <script src="../../js/pdf.js"></script>
+    <!-- scripted file -->
     <script>
       document.cookie = "cookieName=value; SameSite=None; Secure";
     </script>
