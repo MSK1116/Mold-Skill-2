@@ -8,6 +8,8 @@ var renderedPages = {};
 var loadedPages = new Set();
 
 async function renderPDF() {
+  const loadingIndicator = document.getElementById("loadingIndicator");
+  loadingIndicator.style.display = "block";
   try {
     const loadingTask = pdfjsLib.getDocument(pdfFileURL);
     pdfInstance = await loadingTask.promise;
@@ -25,9 +27,14 @@ async function renderPDF() {
   } catch (error) {
     console.error("Error rendering PDF:", error);
   }
+  loadingIndicator.style.display = "none";
 }
 
 async function renderBatch(startPage, batchSize) {
+  // Show the loading indicator while rendering pages
+  const loadingIndicator = document.getElementById("loadingIndicator");
+  loadingIndicator.style.display = "block";
+
   const endPage = Math.min(startPage + batchSize - 1, totalPages);
   for (let i = startPage; i <= endPage; i++) {
     if (!loadedPages.has(i)) {
@@ -47,6 +54,9 @@ async function renderBatch(startPage, batchSize) {
   // Update the page number input value as well
   const pageNumberInput = document.getElementById("pageNumberInput");
   pageNumberInput.value = currentPage;
+
+  // Hide the loading indicator after rendering pages
+  loadingIndicator.style.display = "none";
 }
 
 async function renderPage(pageNumber) {
