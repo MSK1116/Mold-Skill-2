@@ -81,13 +81,50 @@ async function renderPage(pageNumber) {
     await page.render(renderContext).promise;
 
     canvas.setAttribute("id", `page_${pageNumber}`);
+    canvas.style.cursor = "pointer"; // Add a pointer cursor to indicate clickability
     pdfViewer.appendChild(canvas);
 
     // Store the rendered page in the dictionary for future reference
     renderedPages[pageNumber] = canvas;
+
+    // Add a click event listener to the canvas element to view the page in a popup
+    canvas.addEventListener("click", function () {
+      viewPageInPopup(pageNumber);
+    });
   } catch (error) {
     console.error("Error rendering page:", error);
   }
+}
+
+async function viewPageInPopup(pageNumber) {
+  if (!pdfInstance) {
+    return;
+  }
+
+  const canvas = renderedPages[pageNumber];
+  const originalViewport = canvas.pageOriginalViewport || (await pdfInstance.getPage(pageNumber)).getViewport({scale: 1});
+
+  const modal = document.getElementById("pdfModal");
+  const modalCanvas = document.getElementById("modalCanvas");
+  modalCanvas.height = originalViewport.height;
+  modalCanvas.width = originalViewport.width;
+
+  const context = modalCanvas.getContext("2d");
+  const renderContext = {
+    canvasContext: context,
+    viewport: originalViewport,
+  };
+  canvas.pageOriginalViewport = originalViewport; // Store the original viewport to avoid repeated rendering
+  await (await pdfInstance.getPage(pageNumber)).render(renderContext).promise;
+
+  modal.style.display = "block";
+  modal.addEventListener("click", closeModal);
+}
+
+function closeModal() {
+  const modal = document.getElementById("pdfModal");
+  modal.style.display = "none";
+  modal.removeEventListener("click", closeModal);
 }
 
 function updateCurrentPageFromScroll(pdfViewer) {
