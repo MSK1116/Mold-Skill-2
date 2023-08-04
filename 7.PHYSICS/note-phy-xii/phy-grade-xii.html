@@ -3,105 +3,89 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="By Student for Student" />
-    <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "flzp2p4ym8");
+    <meta name="description" content="By Student for Student! We are open to everyone, join us now" />
+
+    <meta property="og:image" content="https://i.postimg.cc/j5KdQ2jH/Why-Mold-Skill.png" />
+    <meta property="og:type" content="Educational Materail for free for +2 level." />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" />
+
+    <style>
+      #loading-screen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff; /* You can customize the background color */
+        z-index: 9999; /* Adjust the z-index to ensure it appears above other elements */
+        /* Add any other styling you desire */
+      }
+
+      #loading-content {
+        text-align: center;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        var loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.display = "none";
+      });
     </script>
-    <meta name="author" content="By Student for Student" />
-    <link rel="icon" type="image/x-icon" href="img/Blue Background PNG.png" />
-    <title>Mold Skill: Phy-Xii</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <title>Physics Notes for class 12 BY-Mold Skill</title>
+
+    <!-- STYLE DIR-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-    <link href="css/selfmade.css" rel="stylesheet" />
+    <link href="../../Style Dir/style3.css" rel="stylesheet" />
+    <link href="../../Style Dir/style1.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- END OF STYLE DIR-->
   </head>
 
   <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
-      <ul class="navbar-nav sidebar_bg_color sidebar sidebar-dark accordion" id="accordionSidebar">
-        <!-- Sidebar - Brand -->
-        <div class="box1">
-          <a title=" " class="" href="index.html">
-            <img title=" " class="logo margin-bottom" src="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" alt="Loading PNG" />
-          </a>
-        </div>
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0" />
+      <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Starting of sidebar -->
 
-        <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a title=" " class="nav-link" href="index.html">
+          <a title=" " class="nav-link" href="../../index.html">
+            <img title=" " class="logo" src="https://i.postimg.cc/jjFs0f9c/Blue-Background-PNG.png" alt="Loading PNG" />
+            <hr class="sidebar-divider" />
             <i class="fa fa-home"></i>
             <span>Home Page</span></a
           >
         </li>
-        <hr class="sidebar-divider" />
-        <li class="nav-item">
-          <a title=" " class="nav-link collapsed" href="#src" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fa fa-search"></i>
-            <span>Serach</span>
-          </a>
-          <div id="src" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <form class="d-noned-sm-inline-block form-inline mr-auto gcse-search">
-                <div class="gcse-search"></div>
-              </form>
-            </div>
-          </div>
-        </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
         <!-- Heading -->
-        <div class="sidebar-heading">Choose you subject (Science)</div>
+        <div class="sidebar-heading">Choose you subject (Quick Link)</div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- Main items-->
+
         <li class="nav-item">
           <a title=" " class="nav-link collapsed" href="#phy" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-rocket"></i>
             <span>Physics</span>
           </a>
-          <div id="phy" class="collapse show" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
+          <div id="phy" class="collapse" aria-labelledby="phy" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Grades: Physics</h6>
-              <a title=" " class="collapse-item" href="2.PHYSICS/phy-grade-xi.html">Grade XI</a>
-              <a title=" " class="collapse-item" href="2.PHYSICS/phy-grade-xii.html">Grade XII<small> Not Available</small></a>
-              <a title=" " class="collapse-item" href="2.PHYSICS/phy-book.html">Books</a>
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a title=" " class="collapse-item" href="../../Physics Book/phy-book.html">Books</a>
+              <a title=" " class="collapse-item" href="../../7.PHYSICS/MCQ (Physics)/MCQ-phy.html">MCQ</a>
+              <a title=" " class="collapse-item" href="../../7.PHYSICS/Practise Question XI/Practise-Que-xi.html">Practise Question<small> Grade XI</small></a>
+              <a title=" " class="collapse-item" href="../../7.PHYSICS/note-phy-xi/phy-grade-xi.html">Notes 11</a>
+              <a title=" " class="collapse-item" href="../../7.PHYSICS/note-phy-xii/phy-grade-xii.html">Notes 12</a>
             </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a title=" " class="nav-link collapsed" href="#mat" data-toggle="collapse" aria-expanded="true" aria-controls="mat-toggle">
-            <i class="fas fa-calculator"></i>
-            <span>Math</span>
-          </a>
-          <div id="mat" class="collapse" aria-labelledby="mat" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Grades: MATHS</h6>
-              <a title=" " class="collapse-item" href="mat-grade-xi.html">Grade XI <small>Not avilable</small></a>
-              <a title=" " class="collapse-item" href="mat-grade-xii.html">Grade XII<small> Not Available</small></a>
-            </div>
-          </div>
-        </li>
+
         <li class="nav-item">
           <a title=" " class="nav-link collapsed" href="#chm" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-flask"></i>
@@ -109,13 +93,30 @@
           </a>
           <div id="chm" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Grades: Chemis...</h6>
-              <a title=" " class="collapse-item" href="chm-grade-xi.html">Grade XI<small> Not Available</small></a>
-              <a title=" " class="collapse-item" href="chm-grade-xii.html">Grade XII<small> Not Available</small></a
-              ><a title=" " class="collapse-item" href="chm-lab.html">Lab File-1</a>
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a title=" " class="collapse-item" href="../../1.CHEMISTRY/Grade XI lab file/chm-lab-xi.html">Lab File-1</a>
+              <a title=" " class="collapse-item" href="../../1.CHEMISTRY/MCQ (Chemistry)/MCQ-chm.html">MCQ</a>
+              <a title=" " class="collapse-item" href="../../1.CHEMISTRY/practise question XI/practise-que-chm-xi.html">Practise Question<small> Grade XI</small></a>
+              <a title=" " class="collapse-item" href="../../1.CHEMISTRY/notes-chm-xi/chm-grade-xi.html">Notes 11<small> Updating</small></a>
+              <a title=" " class="collapse-item" href="../../1.CHEMISTRY/notes-chm-xii/chm-grade-xii.html">Notes 12<small> Updating</small></a>
             </div>
           </div>
         </li>
+
+        <li class="nav-item">
+          <a title=" " class="nav-link collapsed" href="#mat" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-calculator"></i>
+            <span>Math</span>
+          </a>
+          <div id="mat" class="collapse" aria-labelledby="mat" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a title=" " class="collapse-item" href="../../3.MATH/MCQ (Math)/MCQ-mat.html">MCQ</a>
+              <a title=" " class="collapse-item" href="../../3.MATH/Practise-que-mat-xi/practise-que-mat-xi.html">Practise Question <small> Grade XI</small></a>
+            </div>
+          </div>
+        </li>
+
         <li class="nav-item">
           <a title=" " class="nav-link collapsed" href="#cop" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-desktop"></i>
@@ -123,23 +124,25 @@
           </a>
           <div id="cop" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Grades: Computer</h6>
-              <a title=" " class="collapse-item" href="   cop-grade-xi.html">Grade XI</a>
-              <a title=" " class="collapse-item" href="cop-grade-xii.html">Grade XII<small> Not Available</small></a>
+              <h6 class="collapse-header active">Go through the links</h6>
+              <a title=" " class="collapse-item" href="../../4.COMPUTER/practise-que-comp-xi/practise-que-comp-xi.html">Practise Question <small> Grade XI</small></a>
+              <a title=" " class="collapse-item" href="../../4.COMPUTER/c programming/C++.html">C & C++ <small> Grade XI</small></a>
+              <a title=" " class="collapse-item" href="../../4.COMPUTER//MCQ (Computer)/mcq-comp-xi.html"> MCQ</a>
             </div>
           </div>
         </li>
+        <hr class="sidebar-divider" />
         <li class="nav-item">
           <a title=" " class="nav-link collapsed" href="#zoo" data-toggle="collapse" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-frog"></i>
             <span>Zoology</span>
           </a>
           <div id="zoo" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Grades: Zoology</h6>
-              <a title=" " class="collapse-item" href="zoo-grade-xi.html">Grade XI<small> Not Available</small></a>
-              <a title=" " class="collapse-item" href="zoo-grade-xii.html">Grade XII<small> Not Available</small></a>
-            </div>
+            <a title=" " class="collapse-item" target="_blank" href="https://user.msmahato.com.np"
+              ><div class="bg-white collapse-inner rounded">
+                <h6 class="collapse-header">Help Us to bring more <br />content. click me to join</h6>
+              </div></a
+            >
           </div>
         </li>
         <li class="nav-item">
@@ -148,30 +151,11 @@
             <span>Botany</span>
           </a>
           <div id="bot" class="collapse" aria-labelledby="collapseUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Grades: Botany</h6>
-              <a title=" " class="collapse-item" href="bot-grade-xi.html">Grade XI<small> Not Available</small></a>
-              <a title=" " class="collapse-item" href="bot-grade-xii.html">Grade XII<small> Not Available</small></a>
-            </div>
-          </div>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
-
-        <!-- Heading -->
-        <div class="sidebar-heading">Management (COMING SOON)</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a title=" " class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Bussines Math</span>
-          </a>
-          <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">We are going to lunch <br />soon for this faculty, <br />Wants to contribute? <br />Mail us.</h6>
-            </div>
+            <a title=" " class="collapse-item" target="_blank" href="https://user.msmahato.com.np"
+              ><div class="bg-white collapse-inner rounded">
+                <h6 class="collapse-header">Help Us to bring more <br />content. click me to join</h6>
+              </div></a
+            >
           </div>
         </li>
 
@@ -185,7 +169,7 @@
         <!-- Sidebar Message -->
 
         <li class="nav-item mb-3">
-          <div class="sidebar-card d-none d-lg-flex">
+          <div class="sidebar-card d-lg-flex">
             <img title=" " class="sidebar-card-illustration mb-2" src="https://i.postimg.cc/q7Z18qRN/Stable-rocket.gif" alt="Quote of day" />
 
             <p class="text-center mb-2">
@@ -195,7 +179,6 @@
           </div>
         </li>
       </ul>
-
       <!-- End of Sidebar -->
 
       <!-- Content Wrapper -->
@@ -207,68 +190,156 @@
             <button title="sidebarToggleTop" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
             </button>
+
             <!-- Topbar Search -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 gcse-search navbar-search">
-              <div class="gcse-search"></div>
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Enter the related keywords" id="searchInput" />
+                <div class="input-group-append">
+                  <button
+                    onclick="performSearch()"
+                    class="btn btn-primary"
+                    id="searchDropdown-"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-label="search"
+                    aria-expanded="false">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-list shadow animated--grow-in">
+                    <h6 class="dropdown-header">Shorted Result</h6>
+
+                    <div class="dropdown-item pre-scrollable align-items-center">
+                      <div class="text-warning" id="searchResults"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
+              <!-- error was removed automatically -->
+
               <li class="no-arrow nav-icon">
-                <a title=" " href="about_us.html" class="btn btn-primary btn-icon-split">
+                <a title=" " href="../../about_us.html" class="btn btn-primary btn-icon-split">
                   <span class="icon text-white-50"> <i class="fas fa-child"></i></span>
                   <span class="text fw-bold">About us</span>
-                </a>
-              </li>
-              <li class="no-arrow nav-icon">
-                <a title=" " href="https://user.msmahato.com.np" class="btn btn-primary btn-icon-split">
-                  <span class="icon text-white-50"> <i class="fa fa-link"></i></span>
-                  <span class="text fw-bold">App</span>
                 </a>
               </li>
             </ul>
           </nav>
           <!-- End of Topbar -->
+          <div class="container-fluid"><h4 class="m-0 font-weight-bold text-success">Mechanics</h4></div>
 
-          <!-- Begin Page Content -->
-          <div class="container-fluid">
-            <!-- Page Heading -->
-            <h4 style="text-align: center">We will update it soon.</h4>
-            <h5 style="text-align: center">We are open to everyone, join the team with just a mail.</h5>
-            <div style="justify-content: center; display: flex" class="mr-auto">
-              <iframe
-                title=" "
-                src="https://docs.google.com/forms/d/e/1FAIpQLSd-mfbzcSWnF38bIw1JS2hp-Z1MxH7K9Wr78EDrhyirUXrT6Q/viewform?embedded=true"
-                width="640"
-                height="620"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0"
-                >Loading…</iframe
-              >
+          <div class="container-fluid row">
+            <!-- 1 -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4 border-bottom-warning">
+                <a title=" " href="Rotational-dyn-xii.html">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Rotational Dynamics</h6>
+                    <h6 class="m-0 font-weight-bold text-secondary">6 Pages</h6>
+                  </div>
+                  <div class="card-body row align">
+                    <img title=" " src="https://i.postimg.cc/FRVxZkY1/Rotational-Dynamics.png" />
+                  </div>
+                </a>
+              </div>
             </div>
+            <!-- 2 -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4 border-bottom-warning">
+                <a title=" " href="per-motion-xii.html">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Periodic Motion</h6>
+                    <h6 class="m-0 font-weight-bold text-secondary">24 Pages</h6>
+                  </div>
+                  <div class="card-body row align">
+                    <img title=" " src="https://i.postimg.cc/TYwcVwfY/SHM-phy-xii.png" />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4 border-bottom-warning">
+                <a title=" " href="kine-2-xi.html">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Kinematics</h6>
+                    <h6 class="m-0 font-weight-bold text-secondary">24 Pages</h6>
+                  </div>
+                  <div class="card-body row align">
+                    <img title=" " src=" https://drive.google.com/thumbnail?id=1uNTwGVuLogLegu1-mvIDwcnTeehAcem5" />
+                  </div>
+                </a>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="container-fluid"><h4 class="m-0 font-weight-bold text-info">Modern Physics</h4></div>
+          <div class="container-fluid row">
+            <!-- 6 -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4 border-bottom-info">
+                <a title=" " href="electrons-xii.html">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Electrons</h6>
+                    <h6 class="m-0 font-weight-bold text-secondary">12 Pages</h6>
+                  </div>
+                  <div class="card-body row align">
+                    <img title=" " src="https://i.postimg.cc/y6RQJW6q/Electrons.png" />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4 border-bottom-info">
+                <a title=" " href="electric p&e-xi-8.html">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Electric potential & energy</h6>
+                    <h6 class="m-0 font-weight-bold text-secondary">5 pages</h6>
+                  </div>
+                  <div class="card-body row align">
+                    <img title=" " src=" https://drive.google.com/thumbnail?id=1KJ8P9qmO7BHGLzia1gXohoKWcUODJEP3" />
+                  </div>
+                </a>
+              </div>
+            </div> -->
+          </div>
+
+          <!-- end of content -->
+        </div>
+
+        <div id="loading-screen">
+          <div id="loading-content">
+            <h4>Mold Skill <sub>web</sub></h4>
+            <!-- Add loading animations or text here -->
+            <img title="Loading" src="https://i.postimg.cc/cJKHndfC/Loading-GIF-2.gif" />
+            <h5>
+              Loading..<br />
+              Your class 12 complete notes
+            </h5>
           </div>
         </div>
-        <!-- Footer -->
-        <br /><br />
-        <footer class=" ">
-          <div>
-            <img title=" " class="logo-b" src="img/White Background PNG.png" />
-            <p class="foot_text">
-              MOld SKILL <br />
-              Contact: contact@msmahato.com.np <br />
-              Adress: Bhaktapur-Nepal <br />
-              Copyright &copy; (2023-025)
-            </p>
-          </div>
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto"></div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
       </div>
+
       <!-- End of Content Wrapper -->
     </div>
+    <footer class="sticky-footer">
+      <div>
+        <p class="copyright">
+          MOld SKILL <br />
+          Contact: contact@msmahato.com.np <br />
+          Adress: Bhaktapur-Nepal <br />
+          Copyright &copy;(2023-025)
+        </p>
+      </div>
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto"></div>
+      </div>
+    </footer>
+
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
@@ -277,12 +348,16 @@
     </a>
 
     <!-- Scripted file-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/sb-admin-2.min.js"></script>
-    <script src="js/sb-admin-2.js"></script>
-    <script src="js/selfmade.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script async src="https://cse.google.com/cse.js?cx=a4f1ad339c6ac471f"></script>
+    <!-- Asked by console for the jquery requirement -->
+    <script src="../../js/jquery 3.6.o.js"></script>
+    <!-- Importnat for collapse and nav -->
+    <script src="../../js/script4.js"></script>
+    <!-- MIcs -->
+    <script src="../../js/script1.js"></script>
+    <!-- STarting pop effect -->
+    <script src="../../js/script5.js"></script>
+    <!-- serch indexing -->
+    <script src="../../js/serch-index-1.js"></script>
     <script>
       document.cookie = "cookieName=value; SameSite=None; Secure";
     </script>

@@ -132,6 +132,12 @@ function searchFunction(query) {
     {title: "Thermal Expansion class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/thermla expansion-13-xi.html"},
     {title: "Vector class note for class 11 (pdf)", url: "7.PHYSICS/note-phy-xi/vectro-1-xi.html"},
     {title: "", url: ""},
+    // Physics note xii
+    {title: "Electrons class note for class 12 (pdf), Modern Physics", url: "7.PHYSICS/note-phy-xii/electrons-xii.html"},
+    {title: "Periodic Motion, Simple Harmonic MOtion, SHM for grade xii, Mechanics", url: "7.PHYSICS/note-phy-xii/per-motion-xii.html"},
+    {title: "Rotational Dynamics class note for class 12 (pdf), Mechanics", url: "7.PHYSICS\note-phy-xiiRotational-dyn-xii.html"},
+    {title: "Physics class 12 notes in pdf  class note for class 12 (pdf)", url: "7.PHYSICS\note-phy-xiiphy-grade-xii.html"},
+    {title: "", url: ""},
   ];
 
   var words = query
