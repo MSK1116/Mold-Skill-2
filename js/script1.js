@@ -37,25 +37,6 @@
   });
 })(jQuery); // End of use strict
 
-$(document).ready(function () {
-  // Show the modal when the webpage loads
-  $("#askuser").modal("show");
-
-  // Get the buttons within the modal
-  var cancelButton = $(".modal-footer .btn-secondary");
-
-  var iconButton = $(".modal-header .close");
-
-  // Add click event handlers to the buttons
-  cancelButton.on("click", hideModal);
-
-  iconButton.on("click", hideModal);
-
-  function hideModal() {
-    $("#askuser").modal("hide");
-  }
-});
-
 !(function (l) {
   "use strict";
 
