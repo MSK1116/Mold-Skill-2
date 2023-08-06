@@ -280,8 +280,12 @@
           </nav>
           <!-- End of Topbar -->
           <div class="msg-area border-bottom-warning container-fluid">
-            <button id="loadMoreButton" onclick="loadMoreMessages()">Load More</button>
             <div class="scrollable-div" id="chat-messages"></div>
+            <!-- Add a "Load More" button with a loading spinner -->
+            <div id="loadMoreContainer">
+              <button id="loadMoreButton">Load More</button>
+              <div id="loadingSpinner" class="spinner" style="display: none"></div>
+            </div>
           </div>
           <div class="input-area container-fluid">
             <h5 class="text-primary margin-top">Discuss with other members publicaly</h5>
@@ -389,10 +393,97 @@
       var opinionsRef = database.ref("opinions");
 
       // Listen for new opinions and update the UI
-      opinionsRef.on("child_added", function (data) {
-        var opinion = data.val();
-        displayMessage(opinion, data.key);
-      });
+      // Retrieve the last 6 opinions from the database and display them
+      opinionsRef
+        .orderByChild("timestamp") // Order by timestamp to get the latest opinions
+        .limitToLast(6)
+        .once("value")
+        .then(function (snapshot) {
+          var opinions = [];
+          snapshot.forEach(function (data) {
+            var opinion = data.val();
+            opinions.push({id: data.key, data: opinion});
+          });
+          opinions.forEach(function (opinionData) {
+            displayMessage(opinionData.data, opinionData.id);
+          });
+        });
+
+      // Listen for new opinions and update the UI in real-time
+      opinionsRef
+        .orderByChild("timestamp") // Order by timestamp to get the latest opinions
+        .limitToLast(1) // Listen for the latest opinion (you can increase this limit to get more recent opinions)
+        .on("child_added", function (data) {
+          var opinion = data.val();
+          displayMessage(opinion, data.key);
+        });
+
+      var lastTimestamp = null; // Variable to store the timestamp of the last loaded message
+
+      var loading = false; // Variable to prevent multiple concurrent loading
+
+      // Function to show the loading spinner
+      function showLoadingSpinner() {
+        document.getElementById("loadingSpinner").style.display = "inline-block";
+      }
+
+      // Function to hide the loading spinner
+      function hideLoadingSpinner() {
+        document.getElementById("loadingSpinner").style.display = "none";
+      }
+
+      function loadMoreMessages() {
+        if (loading) return; // Prevent multiple concurrent loading
+
+        loading = true;
+        showLoadingSpinner();
+
+        var messagesContainer = document.getElementById("chat-messages");
+        var lastDisplayedMessageId = messagesContainer.firstChild ? messagesContainer.firstChild.dataset.messageId : null;
+
+        opinionsRef
+          .orderByChild("timestamp")
+          .endAt(lastDisplayedMessageId ? lastDisplayedMessageId : Number.MAX_SAFE_INTEGER)
+          .limitToLast(6)
+          .once("value")
+          .then(function (snapshot) {
+            loading = false;
+            hideLoadingSpinner();
+
+            var opinions = [];
+            snapshot.forEach(function (data) {
+              var opinion = data.val();
+              var messageId = data.key;
+
+              // Check if the message is not already displayed to avoid duplication
+              if (!displayedMessageIds.has(messageId)) {
+                opinions.push({id: messageId, data: opinion});
+                displayedMessageIds.add(messageId);
+              }
+            });
+
+            // Remove the "Load More" button if there are no more older messages
+            if (opinions.length < 6) {
+              document.getElementById("loadMoreContainer").style.display = "none";
+            }
+
+            // Insert the loaded messages at the top of the chat
+            opinions.reverse().forEach(function (opinionData) {
+              var messageContainer = document.createElement("div");
+              messageContainer.classList.add("message-container");
+              messageContainer.dataset.messageId = opinionData.id;
+              displayMessage(opinionData.data, opinionData.id, messageContainer);
+              messagesContainer.insertBefore(messageContainer, messagesContainer.firstChild); // Insert at the top of the chat
+            });
+
+            if (opinions.length > 0) {
+              lastTimestamp = opinions[opinions.length - 1].data.timestamp;
+            }
+          });
+      }
+
+      // Attach a click event listener to the "Load More" button
+      document.getElementById("loadMoreButton").addEventListener("click", loadMoreMessages);
 
       function displayMessage(opinion, messageId) {
         var chatMessages = document.getElementById("chat-messages");
@@ -614,7 +705,6 @@
 
       function clearInputs() {
         document.getElementById("opinion").value = "";
-        document.getElementById("deleteCode").value = "";
         document.getElementById("imageFiles").value = null;
         document.getElementById("selectedFileNames").textContent = "";
       }

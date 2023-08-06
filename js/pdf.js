@@ -3,7 +3,7 @@ var currentPage = 1;
 var pdfInstance = null;
 var isLoadingPage = false;
 var isScrollEnabled = true;
-var batchSize = 5;
+var batchSize = 9;
 var renderedPages = {};
 var loadedPages = new Set();
 
